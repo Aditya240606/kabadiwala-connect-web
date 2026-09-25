@@ -22,6 +22,16 @@ import { RecyclerMatchingPage } from '../pages/collector/recycler/RecyclerMatchi
 import { RecyclerDetailPage } from '../pages/collector/recycler/RecyclerDetailPage';
 import { HandoverRequestPage } from '../pages/collector/recycler/HandoverRequestPage';
 
+// Batch 4: Handover, Payment & Transaction Completion
+import { TransactionTrackingPage } from '../pages/collector/transaction/TransactionTrackingPage';
+import { TransactionsHistoryPage } from '../pages/collector/transaction/TransactionsHistoryPage';
+import { RecyclerDashboardPage } from '../pages/recycler/RecyclerDashboardPage';
+import { RecyclerIncomingLotsPage } from '../pages/recycler/RecyclerIncomingLotsPage';
+import { RecyclerLotDetailPage } from '../pages/recycler/RecyclerLotDetailPage';
+import { RecyclerReceivePage } from '../pages/recycler/RecyclerReceivePage';
+import { RecyclerPaymentPage } from '../pages/recycler/RecyclerPaymentPage';
+import { RecyclerCompletePage } from '../pages/recycler/RecyclerCompletePage';
+
 /**
  * Wrapper that provides CollectionFlowContext to all flow pages.
  * The bottom nav is hidden during the collection flow (full-focus mode).
@@ -201,19 +211,86 @@ export const AppRouter: React.FC = () => {
               </AppShell>
             }
           />
+          {/* ─── Batch 4: Collector Transactions & Recycler Console ─── */}
           <Route
             path="/collector/transactions"
             element={
               <AppShell showBottomNav={true}>
-                <FutureBatchPage />
+                <TransactionsHistoryPage />
               </AppShell>
             }
           />
           <Route
+            path="/collector/transactions/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <TransactionTrackingPage />
+              </AppShell>
+            }
+          />
+
+          {/* Recycler Console & Operations */}
+          <Route
             path="/recycler"
             element={
               <AppShell showBottomNav={false}>
-                <FutureBatchPage />
+                <RecyclerDashboardPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/dashboard"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerDashboardPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/incoming"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerIncomingLotsPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/lot/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerLotDetailPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/incoming/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerLotDetailPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/receive/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerReceivePage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/settle/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerPaymentPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/recycler/complete/:id"
+            element={
+              <AppShell showBottomNav={false}>
+                <RecyclerCompletePage />
               </AppShell>
             }
           />

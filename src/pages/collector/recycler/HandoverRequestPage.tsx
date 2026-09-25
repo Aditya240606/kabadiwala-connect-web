@@ -97,24 +97,33 @@ export const HandoverRequestPage: React.FC = () => {
           {/* Action CTAs */}
           <div className="w-full space-y-2.5">
             <button
+              onClick={() => navigate(`/collector/transactions/${submittedTxnId}`)}
+              className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            >
+              <FileText className="w-4 h-4" />
+              <span>{t.trackTransactionBtn}</span>
+              <ArrowRight className="w-4 h-4 ml-auto" />
+            </button>
+
+            <button
+              onClick={() => navigate('/recycler')}
+              className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            >
+              <Building2 className="w-4 h-4" />
+              <span>{t.collectorRoleSwitchToRecycler}</span>
+            </button>
+
+            <button
               onClick={() => navigate(`/collector/collections/${lotIdParam}`)}
-              className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
               <Eye className="w-4 h-4" />
               <span>{t.handoverViewLotBtn}</span>
             </button>
 
             <button
-              onClick={() => navigate('/collector/recyclers')}
-              className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
-            >
-              <Building2 className="w-4 h-4" />
-              <span>{t.handoverBackToMatchingBtn}</span>
-            </button>
-
-            <button
               onClick={() => navigate('/collector')}
-              className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-[#F2EEDE] hover:bg-[#E2D9C8] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
               <Home className="w-4 h-4" />
               <span>{t.lotCreatedHomeBtn}</span>

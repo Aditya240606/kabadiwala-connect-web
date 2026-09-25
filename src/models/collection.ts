@@ -66,18 +66,28 @@ export interface RecyclerDto {
 
 export type HandoverStatus = 'INITIATED' | 'ACCEPTED' | 'COLLECTED' | 'REJECTED' | 'COMPLETED';
 
+export type QualityGrade = 'ACCEPTED' | 'MIXED' | 'NEEDS_REVIEW';
+
 export interface HandoverTransactionDto {
   id: string;
   lotId: string;
   collectorId: string;
   recyclerId: string;
   recyclerFacilityName: string;
-  agreedWeightKg?: number;
+  materialCategoryCode?: string;
+  materialTitleEnglish?: string;
+  materialTitleHindi?: string;
+  materialTitleMarathi?: string;
+  declaredWeightKg: number;
+  receivedWeightKg?: number;
   agreedPricePerKg?: number;
+  estimatedTotal?: number;
   totalAmount?: number;
+  qualityGrade?: QualityGrade;
   status: HandoverStatus;
   paymentMethod?: 'CASH' | 'DIGITAL';
   handoverNotes?: string;
+  inspectionNotes?: string;
   createdAt: string;
   completedAt?: string;
 }
@@ -85,6 +95,25 @@ export interface HandoverTransactionDto {
 export interface InitiateHandoverParams {
   lotId: string;
   recyclerId: string;
+  notes?: string;
+}
+
+export interface AcceptHandoverParams {
+  transactionId: string;
+  notes?: string;
+}
+
+export interface CollectHandoverParams {
+  transactionId: string;
+  confirmedWeightKg: number;
+  confirmedPricePerKg: number;
+  qualityGrade?: QualityGrade;
+  notes?: string;
+}
+
+export interface CompleteTransactionParams {
+  transactionId: string;
+  paymentMethod: 'CASH' | 'DIGITAL';
   notes?: string;
 }
 

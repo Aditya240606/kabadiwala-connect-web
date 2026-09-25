@@ -6,6 +6,9 @@ import type {
   RecyclerDto,
   HandoverTransactionDto,
   InitiateHandoverParams,
+  AcceptHandoverParams,
+  CollectHandoverParams,
+  CompleteTransactionParams,
 } from '../models/collection';
 
 export interface CollectionRepository {
@@ -17,6 +20,11 @@ export interface CollectionRepository {
   getRecyclerById(id: string): Promise<RecyclerDto | null>;
   initiateHandover(params: InitiateHandoverParams): Promise<HandoverTransactionDto>;
   getHandoverTransactions(): Promise<HandoverTransactionDto[]>;
+  getRecyclerPendingTransactions(): Promise<HandoverTransactionDto[]>;
+  getTransactionById(id: string): Promise<HandoverTransactionDto | null>;
+  acceptHandover(params: AcceptHandoverParams): Promise<HandoverTransactionDto>;
+  collectHandover(params: CollectHandoverParams): Promise<HandoverTransactionDto>;
+  completeTransaction(params: CompleteTransactionParams): Promise<HandoverTransactionDto>;
   updateAudioGuide(enabled: boolean): Promise<void>;
   updateLanguage(languageCode: 'en' | 'hi' | 'mr'): Promise<void>;
 }
@@ -233,7 +241,47 @@ export class MockCollectionRepository implements CollectionRepository {
     },
   ];
 
-  private transactions: HandoverTransactionDto[] = [];
+  private transactions: HandoverTransactionDto[] = [
+    {
+      id: 'TXN-2026-001',
+      lotId: 'LOT-2026-0818',
+      collectorId: 'col-service-area',
+      recyclerId: 'rec-pune-01',
+      recyclerFacilityName: 'EcoRecycle Green Hub',
+      materialCategoryCode: 'PCB_MOTHERBOARD',
+      materialTitleEnglish: 'Motherboard PCB',
+      materialTitleHindi: 'सर्किट बोर्ड',
+      materialTitleMarathi: 'मदरबोर्ड पीसीबी',
+      declaredWeightKg: 2.1,
+      estimatedTotal: 620,
+      agreedPricePerKg: 295,
+      status: 'INITIATED',
+      handoverNotes: 'Scheduled yard delivery tomorrow 10 AM, clean dismantled units',
+      createdAt: '2026-09-24T11:00:00Z',
+    },
+    {
+      id: 'TXN-2026-002',
+      lotId: 'LOT-2026-0871',
+      collectorId: 'col-service-area',
+      recyclerId: 'rec-pune-03',
+      recyclerFacilityName: 'Apex Battery & Telecom Refiners',
+      materialCategoryCode: 'TELECOM_CARDS',
+      materialTitleEnglish: 'Mixed Telecom Cards',
+      materialTitleHindi: 'टेलीकॉम कार्ड',
+      materialTitleMarathi: 'मिश्र टेलिकॉम कार्ड्स',
+      declaredWeightKg: 3.0,
+      receivedWeightKg: 3.0,
+      agreedPricePerKg: 280,
+      estimatedTotal: 840,
+      totalAmount: 840,
+      qualityGrade: 'ACCEPTED',
+      status: 'COMPLETED',
+      paymentMethod: 'CASH',
+      handoverNotes: 'Audited telecom line cards',
+      createdAt: '2026-09-22T14:00:00Z',
+      completedAt: '2026-09-22T14:30:00Z',
+    },
+  ];
 
   async getRecyclers(categoryCode?: string, city?: string): Promise<RecyclerDto[]> {
     let list = [...this.sampleRecyclers];
@@ -253,28 +301,106 @@ export class MockCollectionRepository implements CollectionRepository {
 
   async initiateHandover(params: InitiateHandoverParams): Promise<HandoverTransactionDto> {
     const recycler = this.sampleRecyclers.find((r) => r.id === params.recyclerId);
+    const lot = this.sampleLots.find((l) => l.id === params.lotId);
+
+    const declaredWeight = lot?.declaredWeightKg ?? 2.1;
+    const estPrice = lot?.estimatedPrice ?? 620;
+    const pricePerKg = declaredWeight > 0 ? Math.round(estPrice / declaredWeight) : 295;
+
     const txn: HandoverTransactionDto = {
       id: `TXN-2026-${String(Math.floor(Math.random() * 9000) + 1000)}`,
       lotId: params.lotId,
       collectorId: 'col-service-area',
       recyclerId: params.recyclerId,
-      recyclerFacilityName: recycler?.facilityName || 'Verified Recycler',
+      recyclerFacilityName: recycler?.facilityName || 'EcoRecycle Green Hub',
+      materialCategoryCode: lot?.categoryCode || 'PCB_MOTHERBOARD',
+      materialTitleEnglish: lot?.titleEnglish || 'Motherboard PCB',
+      materialTitleHindi: lot?.titleHindi || 'सर्किट बोर्ड',
+      materialTitleMarathi: lot?.titleMarathi || 'मदरबोर्ड पीसीबी',
+      declaredWeightKg: declaredWeight,
+      estimatedTotal: estPrice,
+      agreedPricePerKg: pricePerKg,
       status: 'INITIATED',
       handoverNotes: params.notes || '',
       createdAt: new Date().toISOString(),
     };
     this.transactions.unshift(txn);
 
-    const lot = this.sampleLots.find((l) => l.id === params.lotId);
     if (lot) {
       lot.status = 'waitingForRecycler';
     }
 
-    return txn;
+    return { ...txn };
   }
 
   async getHandoverTransactions(): Promise<HandoverTransactionDto[]> {
     return [...this.transactions];
+  }
+
+  async getRecyclerPendingTransactions(): Promise<HandoverTransactionDto[]> {
+    return this.transactions.filter((t) => t.status === 'INITIATED' || t.status === 'ACCEPTED');
+  }
+
+  async getTransactionById(id: string): Promise<HandoverTransactionDto | null> {
+    const txn = this.transactions.find((t) => t.id === id);
+    if (txn) return { ...txn };
+    if (this.transactions.length > 0) {
+      return { ...this.transactions[0], id };
+    }
+    return null;
+  }
+
+  async acceptHandover(params: AcceptHandoverParams): Promise<HandoverTransactionDto> {
+    let txn = this.transactions.find((t) => t.id === params.transactionId);
+    if (!txn) {
+      txn = this.transactions[0];
+    }
+    txn.status = 'ACCEPTED';
+    if (params.notes && params.notes.trim()) {
+      txn.handoverNotes = txn.handoverNotes ? `${txn.handoverNotes} | ${params.notes.trim()}` : params.notes.trim();
+    }
+    return { ...txn };
+  }
+
+  async collectHandover(params: CollectHandoverParams): Promise<HandoverTransactionDto> {
+    let txn = this.transactions.find((t) => t.id === params.transactionId);
+    if (!txn) {
+      txn = this.transactions[0];
+    }
+    const finalAmount = Math.round(params.confirmedWeightKg * params.confirmedPricePerKg);
+    txn.receivedWeightKg = params.confirmedWeightKg;
+    txn.agreedPricePerKg = params.confirmedPricePerKg;
+    txn.totalAmount = finalAmount;
+    txn.qualityGrade = params.qualityGrade || 'ACCEPTED';
+    txn.status = 'COLLECTED';
+    if (params.notes && params.notes.trim()) {
+      txn.inspectionNotes = params.notes.trim();
+    }
+    return { ...txn };
+  }
+
+  async completeTransaction(params: CompleteTransactionParams): Promise<HandoverTransactionDto> {
+    let txn = this.transactions.find((t) => t.id === params.transactionId);
+    if (!txn) {
+      txn = this.transactions[0];
+    }
+    txn.paymentMethod = params.paymentMethod;
+    txn.status = 'COMPLETED';
+    txn.completedAt = new Date().toISOString();
+    if (params.notes && params.notes.trim()) {
+      txn.handoverNotes = txn.handoverNotes
+        ? `${txn.handoverNotes} | Payment [${params.paymentMethod}]: ${params.notes.trim()}`
+        : `Payment [${params.paymentMethod}]: ${params.notes.trim()}`;
+    }
+
+    const lot = this.sampleLots.find((l) => l.id === txn!.lotId);
+    if (lot) {
+      lot.status = 'completed';
+      lot.finalPayout = txn.totalAmount ?? txn.estimatedTotal;
+      lot.receiptCode = `REC-2026-${txn.id.slice(-4)}`;
+    }
+
+    return { ...txn };
   }
 }
 

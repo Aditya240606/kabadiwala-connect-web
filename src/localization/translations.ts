@@ -213,6 +213,81 @@ export interface Translations {
   handoverTxnId: string;
   handoverViewLotBtn: string;
   handoverBackToMatchingBtn: string;
+
+  // ── Batch 4: Handover, Payment & Transaction Completion ──
+  recyclerConsoleTitle: string;
+  recyclerConsoleSub: string;
+  recyclerIncomingCard: string;
+  recyclerPendingHandovers: string;
+  recyclerCompletedToday: string;
+  recyclerViewIncomingBtn: string;
+  recyclerRoleSwitchToCollector: string;
+  collectorRoleSwitchToRecycler: string;
+
+  recyclerIncomingTitle: string;
+  recyclerIncomingSub: string;
+  recyclerNoIncoming: string;
+  recyclerInspectBtn: string;
+
+  recyclerLotDetailTitle: string;
+  recyclerAcceptBtn: string;
+  recyclerRejectBtn: string;
+  recyclerAcceptedBadge: string;
+  recyclerProceedToReceive: string;
+  recyclerLotStatusNotice: string;
+
+  receiveTitle: string;
+  receiveSub: string;
+  receiveCollectorDeclared: string;
+  receiveActualWeight: string;
+  receiveWeightInstruction: string;
+  receiveManualOnlyNotice: string;
+  qualityTitle: string;
+  qualityAccepted: string;
+  qualityMixed: string;
+  qualityReview: string;
+  agreedRateLabel: string;
+  calculatedPayout: string;
+  receiveConfirmBtn: string;
+
+  paymentTitle: string;
+  paymentSub: string;
+  paymentEstValue: string;
+  paymentFinalSettlement: string;
+  paymentSettlementNote: string;
+  paymentMethodLabel: string;
+  paymentCash: string;
+  paymentUpi: string;
+  paymentRecordingOnlyNotice: string;
+  paymentNotesLabel: string;
+  paymentCompleteBtn: string;
+
+  txnCompleteTitle: string;
+  txnCompleteSub: string;
+  digitalReceiptTitle: string;
+  recordDisclaimer: string;
+  txnIdLabel: string;
+  txnStatusLabel: string;
+  txnDateLabel: string;
+  declaredVsReceived: string;
+  viewHistoryBtn: string;
+  backToConsoleBtn: string;
+
+  trackingTitle: string;
+  trackingSub: string;
+  stageInitiated: string;
+  stageInitiatedDesc: string;
+  stageAccepted: string;
+  stageAcceptedDesc: string;
+  stageCollected: string;
+  stageCollectedDesc: string;
+  stageCompleted: string;
+  stageCompletedDesc: string;
+  historyTitle: string;
+  historySub: string;
+  historyEmpty: string;
+  viewDigitalRecord: string;
+  trackTransactionBtn: string;
 }
 
 export const translations: Record<SupportedLanguage, Translations> = {
@@ -424,6 +499,81 @@ export const translations: Record<SupportedLanguage, Translations> = {
     handoverTxnId: 'Transaction ID',
     handoverViewLotBtn: 'VIEW LOT',
     handoverBackToMatchingBtn: 'RECYCLERS LIST',
+
+    // ── Batch 4: Handover, Payment & Transaction Completion ──
+    recyclerConsoleTitle: 'RECYCLER CONSOLE',
+    recyclerConsoleSub: 'Facility Operations & Handovers',
+    recyclerIncomingCard: 'Incoming Requests',
+    recyclerPendingHandovers: 'Pending Handovers',
+    recyclerCompletedToday: 'Completed Today',
+    recyclerViewIncomingBtn: 'VIEW INCOMING LOTS',
+    recyclerRoleSwitchToCollector: 'Switch to Collector',
+    collectorRoleSwitchToRecycler: 'Switch to Recycler',
+
+    recyclerIncomingTitle: 'INCOMING LOTS',
+    recyclerIncomingSub: 'Handovers awaiting recycler acceptance',
+    recyclerNoIncoming: 'No pending incoming lots found.',
+    recyclerInspectBtn: 'INSPECT LOT',
+
+    recyclerLotDetailTitle: 'LOT INSPECTION',
+    recyclerAcceptBtn: 'ACCEPT HANDOVER',
+    recyclerRejectBtn: 'REJECT REQUEST',
+    recyclerAcceptedBadge: 'ACCEPTED FOR YARD HANDOVER',
+    recyclerProceedToReceive: 'PROCEED TO WEIGHING & INSPECTION',
+    recyclerLotStatusNotice: 'Physical inspection required at yard before final settlement.',
+
+    receiveTitle: 'PHYSICAL HANDOVER',
+    receiveSub: 'Record received weight & quality at yard',
+    receiveCollectorDeclared: 'Collector Declared Weight',
+    receiveActualWeight: 'Recycler Received Weight',
+    receiveWeightInstruction: 'Enter physical scale reading manually (KG)',
+    receiveManualOnlyNotice: 'Physical inspection at yard. Weight must be manually verified and entered. No automatic scale or Bluetooth sensor.',
+    qualityTitle: 'Material Quality / Grade',
+    qualityAccepted: 'Accepted / Clean',
+    qualityMixed: 'Mixed Grade',
+    qualityReview: 'Needs Review',
+    agreedRateLabel: 'Agreed Rate per KG',
+    calculatedPayout: 'Calculated Total',
+    receiveConfirmBtn: 'CONFIRM RECEIVED MATERIAL',
+
+    paymentTitle: 'PAYMENT SETTLEMENT',
+    paymentSub: 'Record settlement method and final amount',
+    paymentEstValue: 'Estimated Value (Indicative)',
+    paymentFinalSettlement: 'Final Settlement Amount',
+    paymentSettlementNote: 'Final amount is settled after physical inspection and weighing.',
+    paymentMethodLabel: 'Payment Method',
+    paymentCash: 'Cash Payment',
+    paymentUpi: 'UPI Transfer',
+    paymentRecordingOnlyNotice: 'Recording only. No automated UPI transfer, payment gateway, or bank integration.',
+    paymentNotesLabel: 'Payment / Reference Note',
+    paymentCompleteBtn: 'RECORD PAYMENT & COMPLETE',
+
+    txnCompleteTitle: 'TRANSACTION COMPLETE',
+    txnCompleteSub: 'Digital record of recorded handover and settlement',
+    digitalReceiptTitle: 'DIGITAL TRANSACTION RECORD',
+    recordDisclaimer: 'This document is a digital record of the transaction entered by both parties. Photograph is reference only, not legal or weight certification.',
+    txnIdLabel: 'Transaction ID',
+    txnStatusLabel: 'Status',
+    txnDateLabel: 'Date & Time',
+    declaredVsReceived: 'Weight Comparison',
+    viewHistoryBtn: 'VIEW TRANSACTION HISTORY',
+    backToConsoleBtn: 'RETURN TO CONSOLE',
+
+    trackingTitle: 'TRANSACTION TRACKING',
+    trackingSub: 'Live handover & settlement status',
+    stageInitiated: 'Handover Initiated',
+    stageInitiatedDesc: 'Request sent to recycler facility',
+    stageAccepted: 'Recycler Accepted',
+    stageAcceptedDesc: 'Recycler approved delivery to yard',
+    stageCollected: 'Physical Handover',
+    stageCollectedDesc: 'Material weighed and inspected at yard',
+    stageCompleted: 'Settlement Recorded',
+    stageCompletedDesc: 'Final payment recorded and completed',
+    historyTitle: 'TRANSACTION HISTORY',
+    historySub: 'Past e-waste handovers and digital records',
+    historyEmpty: 'No transactions recorded yet.',
+    viewDigitalRecord: 'VIEW RECORD',
+    trackTransactionBtn: 'TRACK TRANSACTION',
   },
 
   hi: {
@@ -634,6 +784,81 @@ export const translations: Record<SupportedLanguage, Translations> = {
     handoverTxnId: 'लेन-देन ID',
     handoverViewLotBtn: 'लॉट देखें',
     handoverBackToMatchingBtn: 'रिसाइक्लर सूची',
+
+    // ── Batch 4: Handover, Payment & Transaction Completion ──
+    recyclerConsoleTitle: 'रिसाइक्लर कंसोल',
+    recyclerConsoleSub: 'सुविधा संचालन एवं हस्तांतरण',
+    recyclerIncomingCard: 'आने वाले अनुरोध',
+    recyclerPendingHandovers: 'लंबित हस्तांतरण',
+    recyclerCompletedToday: 'आज पूर्ण',
+    recyclerViewIncomingBtn: 'आने वाले लॉट देखें',
+    recyclerRoleSwitchToCollector: 'कबाड़ीवाला मोड में जाएं',
+    collectorRoleSwitchToRecycler: 'रिसाइक्लर मोड में जाएं',
+
+    recyclerIncomingTitle: 'आने वाले लॉट',
+    recyclerIncomingSub: 'स्वीकृति हेतु लंबित लॉट',
+    recyclerNoIncoming: 'कोई लंबित लॉट नहीं मिला।',
+    recyclerInspectBtn: 'लॉट की जांच करें',
+
+    recyclerLotDetailTitle: 'लॉट निरीक्षण',
+    recyclerAcceptBtn: 'हस्तांतरण स्वीकार करें',
+    recyclerRejectBtn: 'अस्वीकार करें',
+    recyclerAcceptedBadge: 'यार्ड हस्तांतरण के लिए स्वीकृत',
+    recyclerProceedToReceive: 'वजन और जांच के लिए आगे बढ़ें',
+    recyclerLotStatusNotice: 'अंतिम निपटान से पहले यार्ड पर भौतिक निरीक्षण अनिवार्य है।',
+
+    receiveTitle: 'भौतिक हस्तांतरण',
+    receiveSub: 'यार्ड पर प्राप्त वजन और गुणवत्ता दर्ज करें',
+    receiveCollectorDeclared: 'कबाड़ीवाला द्वारा घोषित वजन',
+    receiveActualWeight: 'रिसाइक्लर द्वारा प्राप्त वजन',
+    receiveWeightInstruction: 'कांटे का वजन मैन्युअल दर्ज करें (KG)',
+    receiveManualOnlyNotice: 'यार्ड पर प्रत्यक्ष निरीक्षण। वजन मैन्युअल रूप से सत्यापित और दर्ज किया जाना चाहिए। कोई स्वचालित कांटा या ब्लूटूथ सेंसर नहीं।',
+    qualityTitle: 'सामग्री गुणवत्ता / ग्रेड',
+    qualityAccepted: 'स्वीकृत / साफ',
+    qualityMixed: 'मिश्रित ग्रेड',
+    qualityReview: 'समीक्षा आवश्यक',
+    agreedRateLabel: 'सहमति दर प्रति किलो',
+    calculatedPayout: 'गणना की गई राशि',
+    receiveConfirmBtn: 'प्राप्त सामग्री की पुष्टि करें',
+
+    paymentTitle: 'भुगतान निपटान',
+    paymentSub: 'निपटान विधि और अंतिम राशि दर्ज करें',
+    paymentEstValue: 'अनुमानित मूल्य (संकेतक)',
+    paymentFinalSettlement: 'अंतिम निपटान राशि',
+    paymentSettlementNote: 'अंतिम राशि प्रत्यक्ष निरीक्षण और वजन के बाद तय होती है।',
+    paymentMethodLabel: 'भुगतान विधि',
+    paymentCash: 'नकद भुगतान',
+    paymentUpi: 'यूपीआई ट्रांसफर',
+    paymentRecordingOnlyNotice: 'केवल रिकॉर्डिंग। कोई स्वचालित यूपीआई, पेमेंट गेटवे या बैंक इंटीग्रेशन नहीं।',
+    paymentNotesLabel: 'भुगतान / संदर्भ नोट',
+    paymentCompleteBtn: 'भुगतान दर्ज करें और पूर्ण करें',
+
+    txnCompleteTitle: 'लेन-देन पूर्ण हुआ',
+    txnCompleteSub: 'हस्तांतरण और निपटान का डिजिटल रिकॉर्ड',
+    digitalReceiptTitle: 'डिजिटल लेन-देन रिकॉर्ड',
+    recordDisclaimer: 'यह दस्तावेज़ दोनों पक्षों द्वारा दर्ज लेन-देन का डिजिटल रिकॉर्ड है। फोटो केवल संदर्भ के लिए है, कानूनी या वजन प्रमाणन नहीं।',
+    txnIdLabel: 'लेन-देन ID',
+    txnStatusLabel: 'स्थिति',
+    txnDateLabel: 'दिनांक और समय',
+    declaredVsReceived: 'वजन तुलना',
+    viewHistoryBtn: 'लेन-देन इतिहास देखें',
+    backToConsoleBtn: 'कंसोल पर वापस जाएं',
+
+    trackingTitle: 'लेन-देन ट्रैकिंग',
+    trackingSub: 'हस्तांतरण एवं निपटान स्थिति',
+    stageInitiated: 'हस्तांतरण शुरू हुआ',
+    stageInitiatedDesc: 'रिसाइक्लर सुविधा को अनुरोध भेजा गया',
+    stageAccepted: 'रिसाइक्लर ने स्वीकार किया',
+    stageAcceptedDesc: 'रिसाइक्लर ने यार्ड डिलीवरी स्वीकृत की',
+    stageCollected: 'भौतिक हस्तांतरण',
+    stageCollectedDesc: 'यार्ड पर सामग्री का वजन और जांच की गई',
+    stageCompleted: 'निपटान दर्ज हुआ',
+    stageCompletedDesc: 'अंतिम भुगतान दर्ज हुआ और लेन-देन पूरा हुआ',
+    historyTitle: 'लेन-देन इतिहास',
+    historySub: 'पिछले ई-कचरा हस्तांतरण और डिजिटल रिकॉर्ड',
+    historyEmpty: 'अभी तक कोई लेन-देन दर्ज नहीं हुआ है।',
+    viewDigitalRecord: 'रिकॉर्ड देखें',
+    trackTransactionBtn: 'लेन-देन ट्रैक करें',
   },
 
   mr: {
@@ -844,6 +1069,81 @@ export const translations: Record<SupportedLanguage, Translations> = {
     handoverTxnId: 'व्यवहार ID',
     handoverViewLotBtn: 'लॉट पहा',
     handoverBackToMatchingBtn: 'रिसायकलर यादी',
+
+    // ── Batch 4: Handover, Payment & Transaction Completion ──
+    recyclerConsoleTitle: 'रिसायकलर कन्सोल',
+    recyclerConsoleSub: 'सुविधा ऑपरेशन्स आणि हस्तांतरण',
+    recyclerIncomingCard: 'येणाऱ्या विनंत्या',
+    recyclerPendingHandovers: 'प्रलंबित हस्तांतरण',
+    recyclerCompletedToday: 'आज पूर्ण झालेले',
+    recyclerViewIncomingBtn: 'येणारे लॉट्स पहा',
+    recyclerRoleSwitchToCollector: 'कबाड़ीवाला मोडवर जा',
+    collectorRoleSwitchToRecycler: 'रिसायकलर मोडवर जा',
+
+    recyclerIncomingTitle: 'येणारे लॉट्स',
+    recyclerIncomingSub: 'स्वीकृतीसाठी प्रलंबित लॉट्स',
+    recyclerNoIncoming: 'कोणताही प्रलंबित लॉट आढळला नाही.',
+    recyclerInspectBtn: 'लॉट तपासा',
+
+    recyclerLotDetailTitle: 'लॉट तपासणी',
+    recyclerAcceptBtn: 'हस्तांतरण स्वीकारा',
+    recyclerRejectBtn: 'विनंती नाकारा',
+    recyclerAcceptedBadge: 'यार्ड हस्तांतरणासाठी स्वीकृत',
+    recyclerProceedToReceive: 'वजन आणि तपासणीसाठी पुढे जा',
+    recyclerLotStatusNotice: 'अंतिम देयकापूर्वी यार्डवर प्रत्यक्ष तपासणी आवश्यक आहे.',
+
+    receiveTitle: 'प्रत्यक्ष हस्तांतरण',
+    receiveSub: 'यार्डवर प्राप्त वजन आणि गुणवत्ता नोंदवा',
+    receiveCollectorDeclared: 'कबाड़ीवाला यांनी नोंदवलेले वजन',
+    receiveActualWeight: 'रिसायकलरकडून मिळालेले वजन',
+    receiveWeightInstruction: 'काट्यावरील प्रत्यक्ष वजन मॅन्युअल नोंदवा (KG)',
+    receiveManualOnlyNotice: 'यार्डवर प्रत्यक्ष तपासणी. वजन मॅन्युअली तपासून नोंदवले पाहिजे. कोणताही स्वयंचलित काटा किंवा ब्लूटूथ सेन्सर नाही.',
+    qualityTitle: 'सामग्री दर्जा / प्रत',
+    qualityAccepted: 'स्वीकृत / स्वच्छ',
+    qualityMixed: 'मिश्रित प्रत',
+    qualityReview: 'पुनरावलोकन आवश्यक',
+    agreedRateLabel: 'संमती दर प्रति किलो',
+    calculatedPayout: 'हिशोब केलेली रक्कम',
+    receiveConfirmBtn: 'मिळालेल्या सामग्रीची पुष्टी करा',
+
+    paymentTitle: 'पेमेंट देयक नोंद',
+    paymentSub: 'पैसे देण्याची पद्धत आणि अंतिम रक्कम नोंदवा',
+    paymentEstValue: 'अंदाजे मूल्य (सांकेतिक)',
+    paymentFinalSettlement: 'अंतिम देय रक्कम',
+    paymentSettlementNote: 'अंतिम रक्कम प्रत्यक्ष तपासणी आणि वजनानंतर ठरवली जाते.',
+    paymentMethodLabel: 'पेमेंट पद्धती',
+    paymentCash: 'रोख पेमेंट',
+    paymentUpi: 'UPI ट्रान्सफर',
+    paymentRecordingOnlyNotice: 'फक्त नोंदणीसाठी. कोणतेही स्वयंचलित UPI, पेमेंट गेटवे किंवा बँक जोडणी नाही.',
+    paymentNotesLabel: 'पेमेंट / संदर्भ नोंद',
+    paymentCompleteBtn: 'पेमेंट नोंदवा आणि पूर्ण करा',
+
+    txnCompleteTitle: 'व्यवहार पूर्ण झाला',
+    txnCompleteSub: 'हस्तांतरण आणि देयकाची डिजिटल नोंद',
+    digitalReceiptTitle: 'डिजिटल व्यवहार नोंद',
+    recordDisclaimer: 'हा दस्तऐवज दोन्ही पक्षांनी नोंदवलेल्या व्यवहाराची डिजिटल नोंद आहे. फोटो केवळ संदर्भासाठी आहे, कायदेशीर किंवा वजन प्रमाणपत्र नाही.',
+    txnIdLabel: 'व्यवहार ID',
+    txnStatusLabel: 'स्थिती',
+    txnDateLabel: 'दिनांक आणि वेळ',
+    declaredVsReceived: 'वजन तुलना',
+    viewHistoryBtn: 'व्यवहार इतिहास पहा',
+    backToConsoleBtn: 'कन्सोलवर परत जा',
+
+    trackingTitle: 'व्यवहार ट्रॅकिंग',
+    trackingSub: 'हस्तांतरण आणि देयक स्थिती',
+    stageInitiated: 'हस्तांतरण सुरू झाले',
+    stageInitiatedDesc: 'रिसायकलर सुविधेला विनंती पाठवली',
+    stageAccepted: 'रिसायकलरने स्वीकारले',
+    stageAcceptedDesc: 'रिसायकलरने यार्ड डिलिव्हरी मंजूर केली',
+    stageCollected: 'प्रत्यक्ष हस्तांतरण',
+    stageCollectedDesc: 'यार्डवर सामग्रीचे वजन व तपासणी झाली',
+    stageCompleted: 'देयक नोंदवले गेले',
+    stageCompletedDesc: 'अंतिम पेमेंट नोंदवून व्यवहार पूर्ण झाला',
+    historyTitle: 'व्यवहार इतिहास',
+    historySub: 'मागील ई-कचरा हस्तांतरण आणि डिजिटल नोंदी',
+    historyEmpty: 'अद्याप कोणतेही व्यवहार नोंदवलेले नाहीत.',
+    viewDigitalRecord: 'नोंद पहा',
+    trackTransactionBtn: 'व्यवहार ट्रॅक करा',
   },
 };
 
