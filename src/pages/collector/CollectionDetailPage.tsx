@@ -191,9 +191,9 @@ export const CollectionDetailPage: React.FC = () => {
                 <span className="text-[10px] font-black text-[#57534E] uppercase tracking-wider block">
                   {t.declaredWeightTitle}
                 </span>
-                <div className="font-heading font-black text-2xl text-[#1C1917] mt-1 flex items-baseline gap-1">
+                <div className="font-heading font-black text-3xl text-[#1C1917] mt-1 flex items-baseline gap-1 font-mono">
                   <span>{lot?.declaredWeightKg ?? 2.1}</span>
-                  <span className="text-xs font-black text-[#78716C]">KG</span>
+                  <span className="text-sm font-black text-[#78716C]">KG</span>
                 </div>
                 <span className="text-[10px] font-semibold text-[#57534E] block mt-0.5">
                   {t.declaredWeightSub}
@@ -205,7 +205,7 @@ export const CollectionDetailPage: React.FC = () => {
                 <span className="text-[10px] font-black text-[#FEF3C7] uppercase tracking-wider block">
                   {t.estValueTitle}
                 </span>
-                <div className="font-heading font-black text-2xl text-white mt-1 leading-tight">
+                <div className="font-heading font-black text-2xl text-white mt-1 leading-tight font-mono">
                   {lot?.estimatedPriceMax ? `₹${lot.estimatedPrice} - ₹${lot.estimatedPriceMax}` : `₹${lot?.estimatedPrice ?? 620}`}
                 </div>
                 <span className="text-[10px] font-semibold text-[#FEF3C7] block mt-0.5">

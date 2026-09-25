@@ -59,7 +59,6 @@ export const CollectorProfilePage: React.FC = () => {
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
         titleOverride={t.profileTitle}
-        subtitleOverride={t.profileSub}
         audioPromptText={profileAudioPrompts[language] || profileAudioPrompts.hi}
       />
 
@@ -129,9 +128,6 @@ export const CollectorProfilePage: React.FC = () => {
             {/* Version Notice */}
             <div className="text-center pt-2 text-[10.5px] font-bold text-[#78716C]">
               <span>{profile?.appVersion || 'v1.0.0 (SIH 2026 PS 26229)'}</span>
-              <p className="text-[9.5px] text-[#A8A29E] mt-0.5">
-                {t.appVersionNotice}
-              </p>
             </div>
           </div>
 
@@ -175,14 +171,9 @@ export const CollectorProfilePage: React.FC = () => {
               <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Volume2 className="w-4 h-4 text-[#B45309]" />
-                  <div>
-                    <span className="text-xs font-bold text-[#1C1917] block">
-                      {t.settingsAudio}
-                    </span>
-                    <span className="text-[10px] text-[#78716C] font-medium">
-                      {t.settingsAudioSub}
-                    </span>
-                  </div>
+                  <span className="text-xs font-bold text-[#1C1917]">
+                    {t.settingsAudio}
+                  </span>
                 </div>
 
                 <button
@@ -203,14 +194,9 @@ export const CollectorProfilePage: React.FC = () => {
               <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <HardDrive className="w-4 h-4 text-[#14532D]" />
-                  <div>
-                    <span className="text-xs font-bold text-[#1C1917] block">
-                      {t.settingsLocalStorage}
-                    </span>
-                    <span className="text-[10px] text-[#78716C] font-medium">
-                      {t.settingsLocalStorageSub}
-                    </span>
-                  </div>
+                  <span className="text-xs font-bold text-[#1C1917]">
+                    {t.settingsLocalStorage}
+                  </span>
                 </div>
 
                 <span className="text-[10px] font-black bg-[#ECFDF5] text-[#14532D] border border-[#14532D] px-2 py-0.5 rounded uppercase">

@@ -79,22 +79,16 @@ export const CollectionsPage: React.FC = () => {
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
         titleOverride={t.collectionsTitle}
-        subtitleOverride={t.collectionsSub}
         audioPromptText={collectionsAudioPrompts[language] || collectionsAudioPrompts.hi}
       />
 
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         {/* Header Strip & Sample Data Badge */}
         <div className="flex items-center justify-between">
-          <div>
-            <h2 className="font-heading font-black text-lg text-[#1C1917] leading-tight">
-              {t.collectionsTitle}
-            </h2>
-            <p className="text-xs text-[#57534E] font-medium">
-              {t.collectionsSub}
-            </p>
-          </div>
-          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] px-2 py-0.5 rounded text-[10.5px] font-black uppercase">
+          <h2 className="font-heading font-black text-xl text-[#1C1917] leading-tight">
+            {t.collectionsTitle}
+          </h2>
+          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] px-2 py-0.5 rounded text-[10px] font-black uppercase">
             {t.sampleDataBadge}
           </span>
         </div>
@@ -196,11 +190,8 @@ export const CollectionsPage: React.FC = () => {
                   <span className="text-[10px] font-bold text-[#57534E] block">
                     {t.estValueLabel}
                   </span>
-                  <span className="font-heading font-black text-lg text-[#B45309] block leading-tight">
+                  <span className="font-heading font-black text-lg text-[#B45309] block leading-tight font-mono">
                     {lot.estimatedPriceMax ? `₹${lot.estimatedPrice} - ₹${lot.estimatedPriceMax}` : `₹${lot.estimatedPrice}`}
-                  </span>
-                  <span className="text-[9px] font-semibold text-[#78716C]">
-                    {t.homeSummaryIndicative}
                   </span>
                 </div>
               </div>

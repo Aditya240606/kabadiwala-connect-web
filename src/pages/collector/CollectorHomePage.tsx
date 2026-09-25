@@ -66,25 +66,22 @@ export const CollectorHomePage: React.FC = () => {
             {/* 1. Primary Hero CTA: START NEW COLLECTION */}
             <div className="bg-[#14532D] text-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech relative overflow-hidden">
               <div className="relative z-10 flex flex-col gap-3">
-                <div>
+                <div className="flex items-center justify-between">
+                  <h2 className="font-heading font-black text-xl text-white leading-tight">
+                    {t.homeHeroTitle}
+                  </h2>
                   <span className="bg-[#F59E0B] text-[#1C1917] font-black text-[10px] tracking-wider px-2 py-0.5 rounded uppercase">
                     {t.homePrimaryActionTag}
                   </span>
-                  <h2 className="font-heading font-black text-xl text-white mt-1.5 leading-tight">
-                    {t.homeHeroTitle}
-                  </h2>
-                  <p className="text-xs text-stone-200 font-medium">
-                    {t.homeHeroSubtitle}
-                  </p>
                 </div>
 
                 <button
                   onClick={() => navigate('/collector/start')}
-                  className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-md py-2.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+                  className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-md py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
                 >
-                  <PlusCircle className="w-4 h-4 stroke-[3]" />
+                  <PlusCircle className="w-5 h-5 stroke-[3]" />
                   <span>{t.homeHeroCta}</span>
-                  <ArrowRight className="w-4 h-4 stroke-[3] ml-auto" />
+                  <ArrowRight className="w-5 h-5 stroke-[3] ml-auto" />
                 </button>
               </div>
             </div>
@@ -196,7 +193,7 @@ export const CollectorHomePage: React.FC = () => {
                   <span className="text-[10.5px] font-bold text-[#57534E] block">
                     {t.homeSummaryEstValue}
                   </span>
-                  <span className="font-heading font-black text-xl text-[#B45309] block mt-0.5">
+                  <span className="font-heading font-black text-2xl text-[#B45309] block mt-0.5 font-mono">
                     ₹{summary?.todayEstimatedValue ?? 1850}
                   </span>
                   <span className="text-[9.5px] font-semibold text-[#78716C]">
@@ -208,7 +205,7 @@ export const CollectorHomePage: React.FC = () => {
                   <span className="text-[10.5px] font-bold text-[#166534] block">
                     {t.homeSummaryTotalWeight}
                   </span>
-                  <span className="font-heading font-black text-xl text-[#14532D] block mt-0.5">
+                  <span className="font-heading font-black text-2xl text-[#14532D] block mt-0.5 font-mono">
                     {summary?.todayWeightKg ?? 12.5} KG
                   </span>
                   <span className="text-[9.5px] font-semibold text-[#166534]">
