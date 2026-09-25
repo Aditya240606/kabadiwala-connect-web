@@ -121,6 +121,65 @@ export interface Translations {
   switchRoleBtn: string;
   logoutBtn: string;
   appVersionNotice: string;
+
+  // ── Batch 2: Collection Flow ──
+  flowStepLabel: string;
+  flowStep1Capture: string;
+  flowStep2Classify: string;
+  flowStep3Weight: string;
+  flowStep4Review: string;
+
+  // Capture Photo
+  captureTitle: string;
+  captureInstruction: string;
+  captureBtn: string;
+  captureRetake: string;
+  captureUsePhoto: string;
+  capturePhotoTip: string;
+
+  // AI Classification
+  classifyingTitle: string;
+  classifyingMsg: string;
+  classifyResultTitle: string;
+  classifyConfidence: string;
+  classifyModel: string;
+  classifyConfirmBtn: string;
+  classifyCorrectBtn: string;
+  classifyManualBtn: string;
+  classifySuggested: string;
+  classifyAiAssisted: string;
+
+  // Manual Category
+  manualCategoryTitle: string;
+  manualCategoryInstruction: string;
+  manualCategoryConfirm: string;
+
+  // Weight Entry
+  weightTitle: string;
+  weightInstruction: string;
+  weightInputLabel: string;
+  weightUnit: string;
+  weightNextBtn: string;
+  weightManualNote: string;
+
+  // Review & Create Lot
+  reviewTitle: string;
+  reviewCategory: string;
+  reviewWeight: string;
+  reviewEstValue: string;
+  reviewIndicativeNote: string;
+  reviewPhoto: string;
+  reviewMethod: string;
+  reviewCreateBtn: string;
+  reviewEditBtn: string;
+
+  // Lot Created
+  lotCreatedTitle: string;
+  lotCreatedMsg: string;
+  lotCreatedId: string;
+  lotCreatedViewBtn: string;
+  lotCreatedNewBtn: string;
+  lotCreatedHomeBtn: string;
 }
 
 export const translations: Record<SupportedLanguage, Translations> = {
@@ -246,6 +305,59 @@ export const translations: Record<SupportedLanguage, Translations> = {
     switchRoleBtn: 'SWITCH TO RECYCLER',
     logoutBtn: 'LOG OUT',
     appVersionNotice: '',
+
+    // ── Batch 2: Collection Flow ──
+    flowStepLabel: 'STEP',
+    flowStep1Capture: 'Photo',
+    flowStep2Classify: 'Classify',
+    flowStep3Weight: 'Weight',
+    flowStep4Review: 'Review',
+
+    captureTitle: 'CAPTURE MATERIAL',
+    captureInstruction: 'Take a clear photo of the e-waste material',
+    captureBtn: 'TAKE PHOTO',
+    captureRetake: 'RETAKE',
+    captureUsePhoto: 'USE THIS PHOTO',
+    capturePhotoTip: 'Place material on a flat surface with good lighting',
+
+    classifyingTitle: 'IDENTIFYING MATERIAL',
+    classifyingMsg: 'AI is analyzing your photo…',
+    classifyResultTitle: 'AI CLASSIFICATION',
+    classifyConfidence: 'Confidence',
+    classifyModel: 'Model',
+    classifyConfirmBtn: 'CONFIRM CATEGORY',
+    classifyCorrectBtn: 'SELECT DIFFERENT',
+    classifyManualBtn: 'CHOOSE MANUALLY',
+    classifySuggested: 'SUGGESTED',
+    classifyAiAssisted: 'AI Assisted',
+
+    manualCategoryTitle: 'SELECT CATEGORY',
+    manualCategoryInstruction: 'Choose the e-waste category',
+    manualCategoryConfirm: 'CONFIRM SELECTION',
+
+    weightTitle: 'ENTER WEIGHT',
+    weightInstruction: 'Enter the material weight',
+    weightInputLabel: 'Weight',
+    weightUnit: 'KG',
+    weightNextBtn: 'CONTINUE',
+    weightManualNote: 'Manual Entry',
+
+    reviewTitle: 'REVIEW LOT',
+    reviewCategory: 'Category',
+    reviewWeight: 'Weight',
+    reviewEstValue: 'Est. Value',
+    reviewIndicativeNote: 'Indicative price — final at handover',
+    reviewPhoto: 'Photo',
+    reviewMethod: 'Method',
+    reviewCreateBtn: 'CREATE LOT',
+    reviewEditBtn: 'EDIT',
+
+    lotCreatedTitle: 'LOT CREATED',
+    lotCreatedMsg: 'Your e-waste lot has been logged successfully',
+    lotCreatedId: 'Lot ID',
+    lotCreatedViewBtn: 'VIEW LOT',
+    lotCreatedNewBtn: 'NEW COLLECTION',
+    lotCreatedHomeBtn: 'GO HOME',
   },
 
   hi: {
@@ -370,6 +482,59 @@ export const translations: Record<SupportedLanguage, Translations> = {
     switchRoleBtn: 'रिसाइक्लर मोड में बदलें',
     logoutBtn: 'लॉग आउट',
     appVersionNotice: '',
+
+    // ── Batch 2: Collection Flow ──
+    flowStepLabel: 'चरण',
+    flowStep1Capture: 'फोटो',
+    flowStep2Classify: 'पहचान',
+    flowStep3Weight: 'वज़न',
+    flowStep4Review: 'समीक्षा',
+
+    captureTitle: 'सामग्री कैप्चर करें',
+    captureInstruction: 'ई-कचरा सामग्री की स्पष्ट फोटो लें',
+    captureBtn: 'फोटो लें',
+    captureRetake: 'दोबारा लें',
+    captureUsePhoto: 'यह फोटो उपयोग करें',
+    capturePhotoTip: 'सामग्री को समतल जगह पर अच्छी रोशनी में रखें',
+
+    classifyingTitle: 'सामग्री पहचान',
+    classifyingMsg: 'AI आपकी फोटो का विश्लेषण कर रहा है…',
+    classifyResultTitle: 'AI वर्गीकरण',
+    classifyConfidence: 'विश्वसनीयता',
+    classifyModel: 'मॉडल',
+    classifyConfirmBtn: 'श्रेणी पुष्ट करें',
+    classifyCorrectBtn: 'अन्य चुनें',
+    classifyManualBtn: 'मैन्युअल चुनें',
+    classifySuggested: 'सुझावित',
+    classifyAiAssisted: 'AI सहायित',
+
+    manualCategoryTitle: 'श्रेणी चुनें',
+    manualCategoryInstruction: 'ई-कचरा श्रेणी चुनें',
+    manualCategoryConfirm: 'चयन पुष्ट करें',
+
+    weightTitle: 'वज़न दर्ज करें',
+    weightInstruction: 'सामग्री का वज़न दर्ज करें',
+    weightInputLabel: 'वज़न',
+    weightUnit: 'KG',
+    weightNextBtn: 'आगे बढ़ें',
+    weightManualNote: 'मैन्युअल प्रविष्टि',
+
+    reviewTitle: 'लॉट समीक्षा',
+    reviewCategory: 'श्रेणी',
+    reviewWeight: 'वज़न',
+    reviewEstValue: 'अनुमानित मूल्य',
+    reviewIndicativeNote: 'सांकेतिक मूल्य — अंतिम भुगतान हैंडओवर पर',
+    reviewPhoto: 'फोटो',
+    reviewMethod: 'पद्धति',
+    reviewCreateBtn: 'लॉट बनाएं',
+    reviewEditBtn: 'संशोधन',
+
+    lotCreatedTitle: 'लॉट बनाया गया',
+    lotCreatedMsg: 'आपका ई-कचरा लॉट सफलतापूर्वक दर्ज हो गया',
+    lotCreatedId: 'लॉट ID',
+    lotCreatedViewBtn: 'लॉट देखें',
+    lotCreatedNewBtn: 'नया संग्रह',
+    lotCreatedHomeBtn: 'मुख्य पृष्ठ',
   },
 
   mr: {
@@ -494,6 +659,59 @@ export const translations: Record<SupportedLanguage, Translations> = {
     switchRoleBtn: 'रिसायकलर मोड निवडा',
     logoutBtn: 'बाहेर पडा',
     appVersionNotice: '',
+
+    // ── Batch 2: Collection Flow ──
+    flowStepLabel: 'टप्पा',
+    flowStep1Capture: 'फोटो',
+    flowStep2Classify: 'ओळख',
+    flowStep3Weight: 'वजन',
+    flowStep4Review: 'पुनरावलोकन',
+
+    captureTitle: 'सामग्री कॅप्चर करा',
+    captureInstruction: 'ई-कचरा सामग्रीचा स्पष्ट फोटो घ्या',
+    captureBtn: 'फोटो घ्या',
+    captureRetake: 'पुन्हा घ्या',
+    captureUsePhoto: 'हा फोटो वापरा',
+    capturePhotoTip: 'सामग्री सपाट जागी चांगल्या प्रकाशात ठेवा',
+
+    classifyingTitle: 'सामग्री ओळख',
+    classifyingMsg: 'AI तुमच्या फोटोचे विश्लेषण करत आहे…',
+    classifyResultTitle: 'AI वर्गीकरण',
+    classifyConfidence: 'विश्वासार्हता',
+    classifyModel: 'मॉडेल',
+    classifyConfirmBtn: 'श्रेणी पुष्टी करा',
+    classifyCorrectBtn: 'वेगळी निवडा',
+    classifyManualBtn: 'मॅन्युअल निवडा',
+    classifySuggested: 'सुचवलेले',
+    classifyAiAssisted: 'AI सहाय्यित',
+
+    manualCategoryTitle: 'श्रेणी निवडा',
+    manualCategoryInstruction: 'ई-कचरा श्रेणी निवडा',
+    manualCategoryConfirm: 'निवड पुष्टी करा',
+
+    weightTitle: 'वजन नोंदवा',
+    weightInstruction: 'सामग्रीचे वजन नोंदवा',
+    weightInputLabel: 'वजन',
+    weightUnit: 'KG',
+    weightNextBtn: 'पुढे जा',
+    weightManualNote: 'मॅन्युअल नोंद',
+
+    reviewTitle: 'लॉट पुनरावलोकन',
+    reviewCategory: 'श्रेणी',
+    reviewWeight: 'वजन',
+    reviewEstValue: 'अंदाजे मूल्य',
+    reviewIndicativeNote: 'सांकेतिक मूल्य — अंतिम भरणा हस्तांतरणावेळी',
+    reviewPhoto: 'फोटो',
+    reviewMethod: 'पद्धती',
+    reviewCreateBtn: 'लॉट तयार करा',
+    reviewEditBtn: 'बदला',
+
+    lotCreatedTitle: 'लॉट तयार झाला',
+    lotCreatedMsg: 'तुमचा ई-कचरा लॉट यशस्वीरित्या नोंदवला गेला',
+    lotCreatedId: 'लॉट ID',
+    lotCreatedViewBtn: 'लॉट पहा',
+    lotCreatedNewBtn: 'नवीन संकलन',
+    lotCreatedHomeBtn: 'मुख्य पृष्ठ',
   },
 };
 
