@@ -180,6 +180,39 @@ export interface Translations {
   lotCreatedViewBtn: string;
   lotCreatedNewBtn: string;
   lotCreatedHomeBtn: string;
+
+  // ── Batch 3: Recycler Marketplace & Handover ──
+  matchingTitle: string;
+  matchingSub: string;
+  matchingFilterAll: string;
+  matchingFilterNearby: string;
+  matchingVerifiedBadge: string;
+  matchingAcceptedWaste: string;
+  matchingDistanceLabel: string;
+  matchingSelectBtn: string;
+  matchingEmptyMsg: string;
+
+  recyclerDetailTitle: string;
+  recyclerFacilityInfo: string;
+  recyclerAddressLabel: string;
+  recyclerContactLabel: string;
+  recyclerAcceptedMaterials: string;
+  recyclerOperatingHours: string;
+  recyclerInitiateBtn: string;
+  recyclerPolicyNotice: string;
+
+  handoverTitle: string;
+  handoverSub: string;
+  handoverLotSummary: string;
+  handoverTargetFacility: string;
+  handoverNotesLabel: string;
+  handoverNotesPlaceholder: string;
+  handoverSubmitBtn: string;
+  handoverSuccessTitle: string;
+  handoverSuccessMsg: string;
+  handoverTxnId: string;
+  handoverViewLotBtn: string;
+  handoverBackToMatchingBtn: string;
 }
 
 export const translations: Record<SupportedLanguage, Translations> = {
@@ -358,6 +391,39 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'VIEW LOT',
     lotCreatedNewBtn: 'NEW COLLECTION',
     lotCreatedHomeBtn: 'GO HOME',
+
+    // ── Batch 3: Recycler Marketplace & Handover ──
+    matchingTitle: 'MATCHING RECYCLERS',
+    matchingSub: 'Verified e-waste recyclers for your lot',
+    matchingFilterAll: 'All Facilities',
+    matchingFilterNearby: 'Nearby (Within 5 km)',
+    matchingVerifiedBadge: 'VERIFIED FACILITY',
+    matchingAcceptedWaste: 'Accepted Materials',
+    matchingDistanceLabel: 'Distance',
+    matchingSelectBtn: 'VIEW & SELECT',
+    matchingEmptyMsg: 'No verified recyclers found for this category.',
+
+    recyclerDetailTitle: 'RECYCLER PROFILE',
+    recyclerFacilityInfo: 'Facility Information',
+    recyclerAddressLabel: 'Facility Address',
+    recyclerContactLabel: 'Direct Contact',
+    recyclerAcceptedMaterials: 'Accepted Scrap Categories',
+    recyclerOperatingHours: 'Operating Hours: 09:00 AM – 06:00 PM',
+    recyclerInitiateBtn: 'INITIATE HANDOVER',
+    recyclerPolicyNotice: 'Recycler will physically weigh and inspect scrap at the yard before settlement.',
+
+    handoverTitle: 'HANDOVER REQUEST',
+    handoverSub: 'Assign scrap lot to verified recycler',
+    handoverLotSummary: 'Material Lot Details',
+    handoverTargetFacility: 'Destination Facility',
+    handoverNotesLabel: 'Handover Notes / Delivery Instructions',
+    handoverNotesPlaceholder: 'e.g., Scheduled delivery tomorrow 10 AM, clean dismantled units',
+    handoverSubmitBtn: 'SUBMIT HANDOVER REQUEST',
+    handoverSuccessTitle: 'HANDOVER INITIATED',
+    handoverSuccessMsg: 'Your handover request has been recorded and assigned to the recycler.',
+    handoverTxnId: 'Transaction ID',
+    handoverViewLotBtn: 'VIEW LOT',
+    handoverBackToMatchingBtn: 'RECYCLERS LIST',
   },
 
   hi: {
@@ -535,6 +601,39 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'लॉट देखें',
     lotCreatedNewBtn: 'नया संग्रह',
     lotCreatedHomeBtn: 'मुख्य पृष्ठ',
+
+    // ── Batch 3: Recycler Marketplace & Handover ──
+    matchingTitle: 'रिसाइक्लर मिलान',
+    matchingSub: 'आपकी सामग्री के लिए सत्यापित रिसाइक्लर्स',
+    matchingFilterAll: 'सभी सुविधाएं',
+    matchingFilterNearby: 'निकटतम (5 किमी के अंदर)',
+    matchingVerifiedBadge: 'सत्यापित सुविधा',
+    matchingAcceptedWaste: 'स्वीकृत सामग्री',
+    matchingDistanceLabel: 'दूरी',
+    matchingSelectBtn: 'देखें व चुनें',
+    matchingEmptyMsg: 'इस श्रेणी के लिए कोई रिसाइक्लर नहीं मिला।',
+
+    recyclerDetailTitle: 'रिसाइक्लर प्रोफाइल',
+    recyclerFacilityInfo: 'सुविधा विवरण',
+    recyclerAddressLabel: 'सुविधा का पता',
+    recyclerContactLabel: 'सीधा संपर्क',
+    recyclerAcceptedMaterials: 'स्वीकृत स्क्रैप श्रेणियां',
+    recyclerOperatingHours: 'कार्य समय: सुबह 09:00 – शाम 06:00',
+    recyclerInitiateBtn: 'हस्तांतरण शुरू करें',
+    recyclerPolicyNotice: 'अंतिम भुगतान से पहले यार्ड पर सामग्री का प्रत्यक्ष निरीक्षण और तौल किया जाएगा।',
+
+    handoverTitle: 'हस्तांतरण अनुरोध',
+    handoverSub: 'रिसाइक्लर को सामग्री सौंपें',
+    handoverLotSummary: 'सामग्री विवरण',
+    handoverTargetFacility: 'चयनित रिसाइक्लर',
+    handoverNotesLabel: 'हस्तांतरण नोट / निर्देश',
+    handoverNotesPlaceholder: 'उदा. कल सुबह 10 बजे डिलीवरी, साफ अलग किया हुआ माल',
+    handoverSubmitBtn: 'हस्तांतरण अनुरोध भेजें',
+    handoverSuccessTitle: 'हस्तांतरण दर्ज',
+    handoverSuccessMsg: 'आपका हस्तांतरण अनुरोध सफलतापूर्वक दर्ज हो गया है।',
+    handoverTxnId: 'लेन-देन ID',
+    handoverViewLotBtn: 'लॉट देखें',
+    handoverBackToMatchingBtn: 'रिसाइक्लर सूची',
   },
 
   mr: {
@@ -712,6 +811,39 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'लॉट पहा',
     lotCreatedNewBtn: 'नवीन संकलन',
     lotCreatedHomeBtn: 'मुख्य पृष्ठ',
+
+    // ── Batch 3: Recycler Marketplace & Handover ──
+    matchingTitle: 'रिसायकलर शोध',
+    matchingSub: 'तुमच्या सामग्रीसाठी अधिकृत रिसायकलर्स',
+    matchingFilterAll: 'सर्व सुविधा',
+    matchingFilterNearby: 'जवळचे (५ किमी अंतरावर)',
+    matchingVerifiedBadge: 'सत्यापित सुविधा',
+    matchingAcceptedWaste: 'स्वीकार्य साहित्य',
+    matchingDistanceLabel: 'अंतर',
+    matchingSelectBtn: 'पहा व निवडा',
+    matchingEmptyMsg: 'या श्रेणीसाठी कोणतेही रिसायकलर उपलब्ध नाही.',
+
+    recyclerDetailTitle: 'रिसायकलर प्रोफाइल',
+    recyclerFacilityInfo: 'सुविधा माहिती',
+    recyclerAddressLabel: 'सुविधेचा पत्ता',
+    recyclerContactLabel: 'थेट संपर्क',
+    recyclerAcceptedMaterials: 'स्वीकार्य भंगार वर्ग',
+    recyclerOperatingHours: 'कामकाजाची वेळ: सकाळी ०९:०० – संध्याकाळी ०६:००',
+    recyclerInitiateBtn: 'हस्तांतरण सुरू करा',
+    recyclerPolicyNotice: 'अंतिम भरणा करण्यापूर्वी यार्डवर सामग्रीची प्रत्यक्ष तपासणी आणि मोजणी केली जाईल.',
+
+    handoverTitle: 'हस्तांतरण विनंती',
+    handoverSub: 'रिसायकलरकडे सामग्री सोपवा',
+    handoverLotSummary: 'सामग्री तपशील',
+    handoverTargetFacility: 'निवडलेले रिसायकलर',
+    handoverNotesLabel: 'हस्तांतरण नोंद / सूचना',
+    handoverNotesPlaceholder: 'उदा. उद्या सकाळी १० वाजता डिलिव्हरी, स्वच्छ वेगळे केलेले',
+    handoverSubmitBtn: 'हस्तांतरण विनंती पाठवा',
+    handoverSuccessTitle: 'हस्तांतरण नोंदवले',
+    handoverSuccessMsg: 'तुमची हस्तांतरण विनंती यशस्वीरित्या नोंदवली गेली आहे.',
+    handoverTxnId: 'व्यवहार ID',
+    handoverViewLotBtn: 'लॉट पहा',
+    handoverBackToMatchingBtn: 'रिसायकलर यादी',
   },
 };
 

@@ -44,3 +44,47 @@ export interface CollectorProfile {
   isLocalLotStorageActive: boolean;
   appVersion: string;
 }
+
+// ── Batch 3: Recycler & Handover Models (Aligned with backend schema) ──
+export interface RecyclerDto {
+  id: string;
+  facilityName: string;
+  facilityNameHi?: string;
+  facilityNameMr?: string;
+  locationAddress: string;
+  locationAddressHi?: string;
+  locationAddressMr?: string;
+  city: string;
+  contactPhone: string;
+  contactEmail: string;
+  status: 'ACTIVE' | 'INACTIVE';
+  acceptedCategoryCodes: string[];
+  distanceKm?: number;
+  operatingHours?: string;
+  verifiedBadge?: boolean;
+}
+
+export type HandoverStatus = 'INITIATED' | 'ACCEPTED' | 'COLLECTED' | 'REJECTED' | 'COMPLETED';
+
+export interface HandoverTransactionDto {
+  id: string;
+  lotId: string;
+  collectorId: string;
+  recyclerId: string;
+  recyclerFacilityName: string;
+  agreedWeightKg?: number;
+  agreedPricePerKg?: number;
+  totalAmount?: number;
+  status: HandoverStatus;
+  paymentMethod?: 'CASH' | 'DIGITAL';
+  handoverNotes?: string;
+  createdAt: string;
+  completedAt?: string;
+}
+
+export interface InitiateHandoverParams {
+  lotId: string;
+  recyclerId: string;
+  notes?: string;
+}
+

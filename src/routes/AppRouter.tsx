@@ -17,6 +17,11 @@ import { WeightEntryPage } from '../pages/collector/flow/WeightEntryPage';
 import { ReviewLotPage } from '../pages/collector/flow/ReviewLotPage';
 import { LotCreatedPage } from '../pages/collector/flow/LotCreatedPage';
 
+// Batch 3: Recycler Marketplace & Handover
+import { RecyclerMatchingPage } from '../pages/collector/recycler/RecyclerMatchingPage';
+import { RecyclerDetailPage } from '../pages/collector/recycler/RecyclerDetailPage';
+import { HandoverRequestPage } from '../pages/collector/recycler/HandoverRequestPage';
+
 /**
  * Wrapper that provides CollectionFlowContext to all flow pages.
  * The bottom nav is hidden during the collection flow (full-focus mode).
@@ -171,11 +176,20 @@ export const AppRouter: React.FC = () => {
               </AppShell>
             }
           />
+          {/* ─── Batch 3: Recycler Marketplace & Handover ─── */}
           <Route
             path="/collector/recyclers"
             element={
               <AppShell showBottomNav={true}>
-                <FutureBatchPage />
+                <RecyclerMatchingPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/collector/recyclers/:id"
+            element={
+              <AppShell showBottomNav={true}>
+                <RecyclerDetailPage />
               </AppShell>
             }
           />
@@ -183,7 +197,7 @@ export const AppRouter: React.FC = () => {
             path="/collector/handover"
             element={
               <AppShell showBottomNav={true}>
-                <FutureBatchPage />
+                <HandoverRequestPage />
               </AppShell>
             }
           />
