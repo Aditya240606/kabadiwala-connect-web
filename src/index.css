@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #14532D;
+  --color-primary-dark: #0F3F22;
+  --color-secondary-green: #166534;
+  --color-copper: #B45309;
+  --color-copper-dark: #763300;
+  --color-amber-field: #F59E0B;
+  --color-warm-bg: #FFFBEB;
+  --color-charcoal: #1C1917;
+  --color-border-field: #E2D9C8;
+  --color-surface-container: #F2EEDE;
+  --color-surface-low: #F8F4E4;
+  --color-success-field: #15803D;
+  --color-success-bg: #ECFDF5;
+
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #FFFBEB;
+    color: #1C1917;
+    font-family: 'Work Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Mechanical Outlines & Hard Shadows (Industrial Fieldwork) */
+.border-mech {
+  border-width: 2px;
+  border-color: #1C1917;
+}
+
+.border-mech-1 {
+  border-width: 1.5px;
+  border-color: #1C1917;
+}
+
+.shadow-mech-sm {
+  box-shadow: 2px 2px 0px #1C1917;
+}
+
+.shadow-mech {
+  box-shadow: 3px 3px 0px #1C1917;
+}
+
+.shadow-mech-lg {
+  box-shadow: 4px 4px 0px #1C1917;
+}
+
+.shadow-mech-copper {
+  box-shadow: 2px 2px 0px #763300;
+}
