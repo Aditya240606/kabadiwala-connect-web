@@ -100,12 +100,10 @@ export const CapturePhotoPage: React.FC = () => {
           )}
         </div>
 
-        {/* Tip */}
-        <div className="bg-[#FEF3C7] border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm flex items-start gap-2.5">
-          <Lightbulb className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
-          <p className="text-sm text-[#78350F] font-semibold leading-snug">
-            {t.capturePhotoTip}
-          </p>
+        {/* Visual Guidance Chip */}
+        <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-[#78350F] bg-[#FEF3C7] border border-[#B45309]/30 rounded py-1 px-3 mx-auto">
+          <Lightbulb className="w-3.5 h-3.5 text-[#B45309] shrink-0" />
+          <span>{t.capturePhotoTip}</span>
         </div>
 
         {/* Action Buttons */}

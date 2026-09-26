@@ -13,6 +13,7 @@ import type {
 import type {
   CollectionRepository,
   CreateLotParams,
+  PricingRateDto,
 } from './collectionRepositoryTypes';
 import { MockCollectionRepository } from './mockCollectionRepository';
 import { getCategoryByCode } from '../data/categories';
@@ -689,4 +690,42 @@ export class ApiCollectionRepository implements CollectionRepository {
       return this.mockRepo.completeTransaction(params);
     }
   }
+
+  async getPricingRates(): Promise<PricingRateDto[]> {
+    if (FORCE_MOCK) {
+      return this.mockRepo.getPricingRates();
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/v1/pricing/rates`, {
+        headers: {
+          'X-Demo-Role': 'COLLECTOR',
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error(`Failed to fetch pricing rates: ${res.status}`);
+      }
+
+      const json = await res.json();
+      const list = json.data;
+
+      if (!Array.isArray(list) || list.length === 0) {
+        return this.mockRepo.getPricingRates();
+      }
+
+      return list.map((item: any) => ({
+        id: item.id,
+        categoryCode: item.categoryCode,
+        pricePerKg: Number(item.pricePerKg) || 0,
+        currency: item.currency || 'INR',
+        effectiveFrom: item.effectiveFrom,
+        active: item.active !== false,
+      }));
+    } catch (err) {
+      console.warn('[ApiCollectionRepository] getPricingRates error, falling back to mock:', err);
+      return this.mockRepo.getPricingRates();
+    }
+  }
 }
+

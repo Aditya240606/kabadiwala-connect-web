@@ -43,6 +43,8 @@ export interface Translations {
   homeQuickCollections: string;
   homeQuickTransactions: string;
   homeQuickRecycler: string;
+  homeQuickRates: string;
+  homeQuickSafety: string;
   homeSummaryTitle: string;
   homeSummaryToday: string;
   homeSummaryEstValue: string;
@@ -293,6 +295,29 @@ export interface Translations {
   historyEmpty: string;
   viewDigitalRecord: string;
   trackTransactionBtn: string;
+
+  // Rates Page
+  ratesTitle: string;
+  ratesSub: string;
+  ratesNotice: string;
+  ratesUpdatedToday: string;
+  ratesIndicativeTag: string;
+  ratesPerKg: string;
+
+  // Safety Page
+  safetyTitle: string;
+  safetySub: string;
+  safetyNotice: string;
+  safetyBatTitle: string;
+  safetyBatDesc: string;
+  safetyPhonesTitle: string;
+  safetyPhonesDesc: string;
+  safetyWiresTitle: string;
+  safetyWiresDesc: string;
+  safetyGlovesTitle: string;
+  safetyGlovesDesc: string;
+  safetyMixedTitle: string;
+  safetyMixedDesc: string;
 }
 
 export const translations: Record<SupportedLanguage, Translations> = {
@@ -339,6 +364,8 @@ export const translations: Record<SupportedLanguage, Translations> = {
     homeQuickCollections: 'Collections',
     homeQuickTransactions: 'Transactions',
     homeQuickRecycler: 'Find Recycler',
+    homeQuickRates: 'Rates',
+    homeQuickSafety: 'Safety',
     homeSummaryTitle: "TODAY'S SUMMARY",
     homeSummaryToday: 'Today',
     homeSummaryEstValue: 'Est. Value',
@@ -584,6 +611,27 @@ export const translations: Record<SupportedLanguage, Translations> = {
     historyEmpty: 'No transactions recorded yet.',
     viewDigitalRecord: 'VIEW RECORD',
     trackTransactionBtn: 'TRACK TRANSACTION',
+
+    ratesTitle: 'RATES',
+    ratesSub: 'Current App Rates (Indicative)',
+    ratesNotice: 'Subject to yard physical inspection • No live mandi claims',
+    ratesUpdatedToday: 'Updated Today, 06:00 AM',
+    ratesIndicativeTag: 'APP RATE',
+    ratesPerKg: '/kg',
+
+    safetyTitle: 'SAFETY',
+    safetySub: 'E-Waste Handling Guidelines',
+    safetyNotice: 'Practical field safety • Not medical or regulatory certification',
+    safetyBatTitle: 'Batteries',
+    safetyBatDesc: 'Keep batteries separate.',
+    safetyPhonesTitle: 'Phones & Electronics',
+    safetyPhonesDesc: 'Handle carefully.',
+    safetyWiresTitle: 'Damaged Wiring',
+    safetyWiresDesc: 'Avoid exposed wires.',
+    safetyGlovesTitle: 'Protective Gloves',
+    safetyGlovesDesc: 'Use gloves when sorting.',
+    safetyMixedTitle: 'Mixed Scrap',
+    safetyMixedDesc: 'Keep risky items separate.',
   },
 
   hi: {
@@ -629,6 +677,8 @@ export const translations: Record<SupportedLanguage, Translations> = {
     homeQuickCollections: 'सामग्री',
     homeQuickTransactions: 'लेन-देन',
     homeQuickRecycler: 'रिसाइक्लर खोजें',
+    homeQuickRates: 'दरें',
+    homeQuickSafety: 'सुरक्षा',
     homeSummaryTitle: 'आज का सारांश',
     homeSummaryToday: 'आज',
     homeSummaryEstValue: 'अनुमानित मूल्य',
@@ -874,6 +924,27 @@ export const translations: Record<SupportedLanguage, Translations> = {
     historyEmpty: 'अभी तक कोई लेन-देन दर्ज नहीं हुआ है।',
     viewDigitalRecord: 'रिकॉर्ड देखें',
     trackTransactionBtn: 'लेन-देन ट्रैक करें',
+
+    ratesTitle: 'दरें',
+    ratesSub: 'वर्तमान ऐप दरें (सांकेतिक)',
+    ratesNotice: 'यार्ड भौतिक जांच पर निर्भर • कोई लाइव मंडी दावा नहीं',
+    ratesUpdatedToday: 'अपडेट: आज, सुबह ०६:००',
+    ratesIndicativeTag: 'ऐप दर',
+    ratesPerKg: '/किग्रा',
+
+    safetyTitle: 'सुरक्षा',
+    safetySub: 'ई-कचरा सुरक्षा निर्देश',
+    safetyNotice: 'व्यावहारिक फील्ड सुरक्षा • कोई चिकित्सीय या विनियामक दावा नहीं',
+    safetyBatTitle: 'बैटरियां',
+    safetyBatDesc: 'बैटरियों को अलग रखें।',
+    safetyPhonesTitle: 'फोन व इलेक्ट्रॉनिक्स',
+    safetyPhonesDesc: 'सावधानी से संभालें।',
+    safetyWiresTitle: 'कटी-फटी वायरिंग',
+    safetyWiresDesc: 'खुले तारों को न छुएं।',
+    safetyGlovesTitle: 'दस्ताने',
+    safetyGlovesDesc: 'छंटाई के समय दस्ताने पहनें।',
+    safetyMixedTitle: 'मिश्रित कचरा',
+    safetyMixedDesc: 'खतरनाक सामग्री को अलग रखें।',
   },
 
   mr: {
@@ -919,6 +990,8 @@ export const translations: Record<SupportedLanguage, Translations> = {
     homeQuickCollections: 'सामग्री',
     homeQuickTransactions: 'व्यवहार',
     homeQuickRecycler: 'रिसायकलर शोधा',
+    homeQuickRates: 'दर',
+    homeQuickSafety: 'सुरक्षा',
     homeSummaryTitle: 'आजचा सारांश',
     homeSummaryToday: 'आज',
     homeSummaryEstValue: 'अंदाजे मूल्य',
@@ -1164,6 +1237,27 @@ export const translations: Record<SupportedLanguage, Translations> = {
     historyEmpty: 'अद्याप कोणतेही व्यवहार नोंदवलेले नाहीत.',
     viewDigitalRecord: 'नोंद पहा',
     trackTransactionBtn: 'व्यवहार ट्रॅक करा',
+
+    ratesTitle: 'दर',
+    ratesSub: 'सध्याचे ॲप दर (अंदाजे)',
+    ratesNotice: 'यार्ड प्रत्यक्ष तपासणीवर अवलंबून • कोणताही थेट बाजार दावा नाही',
+    ratesUpdatedToday: 'अपडेट: आज, सकाळी ०६:००',
+    ratesIndicativeTag: 'ॲप दर',
+    ratesPerKg: '/किलो',
+
+    safetyTitle: 'सुरक्षा',
+    safetySub: 'ई-कचरा हाताळणी नियम',
+    safetyNotice: 'प्रत्यक्ष कामगार सुरक्षा • कोणताही वैद्यकीय किंवा नियमन दावा नाही',
+    safetyBatTitle: 'बॅटरी',
+    safetyBatDesc: 'बॅटरी नेहमी वेगळी ठेवा.',
+    safetyPhonesTitle: 'फोन व इलेक्ट्रॉनिक्स',
+    safetyPhonesDesc: 'काळजीपूर्वक हाताळा.',
+    safetyWiresTitle: 'तुटलेली वायरिंग',
+    safetyWiresDesc: 'उघड्या तारांना स्पर्श टाळा.',
+    safetyGlovesTitle: 'हातमोजे',
+    safetyGlovesDesc: 'वर्गीकरण करताना हातमोजे वापरा.',
+    safetyMixedTitle: 'मिश्र भंगार',
+    safetyMixedDesc: 'धोकादायक वस्तू वेगळ्या ठेवा.',
   },
 };
 

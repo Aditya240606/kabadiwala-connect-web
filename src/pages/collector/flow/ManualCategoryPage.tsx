@@ -56,9 +56,6 @@ export const ManualCategoryPage: React.FC = () => {
           instruction={manualAudioPrompts[language] || manualAudioPrompts.hi}
         />
 
-        <p className="text-base font-bold text-[#57534E] px-0.5">
-          {t.manualCategoryInstruction}
-        </p>
 
         {/* Category Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">

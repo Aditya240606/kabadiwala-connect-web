@@ -10,7 +10,7 @@ import type {
   CollectHandoverParams,
   CompleteTransactionParams,
 } from '../models/collection';
-import type { CollectionRepository, CreateLotParams } from './collectionRepositoryTypes';
+import type { CollectionRepository, CreateLotParams, PricingRateDto } from './collectionRepositoryTypes';
 import { getCategoryByCode } from '../data/categories';
 
 export class MockCollectionRepository implements CollectionRepository {
@@ -424,4 +424,24 @@ export class MockCollectionRepository implements CollectionRepository {
 
     return { ...txn };
   }
+
+  async getPricingRates(): Promise<PricingRateDto[]> {
+    return [
+      { id: 'rate-pcb', categoryCode: 'PCB', pricePerKg: 180, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-cable', categoryCode: 'CABLE_WIRE', pricePerKg: 160, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-battery', categoryCode: 'BATTERY', pricePerKg: 45, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-motor', categoryCode: 'MOTOR_MECHANICAL', pricePerKg: 55, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-display', categoryCode: 'DISPLAY_SCREEN', pricePerKg: 35, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-storage', categoryCode: 'STORAGE_DEVICE', pricePerKg: 120, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-charger', categoryCode: 'CHARGER_ADAPTER', pricePerKg: 50, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-phone', categoryCode: 'PHONE_SMALL_ELECTRONICS', pricePerKg: 150, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-electronic-comp', categoryCode: 'ELECTRONIC_COMPONENTS', pricePerKg: 90, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-plastic', categoryCode: 'PLASTIC_EWASTE', pricePerKg: 18, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-metal', categoryCode: 'METAL_SCRAP', pricePerKg: 35, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-other', categoryCode: 'OTHER_EWASTE', pricePerKg: 25, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-mixed', categoryCode: 'MIXED_EWASTE', pricePerKg: 30, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+      { id: 'rate-non-ewaste', categoryCode: 'NON_EWASTE', pricePerKg: 0, currency: 'INR', effectiveFrom: '2026-09-20T10:16:00Z', active: true },
+    ];
+  }
 }
+

@@ -6,6 +6,8 @@ import { CollectorHomePage } from '../pages/collector/CollectorHomePage';
 import { CollectionsPage } from '../pages/collector/CollectionsPage';
 import { CollectionDetailPage } from '../pages/collector/CollectionDetailPage';
 import { CollectorProfilePage } from '../pages/collector/CollectorProfilePage';
+import { RatesPage } from '../pages/collector/RatesPage';
+import { SafetyPage } from '../pages/collector/SafetyPage';
 import { FutureBatchPage } from '../pages/placeholders/FutureBatchPage';
 
 // Batch 2: Collection Flow
@@ -128,6 +130,22 @@ export const AppRouter: React.FC = () => {
             element={
               <AppShell showBottomNav={true}>
                 <CollectorProfilePage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/collector/rates"
+            element={
+              <AppShell showBottomNav={true}>
+                <RatesPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/collector/safety"
+            element={
+              <AppShell showBottomNav={true}>
+                <SafetyPage />
               </AppShell>
             }
           />

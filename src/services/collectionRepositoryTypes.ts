@@ -10,6 +10,9 @@ import type {
   CollectHandoverParams,
   CompleteTransactionParams,
 } from '../models/collection';
+import type { PricingRateDto } from '../models/pricing';
+
+export type { PricingRateDto };
 
 export interface CreateLotParams {
   categoryCode?: string;
@@ -36,6 +39,8 @@ export interface CollectionRepository {
   collectHandover(params: CollectHandoverParams): Promise<HandoverTransactionDto>;
   completeTransaction(params: CompleteTransactionParams): Promise<HandoverTransactionDto>;
   createLot(params: CreateLotParams): Promise<{ id: string; status: string; estimatedPrice?: number }>;
+  getPricingRates(): Promise<PricingRateDto[]>;
   updateAudioGuide(enabled: boolean): Promise<void>;
   updateLanguage(languageCode: 'en' | 'hi' | 'mr'): Promise<void>;
 }
+

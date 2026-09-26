@@ -44,3 +44,25 @@ export function getCategoryDisplayName(code: string, lang: 'en' | 'hi' | 'mr'): 
   if (lang === 'mr') return cat.displayNameMr;
   return cat.displayName;
 }
+
+export function toBackendCategory(code?: string): string {
+  if (!code) return 'PCB';
+  const map: Record<string, string> = {
+    SMARTPHONE: 'PHONE_SMALL_ELECTRONICS',
+    PCB_MOTHERBOARD: 'PCB',
+    LOW_GRADE_PCB: 'PCB',
+    TELECOM_CARDS: 'PCB',
+    COPPER_WIRE: 'CABLE_WIRE',
+    BATTERY_PACK: 'BATTERY',
+    HDD_STORAGE: 'STORAGE_DEVICE',
+    CRT_MONITOR: 'DISPLAY_SCREEN',
+    PRINTER_COPIER: 'PLASTIC_EWASTE',
+    LED_LAMP: 'OTHER_EWASTE',
+    COMPRESSOR: 'MOTOR_MECHANICAL',
+    WEARABLE: 'PHONE_SMALL_ELECTRONICS',
+    FAN_MOTOR: 'MOTOR_MECHANICAL',
+    MIXED_EWASTE: 'MIXED_EWASTE',
+  };
+  return map[code] || code;
+}
+

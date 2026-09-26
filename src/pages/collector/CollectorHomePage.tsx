@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PlusCircle, Layers, Receipt, Search, ArrowRight, Smartphone, Cpu, Cable, AlertTriangle } from 'lucide-react';
+import { PlusCircle, Layers, Receipt, Search, ArrowRight, Smartphone, Cpu, Cable, AlertTriangle, Tag, ShieldAlert } from 'lucide-react';
 import { Header } from '../../components/common/Header';
 import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
@@ -92,12 +92,36 @@ export const CollectorHomePage: React.FC = () => {
             </div>
 
             {/* 2. Quick Action Grid */}
-            <div className="grid grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+              <button
+                onClick={() => navigate('/collector/rates')}
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all group hover:border-[#14532D]"
+              >
+                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                  <Tag className="w-5 h-5 text-[#14532D]" />
+                </div>
+                <span className="font-heading font-black text-xs sm:text-sm text-[#1C1917] leading-tight">
+                  {t.homeQuickRates}
+                </span>
+              </button>
+
+              <button
+                onClick={() => navigate('/collector/safety')}
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all group hover:border-[#B45309]"
+              >
+                <div className="w-10 h-10 rounded bg-[#FEF3C7] border border-[#B45309] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                  <ShieldAlert className="w-5 h-5 text-[#B45309]" />
+                </div>
+                <span className="font-heading font-black text-xs sm:text-sm text-[#1C1917] leading-tight">
+                  {t.homeQuickSafety}
+                </span>
+              </button>
+
               <button
                 onClick={() => navigate('/collector/collections')}
-                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all"
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all group hover:border-[#14532D]"
               >
-                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center mb-1.5">
+                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
                   <Layers className="w-5 h-5 text-[#14532D]" />
                 </div>
                 <span className="font-heading font-black text-xs sm:text-sm text-[#1C1917] leading-tight">
@@ -107,9 +131,9 @@ export const CollectorHomePage: React.FC = () => {
 
               <button
                 onClick={() => navigate('/collector/transactions')}
-                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all"
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all group hover:border-[#B45309]"
               >
-                <div className="w-10 h-10 rounded bg-[#FFFBEB] border border-[#B45309] flex items-center justify-center mb-1.5">
+                <div className="w-10 h-10 rounded bg-[#FFFBEB] border border-[#B45309] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
                   <Receipt className="w-5 h-5 text-[#B45309]" />
                 </div>
                 <span className="font-heading font-black text-xs sm:text-sm text-[#1C1917] leading-tight">
@@ -119,9 +143,9 @@ export const CollectorHomePage: React.FC = () => {
 
               <button
                 onClick={() => navigate('/collector/recyclers')}
-                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all"
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-2.5 shadow-mech-sm flex flex-col items-center text-center active:translate-y-0.5 transition-all col-span-2 sm:col-span-1 group hover:border-[#14532D]"
               >
-                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center mb-1.5">
+                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
                   <Search className="w-5 h-5 text-[#14532D]" />
                 </div>
                 <span className="font-heading font-black text-xs sm:text-sm text-[#1C1917] leading-tight">
@@ -220,13 +244,21 @@ export const CollectorHomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* 5. Safety Sorting Tip Card */}
-            <div className="bg-[#FEF3C7] border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm flex items-start gap-2.5">
-              <AlertTriangle className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-heading font-black text-sm text-[#B45309] uppercase tracking-wide">
-                  {t.homeSafetyTipTitle}
-                </h4>
+            {/* 5. Safety Sorting Tip Card (Clickable to /collector/safety) */}
+            <div
+              onClick={() => navigate('/collector/safety')}
+              className="bg-[#FEF3C7] border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm flex items-start gap-2.5 cursor-pointer hover:border-[#B45309] transition-all group"
+            >
+              <AlertTriangle className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5 group-hover:scale-105 transition-transform" />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-heading font-black text-sm text-[#B45309] uppercase tracking-wide">
+                    {t.homeSafetyTipTitle}
+                  </h4>
+                  <span className="text-xs font-black text-[#B45309] group-hover:translate-x-0.5 transition-transform">
+                    →
+                  </span>
+                </div>
                 <p className="text-xs sm:text-sm text-[#78350F] font-semibold mt-0.5 leading-snug">
                   {t.homeSafetyTipText}
                 </p>
