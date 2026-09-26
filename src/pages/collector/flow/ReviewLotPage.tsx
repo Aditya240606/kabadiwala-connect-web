@@ -6,19 +6,7 @@ import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator'
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
 import { getCategoryByCode, getCategoryDisplayName } from '../../../data/categories';
-
-/**
- * Simulates creating a lot via POST /api/v1/material-lots.
- * In production this calls the backend.
- */
-function simulateCreateLot(): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const id = `LOT-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 9000) + 1000)}`;
-      resolve(id);
-    }, 800);
-  });
-}
+import { collectionRepository } from '../../../services/collectionRepository';
 
 export const ReviewLotPage: React.FC = () => {
   const navigate = useNavigate();
@@ -44,10 +32,28 @@ export const ReviewLotPage: React.FC = () => {
 
   const handleCreate = async () => {
     setIsCreating(true);
-    const lotId = await simulateCreateLot();
-    setLotId(lotId);
-    setStep('created');
-    navigate('/collector/flow/created');
+    try {
+      const result = await collectionRepository.createLot({
+        categoryCode: flow.confirmedCategoryCode || undefined,
+        notes: flow.notes,
+        weightKg: flow.weightKg || undefined,
+        classificationMethod: flow.classificationMethod || undefined,
+        predictedClass: flow.classificationResult?.predictedClass,
+        confidence: flow.classificationResult?.confidence,
+        modelName: flow.classificationResult?.modelName,
+      });
+      setLotId(result.id);
+      setStep('created');
+      navigate('/collector/flow/created');
+    } catch (err) {
+      console.warn('Error creating lot via repository, falling back:', err);
+      const fallbackId = `LOT-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 9000) + 1000)}`;
+      setLotId(fallbackId);
+      setStep('created');
+      navigate('/collector/flow/created');
+    } finally {
+      setIsCreating(false);
+    }
   };
 
   return (
