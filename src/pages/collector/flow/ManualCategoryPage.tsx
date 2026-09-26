@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
@@ -13,6 +14,12 @@ export const ManualCategoryPage: React.FC = () => {
   const { language, t } = useApp();
   const { confirmCategory } = useCollectionFlow();
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
+
+  const manualAudioPrompts: Record<string, string> = {
+    en: 'Select the scrap category from the list below, then press confirm selection.',
+    hi: 'नीचे दी गई सूची में से स्क्रैप श्रेणी चुनें, फिर पुष्टि करने के लिए बटन दबाएं।',
+    mr: 'खालील यादीतून भंगार श्रेणी निवडा, नंतर पुष्टी करण्यासाठी बटण दाबा.',
+  };
 
   const fromAi = (location.state as { fromAi?: boolean })?.fromAi ?? false;
 
@@ -42,6 +49,12 @@ export const ManualCategoryPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={2} />
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A05_manual_category"
+          instruction={manualAudioPrompts[language] || manualAudioPrompts.hi}
+        />
 
         <p className="text-base font-bold text-[#57534E] px-0.5">
           {t.manualCategoryInstruction}

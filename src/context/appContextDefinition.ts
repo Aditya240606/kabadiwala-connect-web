@@ -8,7 +8,7 @@ export interface AppContextType {
   isAudioGuideEnabled: boolean;
   setIsAudioGuideEnabled: (val: boolean) => void;
   isSpeaking: boolean;
-  playAudioPrompt: (text: string) => void;
+  playAudioPrompt: (text: string, audioId?: string) => void;
   stopAudio: () => void;
 }
 

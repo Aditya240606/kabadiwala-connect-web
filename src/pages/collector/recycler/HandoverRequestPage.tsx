@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { CheckCircle, Building2, Package, Scale, ArrowRight, ShieldAlert, FileText, Eye, Home } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
 import { collectionRepository } from '../../../services/collectionRepository';
@@ -134,6 +135,12 @@ export const HandoverRequestPage: React.FC = () => {
     );
   }
 
+  const handoverAudioPrompts: Record<string, string> = {
+    en: 'Review the scrap lot details and destination recycler facility, then submit your handover request.',
+    hi: 'स्क्रैप लॉट विवरण और गंतव्य रिसाइक्लर सुविधा की समीक्षा करें, फिर हस्तांतरण अनुरोध भेजें।',
+    mr: 'भंगार लॉट तपशील आणि गंतव्य रिसायकलर सुविधेचे पुनरावलोकन करा, नंतर हस्तांतरण विनंती पाठवा.',
+  };
+
   return (
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
@@ -144,6 +151,12 @@ export const HandoverRequestPage: React.FC = () => {
       />
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A09_handover_request"
+          instruction={handoverAudioPrompts[language] || handoverAudioPrompts.hi}
+        />
+
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* 1. Lot Details Card */}
           <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">

@@ -9,6 +9,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../models/collection';
@@ -85,6 +86,18 @@ export const RecyclerPaymentPage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A19_recycler_payment"
+          instruction={
+            language === 'hi'
+              ? 'भुगतान निपटान: भुगतान विधि (नकद या UPI) चुनें और लेन-देन पूरा करने के लिए नीचे बटन दबाएं।'
+              : language === 'mr'
+                ? 'पेमेंट देयक: पेमेंट पद्धती (रोख किंवा UPI) निवडा आणि व्यवहार पूर्ण करण्यासाठी खालील बटण दाबा.'
+                : 'Payment settlement: Select payment method (Cash or Digital UPI) and record transaction completion.'
+          }
+        />
 
         {/* Transaction Summary Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3.5">

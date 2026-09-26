@@ -9,6 +9,7 @@ import {
   Home
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../models/collection';
@@ -22,6 +23,12 @@ export const RecyclerCompletePage: React.FC = () => {
   const [txn, setTxn] = useState<HandoverTransactionDto | null>(null);
 
   const txnId = id || 'TXN-2026-001';
+
+  const completeAudioPrompts: Record<string, string> = {
+    en: 'Transaction complete! The digital handover record and payment settlement have been successfully finalized.',
+    hi: 'लेन-देन पूर्ण हुआ! डिजिटल हस्तांतरण रिकॉर्ड और भुगतान निपटान सफलतापूर्वक पूरा कर लिया गया है।',
+    mr: 'व्यवहार पूर्ण झाला! डिजिटल हस्तांतरण नोंद आणि देयक निपटारा यशस्वीरित्या पूर्ण झाला आहे.',
+  };
 
   useEffect(() => {
     collectionRepository.getTransactionById(txnId).then((data) => {
@@ -57,6 +64,12 @@ export const RecyclerCompletePage: React.FC = () => {
             {t.txnCompleteSub}
           </p>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A20_recycler_complete"
+          instruction={completeAudioPrompts[language] || completeAudioPrompts.hi}
+        />
 
         {/* Digital Transaction Record Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 sm:p-6 shadow-mech space-y-4">

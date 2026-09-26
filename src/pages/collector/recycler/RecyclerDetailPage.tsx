@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Building2, MapPin, Phone, Mail, Clock, ShieldCheck, Tag, ArrowRight, AlertTriangle } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { collectionRepository } from '../../../services/collectionRepository';
 import type { RecyclerDto } from '../../../models/collection';
@@ -16,6 +17,12 @@ export const RecyclerDetailPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const lotId = searchParams.get('lotId') || '';
+
+  const detailAudioPrompts: Record<string, string> = {
+    en: 'Verified recycler facility profile. Review accepted scrap categories, yard address, and initiate handover.',
+    hi: 'सत्यापित रिसाइक्लर सुविधा प्रोफाइल। स्वीकृत स्क्रैप श्रेणियों और यार्ड पते की समीक्षा करें और हस्तांतरण शुरू करें।',
+    mr: 'अधिकृत रिसायकलर सुविधा तपशील. स्वीकार्य भंगार वर्ग आणि यार्ड पत्ता तपासा आणि हस्तांतरण सुरू करा.',
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -65,6 +72,12 @@ export const RecyclerDetailPage: React.FC = () => {
       />
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A17_recycler_detail"
+          instruction={detailAudioPrompts[language] || detailAudioPrompts.hi}
+        />
+
         {/* Main Facility Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 sm:p-6 shadow-mech space-y-4">
           <div className="flex items-start justify-between gap-3">

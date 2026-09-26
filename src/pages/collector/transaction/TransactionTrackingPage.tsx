@@ -13,6 +13,7 @@ import {
   Info
 } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { collectionRepository } from '../../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../../models/collection';
@@ -84,6 +85,18 @@ export const TransactionTrackingPage: React.FC = () => {
             <ExternalLink className="w-3.5 h-3.5" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A10_transaction_tracking"
+          instruction={
+            language === 'hi'
+              ? 'लेन-देन ट्रैकिंग: हस्तांतरण स्थिति और यार्ड सत्यापन की प्रगति यहां देखें।'
+              : language === 'mr'
+                ? 'व्यवहार ट्रॅकिंग: हस्तांतरण स्थिती आणि यार्ड पडताळणीची प्रगती येथे पहा.'
+                : 'Transaction tracking: Follow live handover progress, physical yard inspection, and final settlement.'
+          }
+        />
 
         {/* Transaction Summary Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">

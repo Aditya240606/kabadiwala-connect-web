@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Edit3, Layers, Scale, Camera, Tag, ArrowRight } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
@@ -13,6 +14,12 @@ export const ReviewLotPage: React.FC = () => {
   const { language, t } = useApp();
   const { flow, setLotId, setStep } = useCollectionFlow();
   const [isCreating, setIsCreating] = useState(false);
+
+  const reviewAudioPrompts: Record<string, string> = {
+    en: 'Review lot details: category, weight, and estimated value. Tap create lot to finalize.',
+    hi: 'लॉट विवरण की समीक्षा करें: श्रेणी, वजन और अनुमानित मूल्य। लॉट पूरा करने के लिए नीचे बटन दबाएं।',
+    mr: 'लॉट तपशीलांचे पुनरावलोकन करा: श्रेणी, वजन आणि अंदाजे मूल्य. अंतिम करण्यासाठी लॉट तयार करा बटण दाबा.',
+  };
 
   useEffect(() => {
     if (!flow.weightKg || !flow.confirmedCategoryCode) {
@@ -67,6 +74,12 @@ export const ReviewLotPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={4} />
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A07_review_lot"
+          instruction={reviewAudioPrompts[language] || reviewAudioPrompts.hi}
+        />
 
         {/* Review Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg shadow-mech overflow-hidden">

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Camera, ImagePlus, ArrowRight, RotateCcw, Lightbulb } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
@@ -13,6 +14,12 @@ export const CapturePhotoPage: React.FC = () => {
   const { flow, setPhoto } = useCollectionFlow();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(flow.photoDataUrl);
+
+  const captureAudioPrompts: Record<string, string> = {
+    en: 'Step 1: Take a clear photo of the e-waste material on a flat surface with good lighting.',
+    hi: 'चरण 1: अच्छी रोशनी में समतल जगह पर ई-कचरे की साफ फोटो खींचें।',
+    mr: 'टप्पा 1: चांगल्या प्रकाशात सपाट जागी ई-कचऱ्याचा स्पष्ट फोटो घ्या.',
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -56,6 +63,12 @@ export const CapturePhotoPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={1} />
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A03_take_photo"
+          instruction={captureAudioPrompts[language] || captureAudioPrompts.hi}
+        />
 
         {/* Photo Area */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg shadow-mech overflow-hidden">

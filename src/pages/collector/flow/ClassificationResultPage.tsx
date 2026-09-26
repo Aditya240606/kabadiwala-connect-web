@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Cpu, CheckCircle, ArrowRight, RefreshCw, Hand } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
@@ -114,6 +115,14 @@ export const ClassificationResultPage: React.FC = () => {
   const confidencePercent = result ? Math.round(result.confidence * 100) : 0;
   const displayName = result ? getCategoryDisplayName(result.suggestedCategoryCode, language) : '';
 
+  const classifyAudioPrompt = displayName
+    ? (language === 'hi'
+        ? `पहचान पूरी हुई: ${displayName}। यदि यह सही है तो हरा बटन दबाकर पुष्ट करें, अन्यथा अन्य चुनें।`
+        : language === 'mr'
+          ? `ओळख पूर्ण झाली: ${displayName}. योग्य असल्यास हिरवे बटण दाबून पुष्टी करा, अन्यथा वेगळे निवडा.`
+          : `Material identified: ${displayName}. Confirm category or select a different one.`)
+    : t.classifyResultTitle;
+
   return (
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
@@ -124,6 +133,12 @@ export const ClassificationResultPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={2} />
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A04_classification_result"
+          instruction={classifyAudioPrompt}
+        />
 
         {/* Result Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg shadow-mech overflow-hidden">

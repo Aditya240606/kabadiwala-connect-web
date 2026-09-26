@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Scale, ArrowRight, Info } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { FlowStepIndicator } from '../../../components/common/FlowStepIndicator';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
@@ -13,6 +14,12 @@ export const WeightEntryPage: React.FC = () => {
   const { flow, setWeight, setEstimatedPrice } = useCollectionFlow();
   const [weightInput, setWeightInput] = useState(flow.weightKg?.toString() || '');
   const [error, setError] = useState('');
+
+  const weightAudioPrompts: Record<string, string> = {
+    en: 'Step 3: Enter the scrap material weight in kilograms using the numeric keypad.',
+    hi: 'चरण 3: संख्यात्मक कीपैड का उपयोग करके किलोग्राम में सामग्री का वजन दर्ज करें।',
+    mr: 'टप्पा 3: अंकीय कीपॅड वापरून सामग्रीचे वजन किलोग्रॅममध्ये नोंदवा.',
+  };
 
   useEffect(() => {
     if (!flow.confirmedCategoryCode) {
@@ -54,6 +61,12 @@ export const WeightEntryPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={3} />
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A06_weight_entry"
+          instruction={weightAudioPrompts[language] || weightAudioPrompts.hi}
+        />
 
         {/* Category context strip */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm flex items-center gap-3">

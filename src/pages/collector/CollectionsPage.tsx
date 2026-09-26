@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Smartphone, Cpu, Cable, Radio, ChevronRight, MapPin, Calendar } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { CollectionLot, CollectionLotStatus } from '../../models/collection';
@@ -79,10 +80,15 @@ export const CollectionsPage: React.FC = () => {
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
         titleOverride={t.collectionsTitle}
-        audioPromptText={collectionsAudioPrompts[language] || collectionsAudioPrompts.hi}
       />
 
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A14_collections_list"
+          instruction={collectionsAudioPrompts[language] || collectionsAudioPrompts.hi}
+        />
+
         {/* Header Strip & Sample Data Badge */}
         <div className="flex items-center justify-between">
           <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#1C1917] leading-tight">

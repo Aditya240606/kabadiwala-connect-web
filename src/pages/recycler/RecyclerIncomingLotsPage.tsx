@@ -7,6 +7,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../models/collection';
@@ -53,6 +54,18 @@ export const RecyclerIncomingLotsPage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A22_recycler_incoming"
+          instruction={
+            language === 'hi'
+              ? 'आने वाले लॉट: रिसाइक्लर यार्ड में स्वीकृति हेतु लंबित स्क्रैप लॉट्स की सूची। निरीक्षण करने के लिए किसी लॉट पर टैप करें।'
+              : language === 'mr'
+                ? 'येणारे लॉट्स: रिसायकलर यार्डमध्ये स्वीकृतीसाठी प्रलंबित भंगार लॉट्सची यादी. तपासणीसाठी कोणत्याही लॉटवर दाबा.'
+                : 'Incoming lots: Review scrap lots awaiting yard acceptance and physical inspection.'
+          }
+        />
 
         {/* Incoming Lots List */}
         {pendingLots.length === 0 ? (

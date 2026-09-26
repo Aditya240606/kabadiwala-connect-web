@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, Building2, MapPin, Phone, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { collectionRepository } from '../../../services/collectionRepository';
 import type { RecyclerDto } from '../../../models/collection';
@@ -14,6 +15,12 @@ export const RecyclerMatchingPage: React.FC = () => {
   const [recyclers, setRecyclers] = useState<RecyclerDto[]>([]);
   const [filterNearby, setFilterNearby] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const matchingAudioPrompts: Record<string, string> = {
+    en: 'Verified recyclers matching your scrap material. Select a facility to initiate yard handover.',
+    hi: 'आपकी स्क्रैप सामग्री के लिए सत्यापित रिसाइक्लर्स। हस्तांतरण शुरू करने के लिए किसी सुविधा को चुनें।',
+    mr: 'आपल्या भंगार साहित्यासाठी अधिकृत रिसायकलर्स. हस्तांतरण सुरू करण्यासाठी सुविधा निवडा.',
+  };
 
   const categoryFilter = searchParams.get('categoryCode') || '';
   const lotId = searchParams.get('lotId') || '';
@@ -51,6 +58,11 @@ export const RecyclerMatchingPage: React.FC = () => {
       />
 
       <div className="flex-1 w-full max-w-4xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A08_recycler_matching"
+          instruction={matchingAudioPrompts[language] || matchingAudioPrompts.hi}
+        />
         {/* Active Lot / Category banner if filtering */}
         {categoryFilter && (
           <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3 sm:p-4 shadow-mech-sm flex flex-wrap items-center justify-between gap-2">

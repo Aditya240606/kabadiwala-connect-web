@@ -2,13 +2,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Eye, PlusCircle, Home } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
 
 export const LotCreatedPage: React.FC = () => {
   const navigate = useNavigate();
-  const { t } = useApp();
+  const { language, t } = useApp();
   const { flow, resetFlow } = useCollectionFlow();
+
+  const createdAudioPrompts: Record<string, string> = {
+    en: 'Your scrap collection lot has been logged successfully. You can view the lot, match with recyclers, or start a new collection.',
+    hi: 'आपकी स्क्रैप संग्रह सामग्री सफलतापूर्वक दर्ज हो गई है। आप लॉट देख सकते हैं, रिसाइक्लर खोज सकते हैं, या नया संग्रह शुरू कर सकते हैं।',
+    mr: 'आपला भंगार संकलन लॉट यशस्वीरित्या नोंदवला गेला आहे. आपण लॉट पाहू शकता, रिसायकलर शोधू शकता किंवा नवीन संकलन सुरू करू शकता.',
+  };
 
   const handleViewLot = () => {
     const lotId = flow.lotId || 'LOT-DEMO';
@@ -33,6 +40,14 @@ export const LotCreatedPage: React.FC = () => {
       />
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 flex flex-col items-center justify-center gap-6">
+        {/* Audio Guidance Card */}
+        <div className="w-full max-w-sm">
+          <AudioGuidanceCard
+            audioId="A21_lot_created"
+            instruction={createdAudioPrompts[language] || createdAudioPrompts.hi}
+          />
+        </div>
+
         {/* Success Animation */}
         <div className="relative">
           <div className="w-24 h-24 rounded-full bg-[#ECFDF5] border-4 border-[#14532D] flex items-center justify-center shadow-mech animate-bounce">

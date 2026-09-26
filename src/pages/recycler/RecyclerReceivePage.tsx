@@ -8,6 +8,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto, QualityGrade } from '../../models/collection';
@@ -100,6 +101,18 @@ export const RecyclerReceivePage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A12_recycler_receive"
+          instruction={
+            language === 'hi'
+              ? 'भौतिक हस्तांतरण: यार्ड के कांटे पर वास्तविक वजन तौलें, ग्रेड चुनें और भुगतान की पुष्टि करें।'
+              : language === 'mr'
+                ? 'प्रत्यक्ष हस्तांतरण: काट्यावरील प्रत्यक्ष वजन नोंदवा, प्रत निवडा आणि देयकाची पुष्टी करा.'
+                : 'Physical yard handover: Enter measured weight in kg, assign scrap quality grade, and confirm.'
+          }
+        />
 
         {/* Lot Header Info */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">

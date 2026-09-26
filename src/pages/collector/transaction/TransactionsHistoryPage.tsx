@@ -7,6 +7,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Header } from '../../../components/common/Header';
+import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { collectionRepository } from '../../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../../models/collection';
@@ -64,6 +65,18 @@ export const TransactionsHistoryPage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A15_transaction_history"
+          instruction={
+            language === 'hi'
+              ? 'लेन-देन इतिहास: पिछले सभी ई-कचरा हस्तांतरण, वजन रिकॉर्ड और पूर्ण डिजिटल भुगतान देखें।'
+              : language === 'mr'
+                ? 'व्यवहार इतिहास: मागील सर्व ई-कचरा हस्तांतरण, वजन नोंदी आणि पूर्ण झालेले डिजिटल भरणा पहा.'
+                : 'Transaction history: View all past e-waste handovers, weighing records, and completed digital settlements.'
+          }
+        />
 
         {/* Filter Tabs */}
         <div className="flex bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg p-1 gap-1">

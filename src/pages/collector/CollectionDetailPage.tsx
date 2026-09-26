@@ -12,6 +12,7 @@ import {
   Upload,
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { CollectionLot } from '../../models/collection';
@@ -27,9 +28,9 @@ export const CollectionDetailPage: React.FC = () => {
   const lotId = id || 'LOT-2026-0818';
 
   const detailAudioPrompts: Record<string, string> = {
-    en: 'Lot details. Motherboard PCB. Declared weight 2.1 kilograms. Indicative estimated value 620 to 700 rupees. Tap button below to find recyclers.',
-    hi: 'लॉट विवरण। मदरबोर्ड पीसीबी। घोषित वजन २.१ किलो। सांकेतिक मूल्य ६२० से ७०० रुपये। रिसाइक्लर खोजने के लिए नीचे बटन दबाएं।',
-    mr: 'लॉट तपशील. मदरबोर्ड पीसीबी. घोषित वजन २.१ किलो. अंदाजे मूल्य ६२० ते ७०० रुपये. रिसायकलर शोधण्यासाठी खालील बटण दाबा.',
+    en: 'Lot details: Motherboard PCB, declared weight 2.1 kilograms, indicative estimated value 620 to 700 rupees. Tap button below to find recyclers.',
+    hi: 'लॉट विवरण: मदरबोर्ड पीसीबी, घोषित वजन २.१ किलो, सांकेतिक मूल्य ६२० से ७०० रुपये। रिसाइक्लर खोजने के लिए नीचे बटन दबाएं।',
+    mr: 'लॉट तपशील: मदरबोर्ड पीसीबी, घोषित वजन २.१ किलो, अंदाजे मूल्य ६२० ते ७०० रुपये. रिसायकलर शोधण्यासाठी खालील बटण दाबा.',
   };
 
   const getLotTitle = (item: CollectionLot | null) => {
@@ -59,7 +60,6 @@ export const CollectionDetailPage: React.FC = () => {
         onBack={() => navigate('/collector/collections')}
         titleOverride={`${lotId} • ${t.detailTitleSuffix}`}
         subtitleOverride={t.manifestTitle}
-        audioPromptText={detailAudioPrompts[language] || detailAudioPrompts.hi}
       />
 
       {/* Truthful Manual Weight Indicator Strip */}
@@ -71,6 +71,12 @@ export const CollectionDetailPage: React.FC = () => {
       </div>
 
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A13_collection_detail"
+          instruction={detailAudioPrompts[language] || detailAudioPrompts.hi}
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
           {/* Left Column: Category, Photo, Verification Policy */}
           <div className="md:col-span-7 space-y-4">

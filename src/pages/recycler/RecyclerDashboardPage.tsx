@@ -10,6 +10,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../models/collection';
@@ -20,6 +21,12 @@ export const RecyclerDashboardPage: React.FC = () => {
   const { language, t } = useApp();
 
   const [transactions, setTransactions] = useState<HandoverTransactionDto[]>([]);
+
+  const recyclerAudioPrompts: Record<string, string> = {
+    en: 'Recycler Console. Review incoming scrap lots awaiting facility acceptance and track ongoing physical yard handovers.',
+    hi: 'रिसाइक्लर कंसोल। सुविधा स्वीकृति की प्रतीक्षा कर रहे स्क्रैप लॉट की समीक्षा करें और चल रहे यार्ड हस्तांतरण को ट्रैक करें।',
+    mr: 'रिसायकलर कन्सोल. सुविधा स्वीकृतीची वाट पाहत असलेल्या भंगार लॉट्सचे पुनरावलोकन करा आणि सुरू असलेल्या यार्ड हस्तांतरणाचा मागोवा घ्या.',
+  };
 
   useEffect(() => {
     collectionRepository.getHandoverTransactions().then((data) => {
@@ -61,6 +68,12 @@ export const RecyclerDashboardPage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A11_recycler_dashboard"
+          instruction={recyclerAudioPrompts[language] || recyclerAudioPrompts.hi}
+        />
 
         {/* Recycler Facility Banner */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech flex items-start justify-between">

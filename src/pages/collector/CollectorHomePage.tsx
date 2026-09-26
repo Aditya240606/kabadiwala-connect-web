@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlusCircle, Layers, Receipt, Search, ArrowRight, Smartphone, Cpu, Cable, AlertTriangle } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { CollectionLot, CollectionSummary } from '../../models/collection';
@@ -42,9 +43,7 @@ export const CollectorHomePage: React.FC = () => {
 
   return (
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
-      <Header
-        audioPromptText={homeAudioPrompts[language] || homeAudioPrompts.hi}
-      />
+      <Header />
 
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         {/* Status Chip Strip */}
@@ -58,6 +57,12 @@ export const CollectorHomePage: React.FC = () => {
             {t.sampleDataBadge}
           </span>
         </div>
+
+        {/* Audio Guidance Feature */}
+        <AudioGuidanceCard
+          audioId="A02_collector_home"
+          instruction={homeAudioPrompts[language] || homeAudioPrompts.hi}
+        />
 
         {/* Responsive Dashboard Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">

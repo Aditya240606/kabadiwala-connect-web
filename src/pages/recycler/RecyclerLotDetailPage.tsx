@@ -12,6 +12,7 @@ import {
   Info
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { HandoverTransactionDto } from '../../models/collection';
@@ -86,6 +87,18 @@ export const RecyclerLotDetailPage: React.FC = () => {
             <ExternalLink className="w-3 h-3" />
           </button>
         </div>
+
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A18_recycler_lot_detail"
+          instruction={
+            language === 'hi'
+              ? 'लॉट निरीक्षण: फोटो और वजन की जांच करें, फिर यार्ड डिलीवरी के लिए हस्तांतरण स्वीकार करें।'
+              : language === 'mr'
+                ? 'लॉट तपासणी: फोटो आणि वजन तपासा, नंतर यार्ड डिलिव्हरीसाठी हस्तांतरण स्वीकारा.'
+                : 'Lot inspection: Review scrap photograph and declared details, then accept handover for yard delivery.'
+          }
+        />
 
         {/* Transaction Header Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">

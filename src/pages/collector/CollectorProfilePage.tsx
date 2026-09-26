@@ -11,6 +11,7 @@ import {
   LogOut,
 } from 'lucide-react';
 import { Header } from '../../components/common/Header';
+import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
 import type { CollectorProfile } from '../../models/collection';
@@ -59,10 +60,15 @@ export const CollectorProfilePage: React.FC = () => {
     <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
         titleOverride={t.profileTitle}
-        audioPromptText={profileAudioPrompts[language] || profileAudioPrompts.hi}
       />
 
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
+        {/* Audio Guidance Card */}
+        <AudioGuidanceCard
+          audioId="A16_profile_settings"
+          instruction={profileAudioPrompts[language] || profileAudioPrompts.hi}
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
           {/* Left Column: Profile Identity, Actions & Version */}
           <div className="md:col-span-6 space-y-4">
