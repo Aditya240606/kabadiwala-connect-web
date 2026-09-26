@@ -43,7 +43,7 @@ export const ManualCategoryPage: React.FC = () => {
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <FlowStepIndicator currentStep={2} />
 
-        <p className="text-sm font-semibold text-[#57534E] px-0.5">
+        <p className="text-base font-bold text-[#57534E] px-0.5">
           {t.manualCategoryInstruction}
         </p>
 
@@ -58,24 +58,24 @@ export const ManualCategoryPage: React.FC = () => {
                 onClick={() => setSelectedCode(cat.code)}
                 className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all active:translate-y-0.5 ${
                   isSelected
-                    ? 'bg-[#ECFDF5] border-[#14532D] shadow-mech-sm'
+                    ? 'bg-[#ECFDF5] border-[#14532D] shadow-mech-sm ring-1 ring-[#14532D]'
                     : 'bg-white border-[#1C1917] shadow-mech-sm hover:border-[#14532D]'
                 }`}
               >
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center border ${
+                  className={`w-12 h-12 rounded-full flex items-center justify-center border ${
                     isSelected
                       ? 'bg-[#14532D] border-[#14532D] text-white'
                       : 'bg-[#F2EEDE] border-[#E2D9C8] text-[#1C1917]'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-6 h-6" />
                 </div>
-                <span className="font-heading font-black text-[11px] text-center text-[#1C1917] leading-tight">
+                <span className="font-heading font-black text-xs sm:text-sm text-center text-[#1C1917] leading-tight">
                   {getCatName(cat)}
                 </span>
                 {isSelected && (
-                  <CheckCircle className="w-4 h-4 text-[#14532D]" />
+                  <CheckCircle className="w-5 h-5 text-[#14532D]" />
                 )}
               </button>
             );
@@ -86,15 +86,15 @@ export const ManualCategoryPage: React.FC = () => {
         <button
           onClick={handleConfirm}
           disabled={!selectedCode}
-          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
+          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
             selectedCode
               ? 'bg-[#14532D] hover:bg-[#0F3F22] text-white'
               : 'bg-[#E2D9C8] text-[#78716C] cursor-not-allowed'
           }`}
         >
-          <CheckCircle className="w-5 h-5" />
+          <CheckCircle className="w-5 h-5 stroke-[2.5]" />
           <span>{t.manualCategoryConfirm}</span>
-          <ArrowRight className="w-5 h-5 ml-auto" />
+          <ArrowRight className="w-5 h-5 ml-auto stroke-[2.5]" />
         </button>
       </div>
     </div>

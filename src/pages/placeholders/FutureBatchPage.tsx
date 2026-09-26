@@ -79,24 +79,24 @@ export const FutureBatchPage: React.FC = () => {
           </div>
 
           <div>
-            <span className="bg-[#14532D] text-white text-[10px] font-black px-2 py-0.5 rounded tracking-wide uppercase inline-block mb-1.5">
+            <span className="bg-[#14532D] text-white text-xs font-black px-2.5 py-1 rounded tracking-wide uppercase inline-block mb-2">
               {details.batch}
             </span>
-            <h2 className="font-heading font-black text-lg text-[#1C1917]">
+            <h2 className="font-heading font-black text-xl sm:text-2xl text-[#1C1917]">
               {details.title}
             </h2>
-            <p className="text-xs text-[#57534E] font-medium mt-2 leading-relaxed">
+            <p className="text-sm text-[#57534E] font-medium mt-2 leading-relaxed">
               {details.desc}
             </p>
           </div>
 
-          <div className="bg-[#F2EEDE] border border-[#E2D9C8] rounded-md p-2.5 text-[11px] font-mono text-[#1C1917]">
+          <div className="bg-[#F2EEDE] border border-[#E2D9C8] rounded-md p-2.5 text-xs font-mono text-[#1C1917]">
             Route: {location.pathname}
           </div>
 
           <button
             onClick={() => navigate('/collector')}
-            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-2.5 px-4 font-heading font-black text-xs tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <ArrowLeft className="w-4 h-4 stroke-[3]" />
             <span>Back to Collector Home / मुख्य पृष्ठ</span>

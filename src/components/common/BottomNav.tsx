@@ -62,7 +62,7 @@ export const BottomNav: React.FC = () => {
               >
                 <Icon className="w-5 h-5 stroke-[2.2]" />
               </div>
-              <span className={`text-[11px] font-extrabold tracking-tight leading-tight mt-0.5 ${active ? 'text-[#14532D]' : ''}`}>
+              <span className={`text-xs font-black tracking-tight leading-tight mt-0.5 text-center truncate max-w-full ${active ? 'text-[#14532D]' : ''}`}>
                 {tab.label}
               </span>
             </button>

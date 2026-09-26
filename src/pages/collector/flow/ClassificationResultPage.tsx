@@ -84,10 +84,10 @@ export const ClassificationResultPage: React.FC = () => {
             <div className="w-16 h-16 rounded-full bg-[#F59E0B] border-2 border-[#1C1917] flex items-center justify-center animate-pulse shadow-mech">
               <Cpu className="w-8 h-8 text-[#1C1917]" />
             </div>
-            <h2 className="font-heading font-black text-lg text-[#1C1917] text-center">
+            <h2 className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] text-center">
               {t.classifyingTitle}
             </h2>
-            <p className="text-sm text-[#57534E] font-semibold text-center">
+            <p className="text-base text-[#57534E] font-semibold text-center">
               {t.classifyingMsg}
             </p>
 
@@ -101,7 +101,7 @@ export const ClassificationResultPage: React.FC = () => {
               <img
                 src={flow.photoDataUrl}
                 alt="Material"
-                className="w-24 h-24 rounded border-2 border-[#E2D9C8] object-cover mt-2 opacity-60"
+                className="w-28 h-28 rounded border-2 border-[#E2D9C8] object-cover mt-2 opacity-60"
               />
             )}
           </div>
@@ -137,10 +137,10 @@ export const ClassificationResultPage: React.FC = () => {
               />
             )}
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1C1917]/90 to-transparent p-4 pt-12">
-              <span className="bg-[#F59E0B] text-[#1C1917] text-[10px] font-black px-2 py-0.5 rounded uppercase">
+              <span className="bg-[#F59E0B] text-[#1C1917] text-xs font-black px-2 py-0.5 rounded uppercase">
                 {t.classifySuggested}
               </span>
-              <h2 className="font-heading font-black text-xl text-white mt-1.5 leading-tight">
+              <h2 className="font-heading font-black text-2xl sm:text-3xl text-white mt-1.5 leading-tight">
                 {displayName}
               </h2>
             </div>
@@ -150,11 +150,11 @@ export const ClassificationResultPage: React.FC = () => {
           <div className="p-4 space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.classifyConfidence}
                 </span>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="w-24 h-2 bg-[#E2D9C8] rounded overflow-hidden">
+                  <div className="w-24 h-2.5 bg-[#E2D9C8] rounded overflow-hidden">
                     <div
                       className="h-full rounded transition-all duration-500"
                       style={{
@@ -163,16 +163,16 @@ export const ClassificationResultPage: React.FC = () => {
                       }}
                     />
                   </div>
-                  <span className="font-heading font-black text-sm text-[#1C1917]">
+                  <span className="font-heading font-black text-base text-[#1C1917]">
                     {confidencePercent}%
                   </span>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.classifyModel}
                 </span>
-                <span className="text-xs font-bold text-[#78716C]">
+                <span className="text-xs sm:text-sm font-bold text-[#78716C]">
                   {result?.modelName} v{result?.modelVersion}
                 </span>
               </div>
@@ -180,7 +180,7 @@ export const ClassificationResultPage: React.FC = () => {
 
             <div className="bg-[#ECFDF5] border border-[#14532D]/30 rounded p-2 flex items-center gap-2">
               <Cpu className="w-4 h-4 text-[#14532D]" />
-              <span className="text-[11px] font-bold text-[#166534]">
+              <span className="text-xs sm:text-sm font-bold text-[#166534]">
                 {t.classifyAiAssisted}
               </span>
             </div>
@@ -191,16 +191,16 @@ export const ClassificationResultPage: React.FC = () => {
         <div className="space-y-2.5">
           <button
             onClick={handleConfirm}
-            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
-            <CheckCircle className="w-5 h-5" />
+            <CheckCircle className="w-5 h-5 stroke-[2.5]" />
             <span>{t.classifyConfirmBtn}</span>
-            <ArrowRight className="w-5 h-5 ml-auto" />
+            <ArrowRight className="w-5 h-5 ml-auto stroke-[2.5]" />
           </button>
 
           <button
             onClick={handleCorrect}
-            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <RefreshCw className="w-4 h-4" />
             <span>{t.classifyCorrectBtn}</span>
@@ -208,7 +208,7 @@ export const ClassificationResultPage: React.FC = () => {
 
           <button
             onClick={handleManual}
-            className="w-full bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#78350F] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#78350F] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <Hand className="w-4 h-4" />
             <span>{t.classifyManualBtn}</span>

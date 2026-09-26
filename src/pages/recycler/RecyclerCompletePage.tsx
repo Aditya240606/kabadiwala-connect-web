@@ -59,28 +59,28 @@ export const RecyclerCompletePage: React.FC = () => {
         </div>
 
         {/* Digital Transaction Record Card */}
-        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">
+        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 sm:p-6 shadow-mech space-y-4">
           <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-3">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-[#14532D]" />
-              <h3 className="font-heading font-black text-sm text-[#14532D] uppercase tracking-wide">
+              <h3 className="font-heading font-black text-base text-[#14532D] uppercase tracking-wide">
                 {t.digitalReceiptTitle}
               </h3>
             </div>
 
-            <span className="font-heading font-black text-xs px-2.5 py-0.5 rounded bg-[#ECFDF5] text-[#14532D] border border-[#14532D] uppercase">
+            <span className="font-heading font-black text-sm px-3 py-1 rounded bg-[#ECFDF5] text-[#14532D] border border-[#14532D] uppercase">
               COMPLETED
             </span>
           </div>
 
           {/* Breakdown Table */}
           <div className="border border-[#1C1917] rounded overflow-hidden">
-            <div className="grid grid-cols-2 bg-[#F2EEDE] border-b border-[#1C1917] p-2 text-[11px] font-bold text-[#57534E]">
+            <div className="grid grid-cols-2 bg-[#F2EEDE] border-b border-[#1C1917] p-2.5 text-xs font-bold text-[#57534E]">
               <span>{t.declaredVsReceived}</span>
               <span className="text-right">{language === 'hi' ? 'विवरण' : language === 'mr' ? 'तपशील' : 'Recorded Value'}</span>
             </div>
 
-            <div className="divide-y divide-[#E2D9C8] text-xs">
+            <div className="divide-y divide-[#E2D9C8] text-sm">
               <div className="p-2.5 flex justify-between">
                 <span className="text-[#57534E] font-medium">{t.txnIdLabel}</span>
                 <span className="font-mono font-bold text-[#1C1917]">{txnId}</span>
@@ -103,7 +103,7 @@ export const RecyclerCompletePage: React.FC = () => {
 
               <div className="p-2.5 flex justify-between bg-[#F2F9F3]">
                 <span className="text-[#14532D] font-bold">{t.receiveActualWeight}</span>
-                <span className="font-mono font-black text-sm text-[#14532D]">{txn?.receivedWeightKg ?? 2.0} KG</span>
+                <span className="font-mono font-black text-base text-[#14532D]">{txn?.receivedWeightKg ?? 2.0} KG</span>
               </div>
 
               <div className="p-2.5 flex justify-between">
@@ -120,7 +120,7 @@ export const RecyclerCompletePage: React.FC = () => {
 
               <div className="p-2.5 flex justify-between bg-[#FFFBEB]">
                 <span className="text-[#B45309] font-black">{t.paymentFinalSettlement}</span>
-                <span className="font-heading font-black text-base text-[#B45309]">₹{txn?.totalAmount ?? 590}</span>
+                <span className="font-heading font-black text-lg text-[#B45309]">₹{txn?.totalAmount ?? 590}</span>
               </div>
 
               <div className="p-2.5 flex justify-between">
@@ -130,7 +130,7 @@ export const RecyclerCompletePage: React.FC = () => {
 
               <div className="p-2.5 flex justify-between">
                 <span className="text-[#57534E] font-medium">{t.txnDateLabel}</span>
-                <span className="font-mono text-[11px] text-[#57534E]">
+                <span className="font-mono text-xs text-[#57534E]">
                   {txn?.completedAt ? new Date(txn.completedAt).toLocaleString() : '24 Sep 2026, 11:45 AM'}
                 </span>
               </div>
@@ -138,7 +138,7 @@ export const RecyclerCompletePage: React.FC = () => {
           </div>
 
           {/* Product Truth Notice */}
-          <div className="bg-[#FEF3C7] border border-[#B45309] rounded p-3 text-xs text-[#78350F] flex items-start gap-2">
+          <div className="bg-[#FEF3C7] border border-[#B45309] rounded p-3 text-sm text-[#78350F] flex items-start gap-2">
             <Info className="w-4 h-4 shrink-0 mt-0.5 text-[#B45309]" />
             <p className="leading-relaxed font-medium">
               {t.recordDisclaimer}
@@ -147,13 +147,13 @@ export const RecyclerCompletePage: React.FC = () => {
         </div>
 
         {/* Action CTAs */}
-        <div className="space-y-2.5 pt-2">
+        <div className="space-y-3 pt-2">
           {/* Two-Sided Loop: Return to Collector View */}
           <button
             onClick={() => navigate(`/collector/transactions/${txnId}`)}
-            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
-            <Building2 className="w-4 h-4" />
+            <Building2 className="w-5 h-5" />
             <span>
               {language === 'hi' ? 'कबाड़ीवाला देखें (पूर्ण रिकॉर्ड)' : language === 'mr' ? 'कबाड़ीवाला पहा (पूर्ण नोंद)' : 'SWITCH TO COLLECTOR (VIEW COMPLETED RECORD)'}
             </span>
@@ -162,7 +162,7 @@ export const RecyclerCompletePage: React.FC = () => {
 
           <button
             onClick={() => navigate('/recycler')}
-            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-xs uppercase tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm uppercase tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <Home className="w-4 h-4" />
             <span>{t.backToConsoleBtn}</span>

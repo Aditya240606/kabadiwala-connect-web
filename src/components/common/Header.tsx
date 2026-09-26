@@ -51,10 +51,10 @@ export const Header: React.FC<HeaderProps> = ({
         )}
 
         <div>
-          <h1 className="font-heading font-extrabold text-[#14532D] text-base tracking-tight leading-tight">
+          <h1 className="font-heading font-black text-[#14532D] text-base sm:text-lg tracking-tight leading-tight">
             {titleOverride || t.appName}
           </h1>
-          <p className="text-[10px] font-bold text-[#B45309] tracking-wider uppercase leading-none">
+          <p className="text-xs font-bold text-[#B45309] tracking-wider uppercase leading-none mt-0.5">
             {subtitleOverride || t.appSubtitle}
           </p>
         </div>
@@ -62,12 +62,12 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="flex items-center gap-1.5">
         {/* Language Quick Switcher */}
-        <div className="flex items-center bg-[#F2EEDE] rounded border border-[#1C1917] p-0.5 text-[11px] font-bold">
+        <div className="flex items-center bg-[#F2EEDE] rounded border border-[#1C1917] p-0.5 text-xs font-bold">
           {(['hi', 'en', 'mr'] as SupportedLanguage[]).map((lang) => (
             <button
               key={lang}
               onClick={() => setLanguage(lang)}
-              className={`px-1.5 py-0.5 rounded uppercase transition-colors ${
+              className={`px-2 py-0.5 rounded uppercase transition-colors ${
                 language === lang
                   ? 'bg-[#14532D] text-white'
                   : 'text-[#57534E] hover:text-[#1C1917]'

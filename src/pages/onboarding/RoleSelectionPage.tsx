@@ -32,10 +32,10 @@ export const RoleSelectionPage: React.FC = () => {
       <div className="flex-1 w-full max-w-4xl mx-auto p-4 md:p-6 pb-28 space-y-4 overflow-y-auto">
         {/* Page Title Card */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm">
-          <h2 className="font-heading font-black text-xl text-[#1C1917] leading-tight">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#1C1917] leading-tight">
             {t.roleTitle}
           </h2>
-          <p className="text-xs text-[#57534E] mt-0.5 font-medium">
+          <p className="text-sm sm:text-base text-[#57534E] mt-1 font-medium">
             {t.roleSubtitle}
           </p>
         </div>
@@ -53,7 +53,7 @@ export const RoleSelectionPage: React.FC = () => {
           >
             <div>
               {selectedRole === 'collector' && (
-                <div className="inline-flex items-center bg-[#ECFDF5] border border-[#14532D] text-[#14532D] text-[10.5px] font-black px-2 py-0.5 rounded mb-3">
+                <div className="inline-flex items-center bg-[#ECFDF5] border border-[#14532D] text-[#14532D] text-xs font-black px-2 py-0.5 rounded mb-3">
                   <span>{t.roleSelectedBadge}</span>
                 </div>
               )}
@@ -64,10 +64,10 @@ export const RoleSelectionPage: React.FC = () => {
                     <Package className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-black text-lg text-[#1C1917] leading-tight">
+                    <h3 className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] leading-tight">
                       {t.roleCollectorTitle}
                     </h3>
-                    <p className="text-xs font-bold text-[#166534] mt-0.5">
+                    <p className="text-sm font-bold text-[#166534] mt-0.5">
                       {t.roleCollectorSub}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export const RoleSelectionPage: React.FC = () => {
           >
             <div>
               {selectedRole === 'recycler' && (
-                <div className="inline-flex items-center bg-[#ECFDF5] border border-[#14532D] text-[#14532D] text-[10.5px] font-black px-2 py-0.5 rounded mb-3">
+                <div className="inline-flex items-center bg-[#ECFDF5] border border-[#14532D] text-[#14532D] text-xs font-black px-2 py-0.5 rounded mb-3">
                   <span>{t.roleSelectedBadge}</span>
                 </div>
               )}
@@ -106,10 +106,10 @@ export const RoleSelectionPage: React.FC = () => {
                     <Factory className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-black text-lg text-[#1C1917] leading-tight">
+                    <h3 className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] leading-tight">
                       {t.roleRecyclerTitle}
                     </h3>
-                    <p className="text-xs font-bold text-[#57534E] mt-0.5">
+                    <p className="text-sm font-bold text-[#57534E] mt-0.5">
                       {t.roleRecyclerSub}
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export const RoleSelectionPage: React.FC = () => {
         <div className="max-w-md mx-auto">
           <button
             onClick={handleContinue}
-            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <span>
               {selectedRole === 'collector' ? t.continueCollector : t.continueRecycler}

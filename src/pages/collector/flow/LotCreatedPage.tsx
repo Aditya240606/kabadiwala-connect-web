@@ -44,31 +44,31 @@ export const LotCreatedPage: React.FC = () => {
         </div>
 
         <div className="text-center space-y-2">
-          <h1 className="font-heading font-black text-2xl text-[#14532D]">
+          <h1 className="font-heading font-black text-2xl sm:text-3xl text-[#14532D]">
             {t.lotCreatedTitle}
           </h1>
-          <p className="text-sm font-semibold text-[#57534E] max-w-xs mx-auto">
+          <p className="text-base font-semibold text-[#57534E] max-w-sm mx-auto">
             {t.lotCreatedMsg}
           </p>
         </div>
 
         {/* Lot ID Card */}
         {flow.lotId && (
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech-sm w-full max-w-xs text-center">
-            <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech-sm w-full max-w-sm text-center">
+            <span className="text-xs font-black text-[#57534E] uppercase tracking-wider block">
               {t.lotCreatedId}
             </span>
-            <span className="font-heading font-black text-lg text-[#1C1917] font-mono block mt-1">
+            <span className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] font-mono block mt-1">
               {flow.lotId}
             </span>
           </div>
         )}
 
         {/* Action Buttons */}
-        <div className="w-full max-w-xs space-y-2.5">
+        <div className="w-full max-w-sm space-y-3">
           <button
             onClick={handleViewLot}
-            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <Eye className="w-5 h-5" />
             <span>{t.lotCreatedViewBtn}</span>
@@ -76,7 +76,7 @@ export const LotCreatedPage: React.FC = () => {
 
           <button
             onClick={handleNewCollection}
-            className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <PlusCircle className="w-5 h-5" />
             <span>{t.lotCreatedNewBtn}</span>
@@ -84,7 +84,7 @@ export const LotCreatedPage: React.FC = () => {
 
           <button
             onClick={handleGoHome}
-            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+            className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
           >
             <Home className="w-5 h-5" />
             <span>{t.lotCreatedHomeBtn}</span>

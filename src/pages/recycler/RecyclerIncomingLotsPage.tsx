@@ -58,12 +58,12 @@ export const RecyclerIncomingLotsPage: React.FC = () => {
         {pendingLots.length === 0 ? (
           <div className="bg-white border-2 border-[#1C1917] rounded-lg p-8 text-center space-y-2 shadow-mech">
             <Inbox className="w-10 h-10 text-[#78716C] mx-auto opacity-50" />
-            <h3 className="font-heading font-black text-base text-[#1C1917]">
+            <h3 className="font-heading font-black text-lg text-[#1C1917]">
               {t.recyclerNoIncoming}
             </h3>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {pendingLots.map((txn) => {
               const materialName = (language === 'hi' && txn.materialTitleHindi)
                 ? txn.materialTitleHindi
@@ -75,25 +75,25 @@ export const RecyclerIncomingLotsPage: React.FC = () => {
                 <div
                   key={txn.id}
                   onClick={() => navigate(`/recycler/lot/${txn.id}`)}
-                  className="bg-white border-2 border-[#1C1917] hover:border-[#14532D] rounded-lg p-4 shadow-mech cursor-pointer transition-all active:translate-y-0.5 space-y-3"
+                  className="bg-white border-2 border-[#1C1917] hover:border-[#14532D] rounded-lg p-4 sm:p-5 shadow-mech cursor-pointer transition-all active:translate-y-0.5 space-y-3.5"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono font-black text-sm text-[#1C1917]">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-mono font-black text-base text-[#1C1917]">
                           {txn.id}
                         </span>
-                        <span className="text-[10px] text-[#78716C]">
+                        <span className="text-xs text-[#78716C]">
                           • {txn.lotId}
                         </span>
                       </div>
-                      <h4 className="font-heading font-black text-base text-[#14532D] mt-0.5">
+                      <h4 className="font-heading font-black text-lg sm:text-xl text-[#14532D] mt-0.5">
                         {materialName}
                       </h4>
                     </div>
 
                     <span
-                      className={`font-heading font-black text-[10px] px-2 py-0.5 rounded border uppercase shrink-0 ${
+                      className={`font-heading font-black text-xs px-2.5 py-0.5 rounded border uppercase shrink-0 ${
                         txn.status === 'ACCEPTED'
                           ? 'bg-[#FEF3C7] text-[#B45309] border-[#B45309]'
                           : 'bg-[#ECFDF5] text-[#14532D] border-[#14532D]'
@@ -103,38 +103,38 @@ export const RecyclerIncomingLotsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2 border-t border-[#E2D9C8] text-xs">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 border-t border-[#E2D9C8] text-sm">
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {t.receiveCollectorDeclared}
                       </span>
-                      <span className="font-mono font-bold text-[#1C1917] flex items-center gap-1">
-                        <Scale className="w-3.5 h-3.5 text-[#B45309]" />
+                      <span className="font-mono font-bold text-[#1C1917] flex items-center gap-1 text-base">
+                        <Scale className="w-4 h-4 text-[#B45309]" />
                         {txn.declaredWeightKg} KG
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {t.paymentEstValue}
                       </span>
-                      <span className="font-heading font-black text-[#B45309]">
+                      <span className="font-heading font-black text-base sm:text-lg text-[#B45309]">
                         ₹{txn.estimatedTotal ?? 620}
                       </span>
                     </div>
 
                     <div className="col-span-2 sm:col-span-1">
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {language === 'hi' ? 'कबाड़ीवाला' : language === 'mr' ? 'कबाड़ीवाला' : 'Collector'}
                       </span>
-                      <span className="font-semibold text-[#1C1917]">
+                      <span className="font-semibold text-[#1C1917] text-sm">
                         {txn.collectorId}
                       </span>
                     </div>
                   </div>
 
                   {txn.handoverNotes && (
-                    <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-2 text-xs text-[#57534E]">
+                    <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-2.5 text-sm text-[#57534E]">
                       <strong>{t.handoverNotesLabel}:</strong> {txn.handoverNotes}
                     </div>
                   )}
@@ -142,10 +142,10 @@ export const RecyclerIncomingLotsPage: React.FC = () => {
                   <div className="pt-2 border-t border-[#E2D9C8] flex justify-end">
                     <button
                       type="button"
-                      className="bg-[#14532D] hover:bg-[#0F3F22] text-white border border-[#1C1917] rounded px-3 py-1.5 font-heading font-black text-xs shadow-mech-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all"
+                      className="bg-[#14532D] hover:bg-[#0F3F22] text-white border border-[#1C1917] rounded px-3.5 py-2 font-heading font-black text-sm shadow-mech-sm flex items-center gap-1.5 active:translate-y-0.5 transition-all"
                     >
                       <span>{t.recyclerInspectBtn}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>

@@ -66,7 +66,7 @@ export const RecyclerDetailPage: React.FC = () => {
 
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         {/* Main Facility Card */}
-        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">
+        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 sm:p-6 shadow-mech space-y-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-start gap-3">
               <div className="w-12 h-12 rounded-lg bg-[#ECFDF5] border-2 border-[#14532D] flex items-center justify-center shrink-0">
@@ -74,17 +74,17 @@ export const RecyclerDetailPage: React.FC = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h2 className="font-heading font-black text-xl text-[#1C1917] leading-tight">
+                  <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#1C1917] leading-tight">
                     {facilityName}
                   </h2>
                   {recycler.verifiedBadge && (
-                    <span className="inline-flex items-center gap-1 bg-[#ECFDF5] text-[#14532D] border border-[#14532D]/40 text-[10px] font-black px-2 py-0.5 rounded uppercase">
+                    <span className="inline-flex items-center gap-1 bg-[#ECFDF5] text-[#14532D] border border-[#14532D]/40 text-xs font-black px-2 py-0.5 rounded uppercase">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       {t.matchingVerifiedBadge}
                     </span>
                   )}
                 </div>
-                <span className="text-[10px] font-bold text-[#78716C] uppercase tracking-wider block mt-1">
+                <span className="text-xs font-bold text-[#78716C] uppercase tracking-wider block mt-1">
                   ID: {recycler.id} • {recycler.status}
                 </span>
               </div>
@@ -92,26 +92,26 @@ export const RecyclerDetailPage: React.FC = () => {
           </div>
 
           {/* Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-[#E2D9C8]">
-            <div className="space-y-1">
-              <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[#E2D9C8]">
+            <div className="space-y-1.5">
+              <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                 {t.recyclerAddressLabel}
               </span>
-              <div className="flex items-start gap-1.5 text-xs text-[#1C1917] font-semibold">
+              <div className="flex items-start gap-1.5 text-sm text-[#1C1917] font-semibold">
                 <MapPin className="w-4 h-4 text-[#B45309] shrink-0 mt-0.5" />
                 <span>{facilityAddress}, {recycler.city}</span>
               </div>
             </div>
 
-            <div className="space-y-1">
-              <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+            <div className="space-y-1.5">
+              <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                 {t.recyclerContactLabel}
               </span>
-              <div className="flex items-center gap-1.5 text-xs text-[#1C1917] font-bold">
+              <div className="flex items-center gap-1.5 text-sm text-[#1C1917] font-bold">
                 <Phone className="w-4 h-4 text-[#14532D] shrink-0" />
                 <span>{recycler.contactPhone}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-[#57534E] font-medium">
+              <div className="flex items-center gap-1.5 text-sm text-[#57534E] font-medium">
                 <Mail className="w-4 h-4 text-[#78716C] shrink-0" />
                 <span>{recycler.contactEmail}</span>
               </div>
@@ -119,7 +119,7 @@ export const RecyclerDetailPage: React.FC = () => {
           </div>
 
           {/* Operating hours */}
-          <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded-md p-3 flex items-center gap-2 text-xs font-bold text-[#78350F]">
+          <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded-md p-3 flex items-center gap-2 text-sm font-bold text-[#78350F]">
             <Clock className="w-4 h-4 text-[#B45309]" />
             <span>{recycler.operatingHours || t.recyclerOperatingHours}</span>
           </div>
@@ -127,17 +127,17 @@ export const RecyclerDetailPage: React.FC = () => {
 
         {/* Accepted Categories */}
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">
-          <h3 className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase">
+          <h3 className="font-heading font-black text-base text-[#1C1917] tracking-wider uppercase">
             {t.recyclerAcceptedMaterials}
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             {recycler.acceptedCategoryCodes.map((code) => (
               <div
                 key={code}
-                className="bg-[#F2EEDE] border border-[#E2D9C8] rounded p-2 flex items-center gap-2"
+                className="bg-[#F2EEDE] border border-[#E2D9C8] rounded p-2.5 flex items-center gap-2"
               >
-                <Tag className="w-3.5 h-3.5 text-[#14532D]" />
-                <span className="font-heading font-black text-xs text-[#1C1917]">
+                <Tag className="w-4 h-4 text-[#14532D]" />
+                <span className="font-heading font-black text-sm text-[#1C1917]">
                   {getCategoryDisplayName(code, language)}
                 </span>
               </div>
@@ -148,7 +148,7 @@ export const RecyclerDetailPage: React.FC = () => {
         {/* Product Truth Notice Box */}
         <div className="bg-[#FEF3C7] border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm flex items-start gap-2.5">
           <AlertTriangle className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
-          <p className="text-xs text-[#78350F] font-semibold leading-relaxed">
+          <p className="text-sm text-[#78350F] font-semibold leading-relaxed">
             {t.recyclerPolicyNotice}
           </p>
         </div>
@@ -156,7 +156,7 @@ export const RecyclerDetailPage: React.FC = () => {
         {/* Action Button */}
         <button
           onClick={handleInitiateHandover}
-          className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+          className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
         >
           <span>{t.recyclerInitiateBtn}</span>
           <ArrowRight className="w-5 h-5 ml-auto" />

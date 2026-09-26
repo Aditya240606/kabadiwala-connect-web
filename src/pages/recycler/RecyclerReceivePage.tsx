@@ -102,31 +102,31 @@ export const RecyclerReceivePage: React.FC = () => {
         </div>
 
         {/* Lot Header Info */}
-        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-2">
-          <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-2">
-            <span className="font-mono font-black text-sm text-[#1C1917]">
+        <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">
+          <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-2.5">
+            <span className="font-mono font-black text-base text-[#1C1917]">
               {txnId}
             </span>
-            <span className="text-xs font-semibold text-[#57534E]">
+            <span className="text-sm font-semibold text-[#57534E]">
               {txn?.lotId}
             </span>
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+              <span className="text-xs font-bold text-[#57534E] uppercase block">
                 {t.reviewCategory}
               </span>
-              <h3 className="font-heading font-black text-base text-[#14532D]">
+              <h3 className="font-heading font-black text-lg sm:text-xl text-[#14532D]">
                 {materialName}
               </h3>
             </div>
 
             <div className="text-right">
-              <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+              <span className="text-xs font-bold text-[#57534E] uppercase block">
                 {t.paymentEstValue}
               </span>
-              <span className="font-heading font-black text-base text-[#B45309]">
+              <span className="font-heading font-black text-xl sm:text-2xl text-[#B45309]">
                 ₹{txn?.estimatedTotal ?? 620}
               </span>
             </div>
@@ -136,38 +136,38 @@ export const RecyclerReceivePage: React.FC = () => {
         {/* Non-negotiable Product Truth: Manual Weighing */}
         <div className="bg-[#FEF3C7] border-2 border-[#B45309] rounded-lg p-3.5 shadow-mech-sm flex items-start gap-2.5">
           <Info className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
-          <p className="text-xs text-[#78350F] font-semibold leading-relaxed">
+          <p className="text-sm text-[#78350F] font-semibold leading-relaxed">
             {t.receiveManualOnlyNotice}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Side-by-side Weight Comparison Card */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-4">
-            <div className="flex items-center gap-2 border-b border-[#E2D9C8] pb-2">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">
+            <div className="flex items-center gap-2 border-b border-[#E2D9C8] pb-2.5">
               <Scale className="w-5 h-5 text-[#14532D]" />
-              <h3 className="font-heading font-black text-xs text-[#1C1917] uppercase tracking-wider">
+              <h3 className="font-heading font-black text-sm text-[#1C1917] uppercase tracking-wider">
                 {t.declaredVsReceived}
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Field 1: Collector Declared (Read-only, Unchanged) */}
-              <div className="bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg p-3.5 space-y-1">
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+              <div className="bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg p-4 space-y-1.5">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.receiveCollectorDeclared}
                 </span>
-                <div className="font-mono font-black text-2xl text-[#1C1917]">
-                  {txn?.declaredWeightKg ?? 2.1} <span className="text-sm font-bold text-[#57534E]">KG</span>
+                <div className="font-mono font-black text-2xl sm:text-3xl text-[#1C1917]">
+                  {txn?.declaredWeightKg ?? 2.1} <span className="text-base font-bold text-[#57534E]">KG</span>
                 </div>
-                <p className="text-[10px] font-semibold text-[#78716C]">
+                <p className="text-xs font-semibold text-[#78716C]">
                   {language === 'hi' ? 'कबाड़ीवाला द्वारा दर्ज (अपरिवर्तनीय)' : language === 'mr' ? 'कबाड़ीवाला यांनी नोंदवलेले (अपरिवर्तनीय)' : 'Collector declared (Fixed baseline)'}
                 </p>
               </div>
 
               {/* Field 2: Recycler Received Weight (Editable, Manual Entry) */}
-              <div className="bg-[#F2F9F3] border-2 border-[#14532D] rounded-lg p-3.5 space-y-1 ring-1 ring-[#14532D]">
-                <label className="text-[10px] font-bold text-[#14532D] uppercase tracking-wider block">
+              <div className="bg-[#F2F9F3] border-2 border-[#14532D] rounded-lg p-4 space-y-1.5 ring-1 ring-[#14532D]">
+                <label className="text-xs font-bold text-[#14532D] uppercase tracking-wider block">
                   {t.receiveActualWeight} (KG) *
                 </label>
                 <div className="flex items-center gap-2">
@@ -179,13 +179,13 @@ export const RecyclerReceivePage: React.FC = () => {
                     required
                     value={receivedWeight}
                     onChange={(e) => setReceivedWeight(e.target.value)}
-                    className="w-full bg-white border-2 border-[#1C1917] rounded-md px-3 py-1.5 font-mono font-black text-2xl text-[#14532D] outline-none focus:ring-2 focus:ring-[#14532D]"
+                    className="w-full bg-white border-2 border-[#1C1917] rounded-md px-3 py-1.5 font-mono font-black text-2xl sm:text-3xl text-[#14532D] outline-none focus:ring-2 focus:ring-[#14532D]"
                   />
-                  <span className="font-heading font-black text-sm text-[#14532D]">
+                  <span className="font-heading font-black text-lg text-[#14532D]">
                     KG
                   </span>
                 </div>
-                <p className="text-[10px] font-semibold text-[#166534]">
+                <p className="text-xs font-semibold text-[#166534]">
                   {t.receiveWeightInstruction}
                 </p>
               </div>
@@ -193,12 +193,12 @@ export const RecyclerReceivePage: React.FC = () => {
           </div>
 
           {/* Quality / Grade Selection */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-3">
-            <h3 className="font-heading font-black text-xs text-[#1C1917] uppercase tracking-wider block">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3.5">
+            <h3 className="font-heading font-black text-sm text-[#1C1917] uppercase tracking-wider block">
               {t.qualityTitle}
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
                 { id: 'ACCEPTED' as QualityGrade, label: t.qualityAccepted, color: '#14532D', desc: 'Clean, sorted' },
                 { id: 'MIXED' as QualityGrade, label: t.qualityMixed, color: '#B45309', desc: 'Slight foreign scrap' },
@@ -208,21 +208,21 @@ export const RecyclerReceivePage: React.FC = () => {
                   type="button"
                   key={opt.id}
                   onClick={() => setQualityGrade(opt.id)}
-                  className={`border-2 rounded-lg p-3 text-left transition-all ${
+                  className={`border-2 rounded-lg p-3.5 text-left transition-all ${
                     qualityGrade === opt.id
                       ? 'border-[#14532D] bg-[#ECFDF5] shadow-mech-sm ring-1 ring-[#14532D]'
                       : 'border-[#1C1917] bg-white hover:border-[#14532D]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-heading font-black text-xs text-[#1C1917]">
+                    <span className="font-heading font-black text-sm text-[#1C1917]">
                       {opt.label}
                     </span>
                     {qualityGrade === opt.id && (
                       <CheckCircle className="w-4 h-4 text-[#14532D]" />
                     )}
                   </div>
-                  <span className="text-[10px] text-[#57534E] font-medium block mt-0.5">
+                  <span className="text-xs text-[#57534E] font-medium block mt-1">
                     {opt.desc}
                   </span>
                 </button>
@@ -231,10 +231,10 @@ export const RecyclerReceivePage: React.FC = () => {
           </div>
 
           {/* Agreed Rate & Calculated Amount */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-3">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block mb-1">
+                <label className="text-xs font-bold text-[#57534E] uppercase tracking-wider block mb-1">
                   {t.agreedRateLabel} (₹/KG)
                 </label>
                 <input
@@ -243,18 +243,18 @@ export const RecyclerReceivePage: React.FC = () => {
                   min="1"
                   value={ratePerKg}
                   onChange={(e) => setRatePerKg(e.target.value)}
-                  className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md px-3 py-2 font-mono font-bold text-lg text-[#1C1917] outline-none focus:border-[#14532D]"
+                  className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md px-3 py-2 font-mono font-bold text-xl text-[#1C1917] outline-none focus:border-[#14532D]"
                 />
               </div>
 
-              <div className="bg-[#FFFBEB] border border-[#B45309] rounded-md p-3 flex flex-col justify-between">
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+              <div className="bg-[#FFFBEB] border border-[#B45309] rounded-md p-3.5 flex flex-col justify-between">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.calculatedPayout}
                 </span>
-                <span className="font-heading font-black text-2xl text-[#B45309]">
+                <span className="font-heading font-black text-2xl sm:text-3xl text-[#B45309]">
                   ₹{calculatedTotal}
                 </span>
-                <span className="text-[10px] text-[#78350F] font-semibold">
+                <span className="text-xs text-[#78350F] font-semibold">
                   {numWeight} KG × ₹{numRate}/KG
                 </span>
               </div>
@@ -262,15 +262,15 @@ export const RecyclerReceivePage: React.FC = () => {
           </div>
 
           {/* Inspection Note */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-2">
-            <label className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-2">
+            <label className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
               {language === 'hi' ? 'निरीक्षण नोट (वैकल्पिक)' : language === 'mr' ? 'तपासणी नोंद (पर्यायी)' : 'Inspection Note (Optional)'}
             </label>
             <input
               type="text"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md px-3 py-2 text-xs font-semibold text-[#1C1917] outline-none focus:border-[#14532D]"
+              className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md px-3 py-2.5 text-sm font-semibold text-[#1C1917] outline-none focus:border-[#14532D]"
               placeholder="e.g., Clean Dismantled Class A"
             />
           </div>
@@ -279,7 +279,7 @@ export const RecyclerReceivePage: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting || numWeight <= 0}
-            className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
+            className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
               isSubmitting
                 ? 'bg-[#E2D9C8] text-[#78716C] cursor-wait'
                 : 'bg-[#14532D] hover:bg-[#0F3F22] text-white'

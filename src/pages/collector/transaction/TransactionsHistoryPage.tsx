@@ -69,7 +69,7 @@ export const TransactionsHistoryPage: React.FC = () => {
         <div className="flex bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg p-1 gap-1">
           <button
             onClick={() => setFilter('all')}
-            className={`flex-1 py-1.5 px-3 rounded text-xs font-heading font-black uppercase transition-all ${
+            className={`flex-1 py-2 px-3 rounded text-xs sm:text-sm font-heading font-black uppercase transition-all ${
               filter === 'all'
                 ? 'bg-[#14532D] text-white shadow-mech-sm'
                 : 'text-[#57534E] hover:text-[#1C1917]'
@@ -80,7 +80,7 @@ export const TransactionsHistoryPage: React.FC = () => {
 
           <button
             onClick={() => setFilter('pending')}
-            className={`flex-1 py-1.5 px-3 rounded text-xs font-heading font-black uppercase transition-all ${
+            className={`flex-1 py-2 px-3 rounded text-xs sm:text-sm font-heading font-black uppercase transition-all ${
               filter === 'pending'
                 ? 'bg-[#14532D] text-white shadow-mech-sm'
                 : 'text-[#57534E] hover:text-[#1C1917]'
@@ -91,7 +91,7 @@ export const TransactionsHistoryPage: React.FC = () => {
 
           <button
             onClick={() => setFilter('completed')}
-            className={`flex-1 py-1.5 px-3 rounded text-xs font-heading font-black uppercase transition-all ${
+            className={`flex-1 py-2 px-3 rounded text-xs sm:text-sm font-heading font-black uppercase transition-all ${
               filter === 'completed'
                 ? 'bg-[#14532D] text-white shadow-mech-sm'
                 : 'text-[#57534E] hover:text-[#1C1917]'
@@ -105,12 +105,12 @@ export const TransactionsHistoryPage: React.FC = () => {
         {filteredTransactions.length === 0 ? (
           <div className="bg-white border-2 border-[#1C1917] rounded-lg p-8 text-center space-y-2 shadow-mech">
             <Receipt className="w-10 h-10 text-[#78716C] mx-auto opacity-50" />
-            <h3 className="font-heading font-black text-base text-[#1C1917]">
+            <h3 className="font-heading font-black text-lg text-[#1C1917]">
               {t.historyEmpty}
             </h3>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {filteredTransactions.map((txn) => {
               const materialName = (language === 'hi' && txn.materialTitleHindi)
                 ? txn.materialTitleHindi
@@ -122,25 +122,25 @@ export const TransactionsHistoryPage: React.FC = () => {
                 <div
                   key={txn.id}
                   onClick={() => navigate(`/collector/transactions/${txn.id}`)}
-                  className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech hover:border-[#14532D] cursor-pointer transition-all active:translate-y-0.5 space-y-3"
+                  className="bg-white border-2 border-[#1C1917] rounded-lg p-4 sm:p-5 shadow-mech hover:border-[#14532D] cursor-pointer transition-all active:translate-y-0.5 space-y-3.5"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="space-y-0.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono font-black text-sm text-[#1C1917]">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-mono font-black text-base text-[#1C1917]">
                           {txn.id}
                         </span>
-                        <span className="text-[10px] text-[#78716C]">
+                        <span className="text-xs text-[#78716C]">
                           • {txn.lotId}
                         </span>
                       </div>
-                      <h4 className="font-heading font-black text-base text-[#14532D]">
+                      <h4 className="font-heading font-black text-lg sm:text-xl text-[#14532D]">
                         {materialName}
                       </h4>
                     </div>
 
                     <span
-                      className={`font-heading font-black text-[10px] px-2 py-0.5 rounded border uppercase shrink-0 ${
+                      className={`font-heading font-black text-xs px-2.5 py-0.5 rounded border uppercase shrink-0 ${
                         txn.status === 'COMPLETED'
                           ? 'bg-[#ECFDF5] text-[#14532D] border-[#14532D]'
                           : txn.status === 'COLLECTED'
@@ -154,55 +154,55 @@ export const TransactionsHistoryPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="pt-2 border-t border-[#E2D9C8] grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                  <div className="pt-2 border-t border-[#E2D9C8] grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {t.handoverTargetFacility}
                       </span>
-                      <span className="font-bold text-[#1C1917] truncate block">
+                      <span className="font-bold text-[#1C1917] truncate block text-sm">
                         {txn.recyclerFacilityName}
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {t.receiveCollectorDeclared}
                       </span>
-                      <span className="font-mono font-bold text-[#1C1917]">
+                      <span className="font-mono font-bold text-[#1C1917] text-base">
                         {txn.declaredWeightKg} KG
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {txn.receivedWeightKg ? t.receiveActualWeight : t.reviewWeight}
                       </span>
-                      <span className="font-mono font-black text-[#14532D]">
+                      <span className="font-mono font-black text-[#14532D] text-base">
                         {txn.receivedWeightKg ? `${txn.receivedWeightKg} KG` : '—'}
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#57534E] uppercase block">
+                      <span className="text-xs font-bold text-[#57534E] uppercase block">
                         {txn.status === 'COMPLETED' ? t.paymentFinalSettlement : t.paymentEstValue}
                       </span>
-                      <span className="font-heading font-black text-sm text-[#B45309]">
+                      <span className="font-heading font-black text-base sm:text-lg text-[#B45309]">
                         ₹{txn.status === 'COMPLETED' && txn.totalAmount ? txn.totalAmount : (txn.estimatedTotal ?? 620)}
                       </span>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between">
-                    <span className="text-[10px] text-[#78716C]">
+                    <span className="text-xs text-[#78716C]">
                       {txn.createdAt ? new Date(txn.createdAt).toLocaleDateString() : '24 Sep 2026'}
                     </span>
 
                     <button
                       type="button"
-                      className="text-xs font-heading font-black text-[#14532D] hover:underline flex items-center gap-1"
+                      className="text-sm font-heading font-black text-[#14532D] hover:underline flex items-center gap-1"
                     >
                       <span>{t.viewDigitalRecord}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>

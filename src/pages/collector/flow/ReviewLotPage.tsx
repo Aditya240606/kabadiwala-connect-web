@@ -93,21 +93,21 @@ export const ReviewLotPage: React.FC = () => {
             {/* Category Row */}
             <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center">
+                <div className="w-10 h-10 rounded bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center">
                   <CatIcon className="w-5 h-5 text-[#14532D]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                  <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                     {t.reviewCategory}
                   </span>
-                  <span className="font-heading font-black text-sm text-[#1C1917]">
+                  <span className="font-heading font-black text-base sm:text-lg text-[#1C1917]">
                     {catDisplayName}
                   </span>
                 </div>
               </div>
               <button
                 onClick={() => navigate('/collector/flow/manual-category')}
-                className="text-[10px] font-black text-[#14532D] border border-[#14532D] rounded px-2 py-0.5 hover:bg-[#ECFDF5]"
+                className="text-xs font-black text-[#14532D] border border-[#14532D] rounded px-2.5 py-1 hover:bg-[#ECFDF5]"
               >
                 {t.reviewEditBtn}
               </button>
@@ -116,21 +116,21 @@ export const ReviewLotPage: React.FC = () => {
             {/* Weight Row */}
             <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded bg-[#FFFBEB] border border-[#B45309] flex items-center justify-center">
+                <div className="w-10 h-10 rounded bg-[#FFFBEB] border border-[#B45309] flex items-center justify-center">
                   <Scale className="w-5 h-5 text-[#B45309]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                  <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                     {t.reviewWeight}
                   </span>
-                  <span className="font-heading font-black text-lg text-[#1C1917]">
+                  <span className="font-heading font-black text-xl sm:text-2xl text-[#1C1917]">
                     {flow.weightKg} {t.weightUnit}
                   </span>
                 </div>
               </div>
               <button
                 onClick={() => navigate('/collector/flow/weight')}
-                className="text-[10px] font-black text-[#14532D] border border-[#14532D] rounded px-2 py-0.5 hover:bg-[#ECFDF5]"
+                className="text-xs font-black text-[#14532D] border border-[#14532D] rounded px-2.5 py-1 hover:bg-[#ECFDF5]"
               >
                 {t.reviewEditBtn}
               </button>
@@ -138,26 +138,26 @@ export const ReviewLotPage: React.FC = () => {
 
             {/* Est. Value */}
             <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded-lg p-3">
-              <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                 {t.reviewEstValue}
               </span>
-              <span className="font-heading font-black text-2xl text-[#B45309] block mt-0.5">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-[#B45309] block mt-0.5">
                 ₹{flow.estimatedTotal ?? 0}
               </span>
-              <span className="text-[10px] font-semibold text-[#78716C]">
+              <span className="text-xs font-semibold text-[#78716C]">
                 {t.reviewIndicativeNote}
               </span>
             </div>
 
             {/* Method & Photo badges */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1 bg-[#ECFDF5] text-[#14532D] border border-[#14532D]/30 text-[10px] font-black px-2 py-0.5 rounded">
-                <Tag className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 bg-[#ECFDF5] text-[#14532D] border border-[#14532D]/30 text-xs font-black px-2 py-0.5 rounded">
+                <Tag className="w-3.5 h-3.5" />
                 {methodLabel}
               </span>
               {flow.photoDataUrl && (
-                <span className="inline-flex items-center gap-1 bg-[#F2EEDE] text-[#57534E] border border-[#E2D9C8] text-[10px] font-black px-2 py-0.5 rounded">
-                  <Camera className="w-3 h-3" />
+                <span className="inline-flex items-center gap-1 bg-[#F2EEDE] text-[#57534E] border border-[#E2D9C8] text-xs font-black px-2 py-0.5 rounded">
+                  <Camera className="w-3.5 h-3.5" />
                   {t.reviewPhoto}
                 </span>
               )}
@@ -169,7 +169,7 @@ export const ReviewLotPage: React.FC = () => {
         <button
           onClick={handleCreate}
           disabled={isCreating}
-          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
+          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
             isCreating
               ? 'bg-[#E2D9C8] text-[#78716C] cursor-wait'
               : 'bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917]'

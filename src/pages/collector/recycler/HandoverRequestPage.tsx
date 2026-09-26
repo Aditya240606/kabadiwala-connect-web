@@ -72,60 +72,60 @@ export const HandoverRequestPage: React.FC = () => {
           </div>
 
           <div className="text-center space-y-2">
-            <h1 className="font-heading font-black text-2xl text-[#14532D]">
+            <h1 className="font-heading font-black text-2xl sm:text-3xl text-[#14532D]">
               {t.handoverSuccessTitle}
             </h1>
-            <p className="text-sm font-semibold text-[#57534E] max-w-md mx-auto">
+            <p className="text-base font-semibold text-[#57534E] max-w-md mx-auto">
               {t.handoverSuccessMsg}
             </p>
           </div>
 
           {/* Transaction Card */}
           <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech w-full space-y-2 text-center">
-            <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+            <span className="text-xs font-black text-[#57534E] uppercase tracking-wider block">
               {t.handoverTxnId}
             </span>
-            <span className="font-heading font-black text-xl text-[#1C1917] font-mono block">
+            <span className="font-heading font-black text-2xl sm:text-3xl text-[#1C1917] font-mono block">
               {submittedTxnId}
             </span>
-            <div className="pt-2 border-t border-[#E2D9C8] flex justify-between text-xs text-[#57534E]">
-              <span>{language === 'hi' ? 'लॉट संख्या' : language === 'mr' ? 'लॉट क्रमांक' : 'Lot Ref'}: <strong>{lotIdParam}</strong></span>
-              <span>{language === 'hi' ? 'सुविधा' : language === 'mr' ? 'सुविधा' : 'Facility'}: <strong>{facilityName}</strong></span>
+            <div className="pt-2 border-t border-[#E2D9C8] flex flex-wrap justify-between gap-2 text-sm text-[#57534E]">
+              <span>{language === 'hi' ? 'लॉट संख्या' : language === 'mr' ? 'लॉट क्रमांक' : 'Lot Ref'}: <strong className="text-[#1C1917]">{lotIdParam}</strong></span>
+              <span>{language === 'hi' ? 'सुविधा' : language === 'mr' ? 'सुविधा' : 'Facility'}: <strong className="text-[#1C1917]">{facilityName}</strong></span>
             </div>
           </div>
 
           {/* Action CTAs */}
-          <div className="w-full space-y-2.5">
+          <div className="w-full space-y-3">
             <button
               onClick={() => navigate(`/collector/transactions/${submittedTxnId}`)}
-              className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-5 h-5" />
               <span>{t.trackTransactionBtn}</span>
-              <ArrowRight className="w-4 h-4 ml-auto" />
+              <ArrowRight className="w-5 h-5 ml-auto" />
             </button>
 
             <button
               onClick={() => navigate('/recycler')}
-              className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
-              <Building2 className="w-4 h-4" />
+              <Building2 className="w-5 h-5" />
               <span>{t.collectorRoleSwitchToRecycler}</span>
             </button>
 
             <button
               onClick={() => navigate(`/collector/collections/${lotIdParam}`)}
-              className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
-              <Eye className="w-4 h-4" />
+              <Eye className="w-5 h-5" />
               <span>{t.handoverViewLotBtn}</span>
             </button>
 
             <button
               onClick={() => navigate('/collector')}
-              className="w-full bg-[#F2EEDE] hover:bg-[#E2D9C8] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+              className="w-full bg-[#F2EEDE] hover:bg-[#E2D9C8] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
             >
-              <Home className="w-4 h-4" />
+              <Home className="w-5 h-5" />
               <span>{t.lotCreatedHomeBtn}</span>
             </button>
           </div>
@@ -146,49 +146,49 @@ export const HandoverRequestPage: React.FC = () => {
       <div className="flex-1 w-full max-w-3xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* 1. Lot Details Card */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-3">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-3">
             <div className="flex items-center gap-2">
               <Package className="w-5 h-5 text-[#14532D]" />
-              <h3 className="font-heading font-black text-xs text-[#1C1917] tracking-wider uppercase">
+              <h3 className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase">
                 {t.handoverLotSummary}
               </h3>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 border-t border-[#E2D9C8]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 border-t border-[#E2D9C8]">
               <div>
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.lotCreatedId}
                 </span>
-                <span className="font-mono font-bold text-sm text-[#1C1917]">
+                <span className="font-mono font-bold text-base text-[#1C1917]">
                   {lotIdParam}
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.reviewCategory}
                 </span>
-                <span className="font-heading font-black text-sm text-[#14532D]">
+                <span className="font-heading font-black text-base text-[#14532D]">
                   {lot ? getCategoryDisplayName(lot.categoryCode, language) : 'Motherboard PCB'}
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider block">
                   {t.reviewWeight}
                 </span>
-                <span className="font-heading font-black text-sm text-[#1C1917] flex items-center gap-1">
-                  <Scale className="w-3.5 h-3.5 text-[#B45309]" />
+                <span className="font-heading font-black text-base text-[#1C1917] flex items-center gap-1">
+                  <Scale className="w-4 h-4 text-[#B45309]" />
                   {lot ? `${lot.declaredWeightKg} KG` : '2.1 KG'}
                 </span>
               </div>
             </div>
 
-            <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-2.5 flex items-center justify-between text-xs">
-              <span className="font-bold text-[#57534E] uppercase text-[10px]">
+            <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-3 flex items-center justify-between text-sm">
+              <span className="font-bold text-[#57534E] uppercase text-xs">
                 {t.reviewEstValue}:
               </span>
-              <span className="font-heading font-black text-base text-[#B45309]">
+              <span className="font-heading font-black text-xl sm:text-2xl text-[#B45309]">
                 ₹{lot?.estimatedPrice ?? 620}
               </span>
             </div>
@@ -196,27 +196,27 @@ export const HandoverRequestPage: React.FC = () => {
 
           {/* 2. Destination Recycler Facility */}
           {recycler && (
-            <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-2">
+            <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-2.5">
               <div className="flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-[#B45309]" />
-                <h3 className="font-heading font-black text-xs text-[#1C1917] tracking-wider uppercase">
+                <h3 className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase">
                   {t.handoverTargetFacility}
                 </h3>
               </div>
 
-              <div className="pt-2 border-t border-[#E2D9C8] flex items-start justify-between">
+              <div className="pt-2 border-t border-[#E2D9C8] flex flex-wrap items-start justify-between gap-2">
                 <div>
-                  <h4 className="font-heading font-black text-sm text-[#1C1917]">
+                  <h4 className="font-heading font-black text-base sm:text-lg text-[#1C1917]">
                     {facilityName}
                   </h4>
-                  <p className="text-xs text-[#57534E] font-medium mt-0.5">
+                  <p className="text-sm text-[#57534E] font-medium mt-0.5">
                     {facilityAddress}, {recycler.city}
                   </p>
-                  <p className="text-xs text-[#14532D] font-bold mt-1">
+                  <p className="text-sm text-[#14532D] font-bold mt-1">
                     {recycler.contactPhone}
                   </p>
                 </div>
-                <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-[10px] font-black px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-xs font-black px-2 py-0.5 rounded uppercase">
                   {t.matchingVerifiedBadge}
                 </span>
               </div>
@@ -224,10 +224,10 @@ export const HandoverRequestPage: React.FC = () => {
           )}
 
           {/* 3. Handover Notes */}
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech space-y-2">
+          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-2">
             <div className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-[#57534E]" />
-              <label className="font-heading font-black text-xs text-[#1C1917] tracking-wider uppercase block">
+              <label className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase block">
                 {t.handoverNotesLabel}
               </label>
             </div>
@@ -237,14 +237,14 @@ export const HandoverRequestPage: React.FC = () => {
               onChange={(e) => setNotes(e.target.value)}
               placeholder={t.handoverNotesPlaceholder}
               rows={3}
-              className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md p-3 text-xs font-semibold text-[#1C1917] outline-none focus:border-[#14532D] focus:ring-2 focus:ring-[#14532D]/20 transition-all placeholder:text-[#78716C]/60"
+              className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-md p-3 text-sm font-semibold text-[#1C1917] outline-none focus:border-[#14532D] focus:ring-2 focus:ring-[#14532D]/20 transition-all placeholder:text-[#78716C]/60"
             />
           </div>
 
           {/* 4. Truth Alert */}
           <div className="bg-[#FEF3C7] border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm flex items-start gap-2.5">
             <ShieldAlert className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
-            <p className="text-xs text-[#78350F] font-semibold leading-relaxed">
+            <p className="text-sm text-[#78350F] font-semibold leading-relaxed">
               {t.recyclerPolicyNotice}
             </p>
           </div>
@@ -253,7 +253,7 @@ export const HandoverRequestPage: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
+            className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-base sm:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
               isSubmitting
                 ? 'bg-[#E2D9C8] text-[#78716C] cursor-wait'
                 : 'bg-[#14532D] hover:bg-[#0F3F22] text-white'

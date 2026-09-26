@@ -37,25 +37,25 @@ export const CollectionsPage: React.FC = () => {
     switch (status) {
       case 'ready':
         return (
-          <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-[10px] font-black px-2 py-0.5 rounded">
+          <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-xs font-black px-2 py-0.5 rounded">
             {t.statusReady}
           </span>
         );
       case 'waitingForRecycler':
         return (
-          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] text-[10px] font-black px-2 py-0.5 rounded">
+          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] text-xs font-black px-2 py-0.5 rounded">
             {t.statusWaiting}
           </span>
         );
       case 'completed':
         return (
-          <span className="bg-[#F2EEDE] text-[#57534E] border border-[#78716C] text-[10px] font-black px-2 py-0.5 rounded">
+          <span className="bg-[#F2EEDE] text-[#57534E] border border-[#78716C] text-xs font-black px-2 py-0.5 rounded">
             {t.statusCompleted}
           </span>
         );
       default:
         return (
-          <span className="bg-[#F2EEDE] text-[#57534E] border border-[#78716C] text-[10px] font-black px-2 py-0.5 rounded">
+          <span className="bg-[#F2EEDE] text-[#57534E] border border-[#78716C] text-xs font-black px-2 py-0.5 rounded">
             {status}
           </span>
         );
@@ -85,10 +85,10 @@ export const CollectionsPage: React.FC = () => {
       <div className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-6 space-y-4 overflow-y-auto pb-12">
         {/* Header Strip & Sample Data Badge */}
         <div className="flex items-center justify-between">
-          <h2 className="font-heading font-black text-xl text-[#1C1917] leading-tight">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl text-[#1C1917] leading-tight">
             {t.collectionsTitle}
           </h2>
-          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] px-2 py-0.5 rounded text-[10px] font-black uppercase">
+          <span className="bg-[#FEF3C7] text-[#B45309] border border-[#F59E0B] px-2 py-0.5 rounded text-xs font-black uppercase">
             {t.sampleDataBadge}
           </span>
         </div>
@@ -96,7 +96,7 @@ export const CollectionsPage: React.FC = () => {
         {/* Controls Row: Filters + Action Button */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-black">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs sm:text-sm font-black">
             <button
               onClick={() => setActiveFilter('all')}
               className={`px-3 py-1.5 rounded-full border-1.5 whitespace-nowrap transition-all ${
@@ -142,7 +142,7 @@ export const CollectionsPage: React.FC = () => {
           {/* Action Button: + NEW COLLECTION */}
           <button
             onClick={() => navigate('/collector/start')}
-            className="w-full sm:w-auto bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-2.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all shrink-0"
+            className="w-full sm:w-auto bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-2.5 px-4 font-heading font-black text-base tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all shrink-0"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
             <span>{t.newCollectionBtn}</span>
@@ -159,11 +159,11 @@ export const CollectionsPage: React.FC = () => {
             >
               {/* Top row: ID, Date & Status */}
               <div className="flex items-center justify-between pb-2 border-b border-[#E2D9C8]">
-                <div className="flex items-center gap-1.5 text-xs font-extrabold text-[#78716C]">
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#78716C]">
                   <span className="font-heading font-black text-[#1C1917]">{lot.id}</span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
+                    <Calendar className="w-3.5 h-3.5" />
                     {lot.formattedDate}
                   </span>
                 </div>
@@ -177,33 +177,33 @@ export const CollectionsPage: React.FC = () => {
                     {getCategoryIcon(lot.categoryIcon)}
                   </div>
                   <div>
-                    <h3 className="font-heading font-black text-base text-[#1C1917] leading-tight">
+                    <h3 className="font-heading font-black text-lg sm:text-xl text-[#1C1917] leading-tight">
                       {getLotTitle(lot)}
                     </h3>
-                    <p className="text-xs font-semibold text-[#57534E] mt-1">
+                    <p className="text-sm font-semibold text-[#57534E] mt-1">
                       {lot.weightDetails}
                     </p>
                   </div>
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="text-[10px] font-bold text-[#57534E] block">
+                  <span className="text-xs font-bold text-[#57534E] block">
                     {t.estValueLabel}
                   </span>
-                  <span className="font-heading font-black text-lg text-[#B45309] block leading-tight font-mono">
+                  <span className="font-heading font-black text-xl sm:text-2xl text-[#B45309] block leading-tight font-mono">
                     {lot.estimatedPriceMax ? `₹${lot.estimatedPrice} - ₹${lot.estimatedPriceMax}` : `₹${lot.estimatedPrice}`}
                   </span>
                 </div>
               </div>
 
               {/* Location & Details footer */}
-              <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between text-xs text-[#57534E] font-medium">
+              <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between text-xs sm:text-sm text-[#57534E] font-medium">
                 <div className="flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-[#B45309]" />
                   <span>{t.serviceArea}</span>
                 </div>
 
-                <span className="text-xs font-black text-[#14532D] flex items-center gap-0.5">
+                <span className="text-xs sm:text-sm font-black text-[#14532D] flex items-center gap-0.5">
                   <span>{t.viewDetails}</span>
                   <ChevronRight className="w-4 h-4 stroke-[3]" />
                 </span>

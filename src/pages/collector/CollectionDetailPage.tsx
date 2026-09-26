@@ -63,7 +63,7 @@ export const CollectionDetailPage: React.FC = () => {
       />
 
       {/* Truthful Manual Weight Indicator Strip */}
-      <div className="bg-[#F2EEDE] border-b-2 border-[#1C1917] px-3.5 py-1.5 flex items-center justify-between text-[11px] font-bold">
+      <div className="bg-[#F2EEDE] border-b-2 border-[#1C1917] px-3.5 py-1.5 flex items-center justify-between text-xs font-bold">
         <div className="flex items-center gap-1.5 text-[#14532D]">
           <Edit3 className="w-3.5 h-3.5 text-[#14532D]" />
           <span>{t.weightEntryManual}</span>
@@ -78,32 +78,32 @@ export const CollectionDetailPage: React.FC = () => {
             <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech">
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="text-[10px] font-black text-[#B45309] tracking-wider uppercase block">
+                  <span className="text-xs font-black text-[#B45309] tracking-wider uppercase block">
                     {t.categoryHighYieldPcb}
                   </span>
-                  <h2 className="font-heading font-black text-lg text-[#1C1917] mt-0.5 leading-tight">
+                  <h2 className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] mt-0.5 leading-tight">
                     {getLotTitle(lot)}
                   </h2>
                 </div>
 
-                <div className="w-10 h-10 rounded-lg bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-[#ECFDF5] border border-[#14532D] flex items-center justify-center shrink-0">
                   <Cpu className="w-6 h-6 text-[#14532D]" />
                 </div>
               </div>
 
               <div className="mt-3 pt-2.5 border-t border-[#E2D9C8] flex flex-wrap items-center justify-between gap-2 text-xs">
-                <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-[10px] font-black px-2 py-0.5 rounded flex items-center gap-1">
+                <span className="bg-[#ECFDF5] text-[#14532D] border border-[#14532D] text-xs font-black px-2 py-0.5 rounded flex items-center gap-1">
                   <span>⏳</span>
                   <span>{lot?.status === 'ready' ? t.statusReady : t.statusWaiting}</span>
                 </span>
 
-                <div className="flex items-center gap-3 text-[11px] font-bold text-[#57534E]">
+                <div className="flex items-center gap-3 text-xs sm:text-sm font-bold text-[#57534E]">
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
+                    <Calendar className="w-3.5 h-3.5" />
                     {lot?.formattedDate || '24 Sep 2026, 09:30 AM'}
                   </span>
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-[#B45309]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#B45309]" />
                     {t.serviceArea}
                   </span>
                 </div>
@@ -113,11 +113,11 @@ export const CollectionDetailPage: React.FC = () => {
             {/* 2. Material Photo Card (Truthful: Not proof of transaction or ownership) */}
             <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech space-y-2.5">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 font-heading font-black text-xs text-[#1C1917]">
+                <div className="flex items-center gap-1.5 font-heading font-black text-sm text-[#1C1917]">
                   <Camera className="w-4 h-4 text-[#14532D]" />
                   <span>{t.materialPhotoTitle}</span>
                 </div>
-                <span className="text-[10px] font-bold text-[#B45309] bg-[#FEF3C7] px-1.5 py-0.5 rounded">
+                <span className="text-xs font-bold text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded">
                   {t.attachmentCount}
                 </span>
               </div>
@@ -141,28 +141,28 @@ export const CollectionDetailPage: React.FC = () => {
                 ) : (
                   <>
                     {/* Visual badge top left */}
-                    <div className="absolute top-2 left-2 bg-[#ECFDF5] text-[#14532D] border border-[#14532D] px-2 py-0.5 rounded text-[10px] font-black flex items-center gap-1">
+                    <div className="absolute top-2 left-2 bg-[#ECFDF5] text-[#14532D] border border-[#14532D] px-2 py-0.5 rounded text-xs font-black flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" />
                       <span>{t.cameraCaptured}</span>
                     </div>
 
                     <Cpu className="w-12 h-12 text-[#4ADE80] mb-2 opacity-90 group-hover:scale-110 transition-transform" />
-                    <span className="font-heading font-black text-xs tracking-wider uppercase text-stone-200">
+                    <span className="font-heading font-black text-xs sm:text-sm tracking-wider uppercase text-stone-200">
                       {getLotTitle(lot).toUpperCase()} LOT • {lotId}
                     </span>
-                    <span className="text-[10px] font-mono text-stone-300 mt-1">
+                    <span className="text-xs font-mono text-stone-300 mt-1">
                       STAMP: 2026-09-24 10:14:52
                     </span>
-                    <span className="text-[10px] font-bold text-[#F59E0B] mt-2 underline flex items-center gap-1">
-                      <Upload className="w-3 h-3" /> {t.changePhotoBtn}
+                    <span className="text-xs font-bold text-[#F59E0B] mt-2 underline flex items-center gap-1">
+                      <Upload className="w-3.5 h-3.5" /> {t.changePhotoBtn}
                     </span>
                   </>
                 )}
               </div>
 
-              <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-2 text-xs font-semibold text-[#57534E] flex items-center justify-between">
+              <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded p-2 text-xs sm:text-sm font-semibold text-[#57534E] flex items-center justify-between">
                 <span>🛡 {t.gradeANote}</span>
-                <span className="text-[10.5px] font-bold text-[#B45309] bg-[#FEF3C7] px-1.5 py-0.5 rounded">
+                <span className="text-xs font-bold text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded">
                   {t.noteTag}
                 </span>
               </div>
@@ -172,10 +172,10 @@ export const CollectionDetailPage: React.FC = () => {
             <div className="bg-[#FFF4E5] border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm flex items-start gap-2.5">
               <Shield className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-heading font-black text-xs text-[#B45309] uppercase tracking-wider">
+                <h4 className="font-heading font-black text-sm text-[#B45309] uppercase tracking-wider">
                   {t.verificationPolicyTitle}
                 </h4>
-                <p className="text-xs text-[#78350F] font-semibold mt-1 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#78350F] font-semibold mt-1 leading-relaxed">
                   {t.verificationPolicyBody}
                 </p>
               </div>
@@ -188,27 +188,27 @@ export const CollectionDetailPage: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               {/* Declared Weight */}
               <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm">
-                <span className="text-[10px] font-black text-[#57534E] uppercase tracking-wider block">
+                <span className="text-xs font-black text-[#57534E] uppercase tracking-wider block">
                   {t.declaredWeightTitle}
                 </span>
-                <div className="font-heading font-black text-3xl text-[#1C1917] mt-1 flex items-baseline gap-1 font-mono">
+                <div className="font-heading font-black text-3xl md:text-4xl text-[#1C1917] mt-1 flex items-baseline gap-1 font-mono">
                   <span>{lot?.declaredWeightKg ?? 2.1}</span>
-                  <span className="text-sm font-black text-[#78716C]">KG</span>
+                  <span className="text-base font-black text-[#78716C]">KG</span>
                 </div>
-                <span className="text-[10px] font-semibold text-[#57534E] block mt-0.5">
+                <span className="text-xs font-semibold text-[#57534E] block mt-0.5">
                   {t.declaredWeightSub}
                 </span>
               </div>
 
               {/* Indicative Estimated Value */}
               <div className="bg-[#B45309] text-white border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm">
-                <span className="text-[10px] font-black text-[#FEF3C7] uppercase tracking-wider block">
+                <span className="text-xs font-black text-[#FEF3C7] uppercase tracking-wider block">
                   {t.estValueTitle}
                 </span>
-                <div className="font-heading font-black text-2xl text-white mt-1 leading-tight font-mono">
+                <div className="font-heading font-black text-2xl md:text-3xl text-white mt-1 leading-tight font-mono">
                   {lot?.estimatedPriceMax ? `₹${lot.estimatedPrice} - ₹${lot.estimatedPriceMax}` : `₹${lot?.estimatedPrice ?? 620}`}
                 </div>
-                <span className="text-[10px] font-semibold text-[#FEF3C7] block mt-0.5">
+                <span className="text-xs font-semibold text-[#FEF3C7] block mt-0.5">
                   {t.estValueSub}
                 </span>
               </div>
@@ -217,10 +217,10 @@ export const CollectionDetailPage: React.FC = () => {
             {/* 4. Lifecycle Tracker (Batch Progress) */}
             <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech space-y-3">
               <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-2">
-                <h3 className="font-heading font-black text-xs text-[#1C1917] tracking-wider uppercase">
+                <h3 className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase">
                   {t.batchProgressTitle}
                 </h3>
-                <span className="text-[10.5px] font-extrabold text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded">
+                <span className="text-xs font-extrabold text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded">
                   {t.stepOfProgress}
                 </span>
               </div>
@@ -232,10 +232,10 @@ export const CollectionDetailPage: React.FC = () => {
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <div className="flex-1 -mt-0.5">
-                    <h4 className="font-heading font-black text-xs text-[#1C1917]">
+                    <h4 className="font-heading font-black text-sm text-[#1C1917]">
                       {t.step1Title}
                     </h4>
-                    <p className="text-[11px] text-[#57534E] font-medium">
+                    <p className="text-xs sm:text-sm text-[#57534E] font-medium">
                       {t.step1Desc}
                     </p>
                   </div>
@@ -251,14 +251,14 @@ export const CollectionDetailPage: React.FC = () => {
                   </div>
                   <div className="flex-1 -mt-0.5 bg-[#FFFBEB] border border-[#F59E0B] rounded p-2">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-heading font-black text-xs text-[#B45309]">
+                      <h4 className="font-heading font-black text-sm text-[#B45309]">
                         {t.step2Title}
                       </h4>
-                      <span className="bg-[#F59E0B] text-[#1C1917] text-[9.5px] font-black px-1.5 py-0.2 rounded uppercase">
+                      <span className="bg-[#F59E0B] text-[#1C1917] text-xs font-black px-1.5 py-0.2 rounded uppercase">
                         {t.step2CurrentBadge}
                       </span>
                     </div>
-                    <p className="text-[11px] text-[#78350F] font-semibold mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#78350F] font-semibold mt-0.5">
                       {t.step2Desc}
                     </p>
                   </div>
@@ -273,10 +273,10 @@ export const CollectionDetailPage: React.FC = () => {
                     3
                   </div>
                   <div className="flex-1 -mt-0.5">
-                    <h4 className="font-heading font-bold text-xs text-[#78716C]">
+                    <h4 className="font-heading font-bold text-sm text-[#78716C]">
                       {t.step3Title}
                     </h4>
-                    <p className="text-[11px] text-[#A8A29E] font-medium">
+                    <p className="text-xs sm:text-sm text-[#A8A29E] font-medium">
                       {t.step3Desc}
                     </p>
                   </div>
@@ -291,10 +291,10 @@ export const CollectionDetailPage: React.FC = () => {
                     4
                   </div>
                   <div className="flex-1 -mt-0.5">
-                    <h4 className="font-heading font-bold text-xs text-[#78716C]">
+                    <h4 className="font-heading font-bold text-sm text-[#78716C]">
                       {t.step4Title}
                     </h4>
-                    <p className="text-[11px] text-[#A8A29E] font-medium">
+                    <p className="text-xs sm:text-sm text-[#A8A29E] font-medium">
                       {t.step4Desc}
                     </p>
                   </div>
@@ -306,19 +306,19 @@ export const CollectionDetailPage: React.FC = () => {
             <div className="space-y-2.5 pt-1">
               <button
                 onClick={() => navigate('/collector/recyclers')}
-                className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+                className="w-full bg-[#14532D] hover:bg-[#0F3F22] text-white border-2 border-[#1C1917] rounded-lg py-3 px-4 font-heading font-black text-base md:text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
               >
                 <span>{t.findRecyclerBtn}</span>
-                <span className="bg-[#166534] text-[#FEF3C7] text-[10px] px-1.5 py-0.5 rounded font-black uppercase ml-auto flex items-center gap-1">
+                <span className="bg-[#166534] text-[#FEF3C7] text-xs px-2 py-0.5 rounded font-black uppercase ml-auto flex items-center gap-1">
                   {t.nextStepBadge} <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </button>
 
               <button
                 onClick={() => navigate('/collector/start')}
-                className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-2.5 px-4 font-heading font-bold text-xs tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
+                className="w-full bg-white hover:bg-[#F2EEDE] text-[#1C1917] border-2 border-[#1C1917] rounded-lg py-2.5 px-4 font-heading font-bold text-sm md:text-base tracking-wide shadow-mech-sm flex items-center justify-center gap-2 active:translate-y-0.5 transition-all"
               >
-                <Edit3 className="w-3.5 h-3.5 text-[#57534E]" />
+                <Edit3 className="w-4 h-4 text-[#57534E]" />
                 <span>{t.editLotBtn}</span>
               </button>
             </div>

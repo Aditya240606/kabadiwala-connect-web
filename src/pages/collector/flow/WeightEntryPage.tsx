@@ -59,8 +59,8 @@ export const WeightEntryPage: React.FC = () => {
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-3 shadow-mech-sm flex items-center gap-3">
           {cat && <cat.icon className="w-6 h-6 text-[#14532D]" />}
           <div>
-            <span className="font-heading font-black text-sm text-[#1C1917]">{catDisplayName}</span>
-            <span className="text-[10px] font-bold text-[#78716C] block uppercase">{t.weightManualNote}</span>
+            <span className="font-heading font-black text-base sm:text-lg text-[#1C1917]">{catDisplayName}</span>
+            <span className="text-xs font-bold text-[#78716C] block uppercase mt-0.5">{t.weightManualNote}</span>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export const WeightEntryPage: React.FC = () => {
         <div className="bg-white border-2 border-[#1C1917] rounded-lg p-5 shadow-mech space-y-4">
           <div className="flex items-center gap-2">
             <Scale className="w-5 h-5 text-[#B45309]" />
-            <span className="font-heading font-black text-xs text-[#1C1917] tracking-wider uppercase">
+            <span className="font-heading font-black text-sm text-[#1C1917] tracking-wider uppercase">
               {t.weightInputLabel}
             </span>
           </div>
@@ -87,13 +87,13 @@ export const WeightEntryPage: React.FC = () => {
                   setError('');
                 }}
                 placeholder="0.0"
-                className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg py-4 px-4 font-heading font-black text-3xl text-[#1C1917] text-center outline-none focus:border-[#14532D] focus:ring-2 focus:ring-[#14532D]/20 transition-all placeholder:text-[#78716C]/50"
+                className="w-full bg-[#F2EEDE] border-2 border-[#1C1917] rounded-lg py-4 px-4 font-heading font-black text-3xl sm:text-4xl text-[#1C1917] text-center outline-none focus:border-[#14532D] focus:ring-2 focus:ring-[#14532D]/20 transition-all placeholder:text-[#78716C]/50"
               />
               {error && (
-                <p className="text-xs font-bold text-red-600 mt-1.5">{error}</p>
+                <p className="text-sm font-bold text-red-600 mt-1.5">{error}</p>
               )}
             </div>
-            <div className="bg-[#14532D] text-white border-2 border-[#1C1917] rounded-lg py-4 px-4 font-heading font-black text-lg shadow-mech-sm">
+            <div className="bg-[#14532D] text-white border-2 border-[#1C1917] rounded-lg py-4 px-4 font-heading font-black text-xl shadow-mech-sm">
               {t.weightUnit}
             </div>
           </div>
@@ -103,14 +103,14 @@ export const WeightEntryPage: React.FC = () => {
             <div className="bg-[#FFFBEB] border border-[#E2D9C8] rounded-lg p-3 space-y-1.5 mt-2">
               <div className="flex items-center gap-1.5">
                 <Info className="w-3.5 h-3.5 text-[#B45309]" />
-                <span className="text-[10px] font-bold text-[#57534E] uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#57534E] uppercase tracking-wider">
                   {t.reviewEstValue}
                 </span>
               </div>
-              <span className="font-heading font-black text-2xl text-[#B45309] block">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-[#B45309] block">
                 ₹{estLow} – ₹{estHigh}
               </span>
-              <span className="text-[10px] font-semibold text-[#78716C]">
+              <span className="text-xs font-semibold text-[#78716C]">
                 {t.reviewIndicativeNote}
               </span>
             </div>
@@ -121,14 +121,14 @@ export const WeightEntryPage: React.FC = () => {
         <button
           onClick={handleContinue}
           disabled={!isValidWeight}
-          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-sm tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
+          className={`w-full border-2 border-[#1C1917] rounded-lg py-3.5 px-4 font-heading font-black text-lg tracking-wide shadow-mech flex items-center justify-center gap-2 active:translate-y-0.5 transition-all ${
             isValidWeight
               ? 'bg-[#14532D] hover:bg-[#0F3F22] text-white'
               : 'bg-[#E2D9C8] text-[#78716C] cursor-not-allowed'
           }`}
         >
           <span>{t.weightNextBtn}</span>
-          <ArrowRight className="w-5 h-5 ml-auto" />
+          <ArrowRight className="w-5 h-5 ml-auto stroke-[2.5]" />
         </button>
       </div>
     </div>

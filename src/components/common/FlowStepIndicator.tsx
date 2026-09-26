@@ -24,7 +24,7 @@ export const FlowStepIndicator: React.FC<FlowStepIndicatorProps> = ({ currentSte
           <React.Fragment key={step.num}>
             <div className="flex flex-col items-center gap-1">
               <div
-                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-black transition-all ${
+                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-black transition-all ${
                   isComplete
                     ? 'bg-[#14532D] border-[#14532D] text-white'
                     : isCurrent
@@ -35,7 +35,7 @@ export const FlowStepIndicator: React.FC<FlowStepIndicatorProps> = ({ currentSte
                 {isComplete ? '✓' : step.num}
               </div>
               <span
-                className={`text-[10px] font-bold leading-tight ${
+                className={`text-xs font-bold leading-tight text-center ${
                   isCurrent ? 'text-[#1C1917]' : isComplete ? 'text-[#14532D]' : 'text-[#78716C]'
                 }`}
               >
