@@ -9,7 +9,7 @@ interface AppShellProps {
 export const AppShell: React.FC<AppShellProps> = ({ children, showBottomNav = true }) => {
   return (
     <div className="min-h-screen bg-[#FFFBEB] text-[#1C1917] flex flex-col">
-      <main className="w-full flex-1 flex flex-col">
+      <main className={`w-full flex-1 flex flex-col ${showBottomNav ? 'pb-20' : ''}`}>
         {children}
       </main>
       {showBottomNav && <BottomNav />}

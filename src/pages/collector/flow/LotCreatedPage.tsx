@@ -5,6 +5,7 @@ import { Header } from '../../../components/common/Header';
 import { AudioGuidanceCard } from '../../../components/common/AudioGuidanceCard';
 import { useApp } from '../../../hooks/useApp';
 import { useCollectionFlow } from '../../../hooks/useCollectionFlow';
+import { DigitalLotQrCard } from '../../../components/common/DigitalLotQrCard';
 
 export const LotCreatedPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const LotCreatedPage: React.FC = () => {
   const handleViewLot = () => {
     const lotId = flow.lotId || 'LOT-DEMO';
     resetFlow();
-    navigate(`/collector/collections/${lotId}`);
+    navigate(`/collector/lots/${lotId}`);
   };
 
   const handleNewCollection = () => {
@@ -67,17 +68,14 @@ export const LotCreatedPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Lot ID Card */}
-        {flow.lotId && (
-          <div className="bg-white border-2 border-[#1C1917] rounded-lg p-4 shadow-mech-sm w-full max-w-sm text-center">
-            <span className="text-xs font-black text-[#57534E] uppercase tracking-wider block">
-              {t.lotCreatedId}
-            </span>
-            <span className="font-heading font-black text-xl sm:text-2xl text-[#1C1917] font-mono block mt-1">
-              {flow.lotId}
-            </span>
-          </div>
-        )}
+        {/* Digital Lot ID Card with QR Code */}
+        <div className="w-full max-w-sm">
+          <DigitalLotQrCard
+            lotId={flow.lotId || 'LOT-2026-DEMO'}
+            size={180}
+            compact={false}
+          />
+        </div>
 
         {/* Action Buttons */}
         <div className="w-full max-w-sm space-y-3">

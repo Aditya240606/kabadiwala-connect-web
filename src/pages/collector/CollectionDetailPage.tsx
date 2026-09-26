@@ -15,11 +15,13 @@ import { Header } from '../../components/common/Header';
 import { AudioGuidanceCard } from '../../components/common/AudioGuidanceCard';
 import { useApp } from '../../hooks/useApp';
 import { collectionRepository } from '../../services/collectionRepository';
-import type { CollectionLot } from '../../models/collection';
+import type { CollectionLot, HandoverTransactionDto } from '../../models/collection';
+import { DigitalLotQrCard } from '../../components/common/DigitalLotQrCard';
 
 export const CollectionDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [lot, setLot] = useState<CollectionLot | null>(null);
+  const [associatedTxn, setAssociatedTxn] = useState<HandoverTransactionDto | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -42,6 +44,12 @@ export const CollectionDetailPage: React.FC = () => {
 
   useEffect(() => {
     collectionRepository.getLotById(lotId).then(setLot);
+    collectionRepository.getHandoverTransactions().then((txns) => {
+      const match = txns.find((txn) => txn.lotId === lotId);
+      if (match) {
+        setAssociatedTxn(match);
+      }
+    });
   }, [lotId]);
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -188,8 +196,15 @@ export const CollectionDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Weight & Valuation, Lifecycle, CTAs */}
+          {/* Right Column: Digital Lot ID QR, Weight & Valuation, Lifecycle, CTAs */}
           <div className="md:col-span-5 space-y-4">
+            {/* Digital Lot ID & QR Code */}
+            <DigitalLotQrCard
+              lotId={lotId}
+              size={150}
+              compact={true}
+            />
+
             {/* 3. Weight & Estimated Value Grid */}
             <div className="grid grid-cols-2 gap-3">
               {/* Declared Weight */}
@@ -307,6 +322,48 @@ export const CollectionDetailPage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Existing Handover Transaction Information (When Available) */}
+            {associatedTxn && (
+              <div
+                onClick={() => navigate(`/collector/transactions/${associatedTxn.id}`)}
+                className="bg-white border-2 border-[#1C1917] rounded-lg p-3.5 shadow-mech-sm hover:border-[#14532D] cursor-pointer transition-all space-y-2 group"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="bg-[#14532D] text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
+                    {t.linkedTxnTitle}
+                  </span>
+                  <span
+                    className={`font-heading font-black text-xs px-2 py-0.5 rounded border uppercase ${
+                      associatedTxn.status === 'COMPLETED'
+                        ? 'bg-[#ECFDF5] text-[#14532D] border-[#14532D]'
+                        : associatedTxn.status === 'COLLECTED'
+                          ? 'bg-[#EFF6FF] text-[#1D4ED8] border-[#1D4ED8]'
+                          : associatedTxn.status === 'ACCEPTED'
+                            ? 'bg-[#FEF3C7] text-[#B45309] border-[#B45309]'
+                            : 'bg-[#FFFBEB] text-[#78716C] border-[#78716C]'
+                    }`}
+                  >
+                    {associatedTxn.status}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-mono font-bold text-[#1C1917]">{associatedTxn.id}</span>
+                  <span className="font-bold text-[#57534E] truncate max-w-[180px]">
+                    {associatedTxn.recyclerFacilityName}
+                  </span>
+                </div>
+                <div className="pt-2 border-t border-[#E2D9C8] flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#1C1917]">
+                    {associatedTxn.receivedWeightKg ? `${associatedTxn.receivedWeightKg} kg • ` : ''}
+                    ₹{associatedTxn.totalAmount || associatedTxn.estimatedTotal}
+                  </span>
+                  <span className="font-black text-[#14532D] group-hover:underline flex items-center gap-1 text-[11px] uppercase">
+                    {t.viewTxnBtn} →
+                  </span>
+                </div>
+              </div>
+            )}
 
             {/* 6. Action CTAs */}
             <div className="space-y-2.5 pt-1">

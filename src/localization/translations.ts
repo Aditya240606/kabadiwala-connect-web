@@ -180,6 +180,11 @@ export interface Translations {
   lotCreatedViewBtn: string;
   lotCreatedNewBtn: string;
   lotCreatedHomeBtn: string;
+  digitalLotIdTitle: string;
+  scanQrInstruction: string;
+  digitalLotIdSub: string;
+  linkedTxnTitle: string;
+  viewTxnBtn: string;
 
   // ── Batch 3: Recycler Marketplace & Handover ──
   matchingTitle: string;
@@ -466,6 +471,11 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'VIEW LOT',
     lotCreatedNewBtn: 'NEW COLLECTION',
     lotCreatedHomeBtn: 'GO HOME',
+    digitalLotIdTitle: 'DIGITAL LOT ID',
+    scanQrInstruction: 'Scan to view this lot',
+    digitalLotIdSub: 'Identifier & access mechanism only',
+    linkedTxnTitle: 'LINKED TRANSACTION',
+    viewTxnBtn: 'VIEW TRANSACTION',
 
     // ── Batch 3: Recycler Marketplace & Handover ──
     matchingTitle: 'MATCHING RECYCLERS',
@@ -751,6 +761,11 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'लॉट देखें',
     lotCreatedNewBtn: 'नया संग्रह',
     lotCreatedHomeBtn: 'मुख्य पृष्ठ',
+    digitalLotIdTitle: 'डिजिटल लॉट आईडी',
+    scanQrInstruction: 'इस लॉट को देखने के लिए स्कैन करें',
+    digitalLotIdSub: 'केवल पहचान एवं पहुँच तंत्र',
+    linkedTxnTitle: 'संबद्ध लेन-देन',
+    viewTxnBtn: 'लेन-देन देखें',
 
     // ── Batch 3: Recycler Marketplace & Handover ──
     matchingTitle: 'रिसाइक्लर मिलान',
@@ -1036,6 +1051,11 @@ export const translations: Record<SupportedLanguage, Translations> = {
     lotCreatedViewBtn: 'लॉट पहा',
     lotCreatedNewBtn: 'नवीन संकलन',
     lotCreatedHomeBtn: 'मुख्य पृष्ठ',
+    digitalLotIdTitle: 'डिजिटल लॉट आयडी',
+    scanQrInstruction: 'हा लॉट पाहण्यासाठी स्कॅन करा',
+    digitalLotIdSub: 'केवळ ओळख आणि प्रवेश यंत्रणा',
+    linkedTxnTitle: 'संबंधित व्यवहार',
+    viewTxnBtn: 'व्यवहार पहा',
 
     // ── Batch 3: Recycler Marketplace & Handover ──
     matchingTitle: 'रिसायकलर शोध',

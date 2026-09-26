@@ -98,6 +98,31 @@ export const AppRouter: React.FC = () => {
               </AppShell>
             }
           />
+          {/* Digital Lot Identity Routes (QR Link Resolution) */}
+          <Route
+            path="/collector/lots/:id"
+            element={
+              <AppShell showBottomNav={true}>
+                <CollectionDetailPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/collector/lots"
+            element={<Navigate to="/collector/collections" replace />}
+          />
+          <Route
+            path="/lots/:id"
+            element={
+              <AppShell showBottomNav={true}>
+                <CollectionDetailPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/lots"
+            element={<Navigate to="/collector/collections" replace />}
+          />
           <Route
             path="/collector/profile"
             element={

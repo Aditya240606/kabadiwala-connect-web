@@ -37,7 +37,7 @@ export const TransactionsHistoryPage: React.FC = () => {
   });
 
   return (
-    <div className="flex-1 flex flex-col bg-[#FFFBEB] min-h-screen">
+    <div className="flex-1 flex flex-col bg-[#FFFBEB]">
       <Header
         showBack={false}
         titleOverride={t.historyTitle}

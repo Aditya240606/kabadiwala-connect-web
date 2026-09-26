@@ -16,7 +16,7 @@ export const BottomNav: React.FC = () => {
       label: t.navHome,
       path: '/collector',
       icon: Home,
-      isActive: currentPath === '/collector',
+      isActive: currentPath === '/collector' || currentPath === '/collector/home',
     },
     {
       id: 'collections',
@@ -30,7 +30,7 @@ export const BottomNav: React.FC = () => {
       label: t.navTransactions,
       path: '/collector/transactions',
       icon: Receipt,
-      isActive: currentPath === '/collector/transactions',
+      isActive: currentPath.startsWith('/collector/transactions'),
     },
     {
       id: 'profile',
@@ -42,7 +42,7 @@ export const BottomNav: React.FC = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 z-40 bg-white border-t-2 border-[#1C1917] px-4 py-2 shadow-[0_-2px_6px_rgba(0,0,0,0.06)]">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-[#1C1917] px-4 py-2 shadow-[0_-2px_6px_rgba(0,0,0,0.06)]">
       <div className="w-full max-w-2xl mx-auto flex items-center justify-around">
         {tabs.map((tab) => {
           const Icon = tab.icon;
